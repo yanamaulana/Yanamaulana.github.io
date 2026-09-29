@@ -1359,14 +1359,16 @@
         document.getElementById("ucapan").innerHTML = ucapan;
     </script>
     <script>
-        const scriptURL =
-            'https://script.google.com/macros/s/AKfycbxqAyUNmJx_ZCCt2-T6JrkKKPu5L7FsB15y2T32fmjrVSa0_r1CCzdofFM_gfyAyAQ/exec'
-        const form = document.forms['submit-to-google-sheet']
-        const btnsubmit = document.getElementById('submit')
-        const progress = document.getElementById('progress')
-        const alerts = document.getElementById('alert')
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxqAyUNmJx_ZCCt2-T6JrkKKPu5L7FsB15y2T32fmjrVSa0_r1CCzdofFM_gfyAyAQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const btnsubmit = document.getElementById('submit')
+    const progress = document.getElementById('progress')
+    
+    // Pastikan Anda memiliki elemen dengan id="alert" di HTML Anda, 
+    // jika tidak ada, script bisa error di bagian alerts.style.visibility
+    const alerts = document.getElementById('alert') 
 
-        form.addEventListener('submit', e => {
+    form.addEventListener('submit', e => {
             e.preventDefault()
 
             btnsubmit.style.visibility = "hidden";
@@ -1374,18 +1376,29 @@
 
             fetch(scriptURL, {
                 method: 'POST',
+                mode: 'no-cors', // <--- INI KUNCI PERBAIKANNYA
                 body: new FormData(form)
             })
-                .then(response => {
-                    console.log('Success!', response);
-                    btnsubmit.style.visibility = "visible";
-                    progress.style.visibility = "hidden";
-                    alerts.style.visibility = "visible";
+            .then(response => {
+                // Karena menggunakan 'no-cors', response akan bersifat 'opaque' (tertutup),
+                // tapi jika masuk ke sini berarti proses pengiriman selesai.
+                console.log('Success!', response);
+                
+                btnsubmit.style.visibility = "visible";
+                progress.style.visibility = "hidden";
+                if (alerts) alerts.style.visibility = "visible"; // Mencegah error jika div alert tidak ada
 
-                    //clear form
-                    form.reset();
-                })
-                .catch(error => console.error('Error!', error.message))
+                // clear form
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                
+                // Kembalikan tombol jika terjadi error
+                btnsubmit.style.visibility = "visible";
+                progress.style.visibility = "hidden";
+                alert("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
+            })
         })
     </script>
 </body>
