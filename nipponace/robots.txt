@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /.tools/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /tests/
+
+# Ganti domain contoh sebelum publikasi.
+Sitemap: https://example.com/sitemap.xml
