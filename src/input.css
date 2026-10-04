@@ -512,8 +512,8 @@
 }
 
 .contact-socials {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   margin-top: 24px;
 }
@@ -522,6 +522,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
   min-height: 54px;
   padding: 12px 18px;
   border: 1px solid #e2e8f0;
@@ -548,6 +549,10 @@
   color: #128c4a;
 }
 
+.contact-social-instagram svg {
+  color: #c13584;
+}
+
 .contact-social-facebook:hover {
   border-color: #1877f2;
   background: #eff6ff;
@@ -556,6 +561,11 @@
 .contact-social-whatsapp:hover {
   border-color: #128c4a;
   background: #f0fdf4;
+}
+
+.contact-social-instagram:hover {
+  border-color: #c13584;
+  background: #fdf2f8;
 }
 
 .legal-section {
