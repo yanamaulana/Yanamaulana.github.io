@@ -6,7 +6,7 @@ Website layanan konsultasi dan informasi lowongan kerja di Jepang untuk perorang
 
 Dengan Apache XAMPP aktif, buka **http://localhost/nipponace-website/**. Alternatif: buka `index.html` langsung di browser; untuk menghubungkan webhook kelak gunakan HTTP/HTTPS. Internet hanya diperlukan untuk peta Google Maps dan tautan eksternal.
 
-Navigasi menuju bagian dalam satu halaman: Home, Tentang Kami, Bidang Kerja, Cerita Kandidat, Konsultasi Lowongan, dan Kontak. Ada 15 kartu statis yang dapat difilter, kartu yang mengisi otomatis bidang pada formulir, penghitung statistik saat terlihat, carousel manual yang mendukung keyboard, menu seluler, dan efek scroll yang mengikuti preferensi reduced motion.
+Navigasi menuju bagian dalam satu halaman: Home, Tentang Kami, Bidang Kerja, Cerita Kandidat, Konsultasi Lowongan, dan Kontak. Bagian Bidang Kerja menampilkan 15 kartu foto sektor dalam slideshow manual dengan kontrol tombol dan keyboard; filter kategori dihapus. Foto sektor disimpan lokal dari Pexels dan digunakan sesuai [lisensi Pexels](https://www.pexels.com/license/). Kartu tetap mengisi otomatis bidang pada formulir, dengan penghitung statistik, carousel testimoni manual, menu seluler, dan efek scroll yang mengikuti preferensi reduced motion.
 
 ## Hero HOME
 
@@ -72,7 +72,7 @@ npx playwright install chromium
 npm test
 ```
 
-Pengujian lokal telah lulus untuk filter bidang, pilihan otomatis, validasi, demo tanpa pengiriman, respons Fetch tiruan (sukses/gagal), carousel, menu seluler, konten tanpa JavaScript, dan lebar layar 320/390/768/1024/1440 piksel. Semua foto lokal berhasil didekode, animasi reveal diperiksa, dan halaman XAMPP merespons HTTP 200. Isi peta eksternal digantikan placeholder saat pengujian otomatis; integrasi Google Drive dan CWV produksi belum diuji.
+Pengujian lokal mencakup navigasi slideshow 15 bidang, pilihan otomatis, validasi, demo tanpa pengiriman, respons Fetch tiruan (sukses/gagal), carousel testimoni, menu seluler, konten tanpa JavaScript, dan lebar layar 320/390/768/1024/1440 piksel. Semua foto lokal sektor berada pada aset lokal, animasi reveal diperiksa, dan halaman XAMPP merespons HTTP 200. Isi peta eksternal digantikan placeholder saat pengujian otomatis; integrasi Google Drive dan CWV produksi belum diuji.
 
 ## Performa dan SEO
 
@@ -89,7 +89,7 @@ Foto stok dari Unsplash; digunakan sebagai ilustrasi, bukan kandidat/tim nyata:
 - Kyoto/hero dan OG: `https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e`
 - Jepang/tentang: `https://images.unsplash.com/photo-1528164344705-47542687000d`
 - Hero Fuji: sumber yang sama dengan foto Jepang/tentang, versi WebP resolusi 1920 piksel.
-- Hero pelabuhan: [Shinagawa Container Terminal, taro ohtani / Unsplash](https://unsplash.com/photos/a-crane-is-on-top-of-a-large-stack-of-containers-5T5zmIqs0AM), WebP lokal `assets/images/hero-port.webp`.
+- Hero pertanian: [Sawah di Yamagata, Dennis Peterson / Unsplash](https://unsplash.com/photos/a-large-field-of-grass-2vi9sNl92cU), WebP lokal `assets/images/hero-agriculture.webp`.
 - Hero Tokyo malam: [Shinjuku, Stefan Lehner / Unsplash](https://unsplash.com/photos/shinjuku-tokyo-at-night-8Tlrh8aPFw0), WebP lokal `assets/images/hero-tokyo.webp`.
 - Potret: `photo-1500648767791-00dcc994a43e`, `photo-1580489944761-15a19d654956`, `photo-1506794778202-cad84cf45f1d` pada `images.unsplash.com`.
 - Plus Jakarta Sans: Google Fonts, SIL Open Font License; berkas lisensi disertakan dalam `assets/fonts`.

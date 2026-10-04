@@ -32,7 +32,7 @@
       content="https://example.com/assets/images/og-japan.webp">
     <meta name="twitter:image:alt"
       content="Suasana Kyoto untuk perjalanan karier ke Jepang">
-    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/images/favicon.svg?v=2" type="image/svg+xml">
     <link rel="preload" href="assets/fonts/plus-jakarta-latin.woff2" as="font"
       type="font/woff2" crossorigin>
     <!-- Prioritaskan background slide pertama untuk LCP. -->
@@ -132,11 +132,9 @@
         class="container-wide flex h-[84px] items-center justify-between gap-6">
         <a href="index.html" class="flex shrink-0 items-center gap-2.5"
           aria-label="Nippon Ace — Beranda">
-          <svg class="size-10" viewBox="0 0 64 64" aria-hidden="true"><rect
-              width="64" height="64" rx="16" fill="#bc002d" /><circle cx="43"
-              cy="20" r="7" fill="#fff" /><path
-              d="M13 45V21h7l14 24h-8L17 29v16zm26 0V30h7v15z"
-              fill="#fff" /></svg>
+          <img src="assets/images/favicon.svg"
+            alt="Logo PT. Nippon Ace Indonesia" width="52" height="52"
+            decoding="async" loading="eager" class="brand-mark">
           <span
             class="text-[15px] font-extrabold leading-[1.3] tracking-tight">Nippon
             Ace<span
@@ -197,7 +195,8 @@
             loading="eager" fetchpriority="high" decoding="async"
             class="hero-background is-active"
             :class="{ 'is-active': current === 0 }">
-          <img src="assets/images/hero-port.webp" alt width="1920" height="1280"
+          <img src="assets/images/hero-agriculture.webp" alt width="1920"
+            height="1280"
             loading="lazy" fetchpriority="low" decoding="async"
             class="hero-background" :class="{ 'is-active': current === 1 }">
           <img src="assets/images/hero-tokyo.webp" alt width="1600"
@@ -235,8 +234,9 @@
                   dan LPK mitra.</span>
                 <span class="hero-copy-part"
                   :class="{ 'is-active': current === 1 }" aria-hidden="true"
-                  :aria-hidden="current !== 1">Dari manufaktur, perkapalan,
-                  hingga keperawatan. Kenali peluang yang tersedia, persyaratan
+                  :aria-hidden="current !== 1">Dari Pengolahan Makanan,
+                  Peternakan, Pertanian, Manufaktur hingga keperawatan. Kenali
+                  peluang yang tersedia, persyaratan
                   kandidat,
                   dan tahapan melamar bersama tim kami.</span>
                 <span class="hero-copy-part"
@@ -263,7 +263,7 @@
                 aria-controls="hero-copy"><span></span></button>
               <button type="button" class="hero-dot" @click="goTo(1)"
                 :aria-pressed="current === 1"
-                aria-label="Slide 2: Industri pelabuhan"
+                aria-label="Slide 2: Pertanian"
                 aria-controls="hero-copy"><span></span></button>
               <button type="button" class="hero-dot" @click="goTo(2)"
                 :aria-pressed="current === 2"
@@ -297,12 +297,12 @@
         <div class="mt-8 bg-[#f8f5f2] py-20 lg:py-24">
           <div class="container-wide">
             <div
-              class="reveal grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+              class="reveal grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
               <div class="relative pb-7 pr-7"><img
                   src="assets/images/japan-city.webp"
                   alt="Pemandangan Gunung Fuji dan pagoda di Jepang sebagai ilustrasi tujuan karier"
                   width="1000" height="667" loading="lazy" decoding="async"
-                  class="h-[410px] w-full rounded-2xl object-cover"><div
+                  class="h-[360px] w-full rounded-2xl object-cover sm:h-[460px] lg:h-[560px]"><div
                   class="absolute bottom-0 right-0 rounded-xl bg-japan px-7 py-6 text-white"><p
                     class="text-[10px] tracking-[0.18em]">INDONESIA ×
                     JAPAN</p><p
@@ -316,24 +316,31 @@
                   <h3
                     class="mb-3 text-xs font-bold uppercase tracking-widest text-japan">01
                     / Visi kami</h3>
-                  <p class="text-lg font-semibold leading-8">Menjadi mitra
-                    konsultasi yang menghubungkan LPK dan talenta Indonesia
-                    dengan
-                    peluang kerja di Jepang.</p>
+                  <p class="text-base font-semibold leading-7">Menjadi konsultan
+                    online terpercaya yang membantu masyarakat Indonesia
+                    mendapatkan informasi, peluang, dan akses kerja yang tepat
+                    di Jepang, serta menjadi penghubung profesional antara
+                    tenaga kerja Indonesia dan perusahaan di Jepang.</p>
                 </article>
                 <article class="mt-6">
                   <h3
                     class="mb-3 text-xs font-bold uppercase tracking-widest text-japan">02
                     / Misi kami</h3>
-                  <ul class="space-y-3 text-sm leading-6 text-muted">
-                    <li>Menyediakan informasi lowongan kerja di Jepang beserta
-                      persyaratannya.</li>
-                    <li>Membantu perorangan memahami pilihan lowongan dan
-                      tahapan
-                      melamar.</li>
-                    <li>Membangun kerja sama dengan LPK untuk memperluas akses
-                      peluang kerja bagi kandidat.</li>
-                  </ul>
+                  <ol class="mission-list text-sm leading-6 text-muted"
+                    role="list">
+                    <li>Menyediakan informasi lowongan kerja di Jepang yang
+                      terpercaya, jelas, dan mudah diakses secara online.</li>
+                    <li>Memberikan layanan konsultasi dan pendampingan kepada
+                      calon tenaga kerja mulai dari pemilihan pekerjaan hingga
+                      proses rekrutmen.</li>
+                    <li>Membantu kandidat menemukan pekerjaan yang sesuai dengan
+                      kemampuan, pengalaman, dan kualifikasi yang dimiliki.</li>
+                    <li>Membangun kerja sama dengan perusahaan dan mitra
+                      terpercaya di Jepang untuk membuka lebih banyak peluang
+                      kerja bagi tenaga kerja Indonesia.</li>
+                    <li>Mengutamakan transparansi, profesionalisme, dan
+                      kepercayaan dalam setiap layanan yang diberikan.</li>
+                  </ol>
                 </article>
                 <a href="#kontak"
                   class="mt-6 inline-flex items-center gap-3 text-sm font-bold text-japan">Kenali
@@ -344,8 +351,7 @@
           </div>
         </div>
         <div class="container-wide">
-          <section class="legal-section" aria-labelledby="legal-heading"
-            x-data="legalDocuments">
+          <section class="legal-section" aria-labelledby="legal-heading">
             <h2 id="legal-heading"
               class="text-2xl font-extrabold tracking-tight">Legalitas
               Perusahaan</h2>
@@ -358,7 +364,7 @@
                 aria-haspopup="dialog" aria-controls="legal-preview">
                 <svg class="icon text-japan" aria-hidden="true"><use
                     href="#i-shield" /></svg>
-                <h3>NIB</h3><p>008260002116</p><span>Lihat PDF <span
+                <h3>NIB</h3><p>008260002116</p><span>&nbsp; <span
                     aria-hidden="true">&#8599;</span></span>
               </a>
               <a class="legal-card"
@@ -369,7 +375,7 @@
                 <svg class="icon text-japan" aria-hidden="true"><use
                     href="#i-shield" /></svg>
                 <h3>SK Kemenkumham</h3><p>AHU-A111550.AH.01.30.Tahun
-                  2026</p><span>Lihat PDF <span
+                  2026</p><span>&nbsp; <span
                     aria-hidden="true">&#8599;</span></span>
               </a>
               <a class="legal-card" href="assets/images/legalitas/NPWP.pdf"
@@ -378,7 +384,7 @@
                 aria-haspopup="dialog" aria-controls="legal-preview">
                 <svg class="icon text-japan" aria-hidden="true"><use
                     href="#i-shield" /></svg>
-                <h3>NPWP</h3><p>1000 0000 1074 5785</p><span>Lihat PDF <span
+                <h3>NPWP</h3><p>10.000.001.0-745.785</p><span>&nbsp; <span
                     aria-hidden="true">&#8599;</span></span>
               </a>
             </div>
@@ -499,336 +505,328 @@
                     kebutuhan kandidat</p></div></div></div></div>
           <div class="reveal mt-16"><p class="eyebrow">Orang-orang di balik
               perjalananmu</p><h2 class="section-title">Kenali tim
-              kami.</h2><div class="mt-8 grid gap-6 sm:grid-cols-3">
+              kami.</h2><div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               <article
                 class="overflow-hidden rounded-xl border border-slate-200"><img
-                  src="assets/images/team-arif.webp"
-                  alt="Foto stok ilustrasi Ichwanul Fahmi, profil contoh CEO"
+                  src="assets/images/Pejabat/rachma.jpeg"
+                  alt="Rachma Dinna, Direktur PT Nippon Ace Indonesia"
                   width="400" height="480" loading="lazy" decoding="async"
                   class="h-64 w-full bg-paper object-cover object-[center_35%]"><div
-                  class="p-5"><h3 class="font-bold">Ichwanul Fahmi</h3><p
-                    class="mt-1 text-xs text-japan">Chief Executive
-                    Officer</p></div></article>
+                  class="p-5"><h3 class="font-bold">Rachma Dinna</h3><p
+                    class="mt-1 text-xs text-japan">Direktur PT Nippon Ace
+                    Indonesia</p></div></article>
               <article
                 class="overflow-hidden rounded-xl border border-slate-200"><img
-                  src="assets/images/team-maya.webp"
-                  alt="Foto stok ilustrasi Ichwanul Fahmi Wifes, profil contoh Head of Partnerships"
+                  src="assets/images/Pejabat/fahmi.jpeg"
+                  alt="Ichwannul Fahmi, Komisaris"
                   width="400" height="480" loading="lazy" decoding="async"
                   class="h-64 w-full bg-paper object-cover object-[center_35%]"><div
-                  class="p-5"><h3 class="font-bold">Ichwanul Fahmi Wifes</h3><p
-                    class="mt-1 text-xs text-japan">Head of
-                    Partnerships</p></div></article>
+                  class="p-5"><h3 class="font-bold">Ichwannul Fahmi</h3><p
+                    class="mt-1 text-xs text-japan">Komisaris</p></div></article>
               <article
                 class="overflow-hidden rounded-xl border border-slate-200"><img
-                  src="assets/images/team-rizky.webp"
-                  alt="Foto stok ilustrasi Tiqlal Fahmi, profil contoh Career Consultant"
+                  src="assets/images/Pejabat/ade.jpeg"
+                  alt="Ade Setiawan, Instruktur dan Konsultan Bahasa Jepang bersertifikat JLPT N2"
                   width="400" height="480" loading="lazy" decoding="async"
                   class="h-64 w-full bg-paper object-cover object-[center_35%]"><div
-                  class="p-5"><h3 class="font-bold">Tiqlal Fahmi</h3><p
-                    class="mt-1 text-xs text-japan">Career
-                    Consultant</p></div></article>
+                  class="p-5"><h3 class="font-bold">Ade Setiawan</h3><p
+                    class="mt-1 text-xs text-japan">Instruktur &amp; Konsultan
+                    Bahasa Jepang bersertifikat JLPT N2</p></div></article>
+              <article
+                class="overflow-hidden rounded-xl border border-slate-200"><img
+                  src="assets/images/Pejabat/editia.jpeg"
+                  alt="Editia Nugroho, Instruktur dan Konsultan Bahasa Jepang bersertifikat JLPT N2"
+                  width="400" height="480" loading="lazy" decoding="async"
+                  class="h-64 w-full bg-paper object-cover object-[center_35%]"><div
+                  class="p-5"><h3 class="font-bold">Editia Nugroho</h3><p
+                    class="mt-1 text-xs text-japan">Instruktur &amp; Konsultan
+                    Bahasa Jepang bersertifikat JLPT N2</p></div></article>
             </div><p class="mt-3 text-[10px] text-muted">&nbsp;</p></div>
         </div>
       </section>
 
       <section id="lowongan" aria-labelledby="jobs-heading"
-        class="border-y border-slate-100 bg-paper py-20 lg:py-24">
+        class="border-y border-slate-100 bg-paper pt-10 pb-20 lg:pt-12 lg:pb-24">
         <div class="container-wide">
-          <div
-            class="reveal flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p
-                class="eyebrow">Temukan peluangmu</p><h2 id="jobs-heading"
-                class="section-title">Banyak jalan.<br>Satu tujuan: <span
-                  class="text-japan">Jepang.</span></h2></div><p
-              class="max-w-sm text-sm leading-7 text-muted">Jelajahi 15 bidang
-              dan spesialisasi kerja sebagai awal konsultasi. LPK maupun peminat
-              perorangan dapat menghubungi kami untuk menanyakan lowongan yang
-              sesuai.</p></div>
-          <div class="mt-9 flex flex-wrap gap-2" role="group"
-            aria-label="Filter bidang kerja">
-            <button type="button" class="filter-chip selected"
-              :class="{selected: filter === 'Semua bidang'}"
-              :aria-pressed="filter === 'Semua bidang'"
-              @click="filter = 'Semua bidang'">Semua bidang <span
-                class="ml-1 opacity-70">15</span></button>
-            <button type="button" class="filter-chip"
-              :class="{selected: filter === 'Layanan'}"
-              :aria-pressed="filter === 'Layanan'"
-              @click="filter = 'Layanan'">Layanan</button>
-            <button type="button" class="filter-chip"
-              :class="{selected: filter === 'Pangan & alam'}"
-              :aria-pressed="filter === 'Pangan & alam'"
-              @click="filter = 'Pangan & alam'">Pangan &amp; alam</button>
-            <button type="button" class="filter-chip"
-              :class="{selected: filter === 'Industri'}"
-              :aria-pressed="filter === 'Industri'"
-              @click="filter = 'Industri'">Industri</button>
+          <div class="reveal flex flex-col items-center text-center">
+            <p class="eyebrow">Temukan peluangmu</p>
+            <h2 id="jobs-heading"
+              class="section-title mt-2 text-[clamp(1rem,4.2vw,1.75rem)]">
+              Banyak jalan.<br class="sm:hidden">
+              <span class="whitespace-nowrap">Satu tujuan:
+                <span class="text-japan">Jepang.</span>
+              </span>
+            </h2>
           </div>
-          <div id="job-grid"
-            class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            <article class="group" x-show="showJob('Layanan', $el)"
-              data-category="Layanan">
-              <a href="#daftar" @click="selectField('Keperawatan (Kaigo)')"
-                class="job-card"
-                aria-label="Konsultasikan bidang Keperawatan (Kaigo)">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">01</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-heart" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Keperawatan
-                  (Kaigo)</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Pendampingan
-                  &amp; perawatan lansia</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Pangan & alam', $el)"
-              data-category="Pangan & alam">
-              <a href="#daftar" @click="selectField('Pertanian (Nogyo)')"
-                class="job-card"
-                aria-label="Konsultasikan bidang Pertanian (Nogyo)">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">02</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-leaf" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Pertanian
-                  (Nogyo)</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Budidaya
-                  &amp; pengelolaan pertanian</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Pangan
-                  &amp; alam<svg class="icon !size-4 text-japan"
-                    aria-hidden="true"><use href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Pangan & alam', $el)"
-              data-category="Pangan & alam">
-              <a href="#daftar" @click="selectField('Perikanan')"
-                class="job-card" aria-label="Konsultasikan bidang Perikanan">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">03</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-fish" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Perikanan</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Perikanan
-                  tangkap &amp; budidaya</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Pangan
-                  &amp; alam<svg class="icon !size-4 text-japan"
-                    aria-hidden="true"><use href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Industri', $el)"
-              data-category="Industri">
-              <a href="#daftar" @click="selectField('Konstruksi')"
-                class="job-card" aria-label="Konsultasikan bidang Konstruksi">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">04</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-building" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Konstruksi</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Pembangunan
-                  &amp; infrastruktur</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Pangan & alam', $el)"
-              data-category="Pangan & alam">
-              <a href="#daftar" @click="selectField('Pengolahan Makanan')"
-                class="job-card"
-                aria-label="Konsultasikan bidang Pengolahan Makanan">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">05</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-food" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Pengolahan
-                  Makanan</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Produksi
-                  &amp; pengolahan pangan</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Pangan
-                  &amp; alam<svg class="icon !size-4 text-japan"
-                    aria-hidden="true"><use href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Layanan', $el)"
-              data-category="Layanan">
-              <a href="#daftar" @click="selectField('Restoran')"
-                class="job-card" aria-label="Konsultasikan bidang Restoran">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">06</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-utensils" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Restoran</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Pelayanan
-                  &amp; operasional restoran</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Industri', $el)"
-              data-category="Industri">
-              <a href="#daftar" @click="selectField('Manufaktur Mesin')"
-                class="job-card"
-                aria-label="Konsultasikan bidang Manufaktur Mesin">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">07</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-gear" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Manufaktur
-                  Mesin</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Produksi
-                  &amp; perakitan mesin</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Industri', $el)"
-              data-category="Industri">
-              <a href="#daftar" @click="selectField('Elektronik')"
-                class="job-card" aria-label="Konsultasikan bidang Elektronik">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">08</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-chip" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Elektronik</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Perakitan
-                  komponen elektronik</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Industri', $el)"
-              data-category="Industri">
-              <a href="#daftar" @click="selectField('Pembuatan Kapal')"
-                class="job-card"
-                aria-label="Konsultasikan bidang Pembuatan Kapal">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">09</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-ship" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Pembuatan
-                  Kapal</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Konstruksi
-                  &amp; permesinan kapal</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Layanan', $el)"
-              data-category="Layanan">
-              <a href="#daftar" @click="selectField('Pembersihan Gedung')"
-                class="job-card"
-                aria-label="Konsultasikan bidang Pembersihan Gedung">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">10</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-sparkle" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Pembersihan
-                  Gedung</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Kebersihan
-                  &amp; perawatan gedung</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Industri', $el)"
-              data-category="Industri">
-              <a href="#daftar" @click="selectField('Suku Cadang')"
-                class="job-card" aria-label="Konsultasikan bidang Suku Cadang">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">11</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-tool" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Suku
-                  Cadang</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Pembuatan
-                  komponen industri</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Layanan', $el)"
-              data-category="Layanan">
-              <a href="#daftar" @click="selectField('Penerbangan')"
-                class="job-card" aria-label="Konsultasikan bidang Penerbangan">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">12</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-plane" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Penerbangan</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Operasional
-                  &amp; dukungan bandara</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Layanan', $el)"
-              data-category="Layanan">
-              <a href="#daftar" @click="selectField('Perhotelan')"
-                class="job-card" aria-label="Konsultasikan bidang Perhotelan">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">13</span><span
-                  class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-hotel" /></svg></span><h3
-                  class="text-[13px] font-extrabold leading-6">Perhotelan</h3><p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Hospitalitas
-                  &amp; layanan tamu</p><span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Industri', $el)"
-              data-category="Industri">
-              <a href="#daftar" @click="selectField('Pengecatan')"
-                class="job-card" aria-label="Konsultasikan bidang Pengecatan">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">14</span>
-                <span class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-paint" /></svg></span>
-                <h3 class="text-[13px] font-extrabold leading-6">Pengecatan</h3>
-                <p class="mt-2 grow text-[11px] leading-5 text-muted">Pelapisan
-                  &amp; penyelesaian produk</p>
-                <span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-            <article class="group" x-show="showJob('Industri', $el)"
-              data-category="Industri">
-              <a href="#daftar" @click="selectField('Pengelasan')"
-                class="job-card" aria-label="Konsultasikan bidang Pengelasan">
-                <span
-                  class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">15</span>
-                <span class="job-icon"><svg class="icon" aria-hidden="true"><use
-                      href="#i-weld" /></svg></span>
-                <h3 class="text-[13px] font-extrabold leading-6">Pengelasan</h3>
-                <p
-                  class="mt-2 grow text-[11px] leading-5 text-muted">Penyambungan
-                  &amp; fabrikasi logam</p>
-                <span
-                  class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                    class="icon !size-4 text-japan" aria-hidden="true"><use
-                      href="#i-up-right" /></svg></span>
-              </a>
-            </article>
-          </div>
-          <div class="mt-7 flex justify-center"
-            x-show="filteredJobCount() > jobLimit">
-            <button type="button" class="button-secondary"
-              aria-controls="job-grid" :aria-expanded="jobsExpanded"
-              @click="toggleJobs()"><span
-                x-text="jobsExpanded ? 'Tampilkan lebih sedikit' : 'Lihat selengkapnya'">Lihat
-                selengkapnya</span></button>
+          <div id="job-carousel" class="mt-9" role="region"
+            aria-roledescription="carousel" aria-label="15 bidang kerja pilihan"
+            @keydown.arrow-right.prevent="nextJob()"
+            @keydown.arrow-left.prevent="previousJob()">
+            <div id="job-grid" class="mx-auto max-w-4xl" aria-live="polite"
+              aria-atomic="true">
+              <article class="group" x-show="jobSlide === 0">
+                <a href="#daftar" @click="selectField('Keperawatan (Kaigo)')"
+                  class="job-card"
+                  aria-label="Konsultasikan bidang Keperawatan (Kaigo)">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">01</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-heart" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Keperawatan
+                    (Kaigo)</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Pendampingan
+                    &amp; perawatan lansia</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 1">
+                <a href="#daftar" @click="selectField('Pertanian (Nogyo)')"
+                  class="job-card"
+                  aria-label="Konsultasikan bidang Pertanian (Nogyo)">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">02</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-leaf" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Pertanian
+                    (Nogyo)</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Budidaya
+                    &amp; pengelolaan pertanian</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Pangan
+                    &amp; alam<svg class="icon !size-4 text-japan"
+                      aria-hidden="true"><use href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 2">
+                <a href="#daftar" @click="selectField('Perikanan')"
+                  class="job-card" aria-label="Konsultasikan bidang Perikanan">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">03</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-fish" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Perikanan</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Perikanan
+                    tangkap &amp; budidaya</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Pangan
+                    &amp; alam<svg class="icon !size-4 text-japan"
+                      aria-hidden="true"><use href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 3">
+                <a href="#daftar" @click="selectField('Konstruksi')"
+                  class="job-card" aria-label="Konsultasikan bidang Konstruksi">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">04</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-building" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Konstruksi</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Pembangunan
+                    &amp; infrastruktur</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 4">
+                <a href="#daftar" @click="selectField('Pengolahan Makanan')"
+                  class="job-card"
+                  aria-label="Konsultasikan bidang Pengolahan Makanan">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">05</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-food" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Pengolahan
+                    Makanan</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Produksi
+                    &amp; pengolahan pangan</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Pangan
+                    &amp; alam<svg class="icon !size-4 text-japan"
+                      aria-hidden="true"><use href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 5">
+                <a href="#daftar" @click="selectField('Restoran')"
+                  class="job-card" aria-label="Konsultasikan bidang Restoran">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">06</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-utensils" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Restoran</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Pelayanan
+                    &amp; operasional restoran</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 6">
+                <a href="#daftar" @click="selectField('Manufaktur Mesin')"
+                  class="job-card"
+                  aria-label="Konsultasikan bidang Manufaktur Mesin">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">07</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-gear" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Manufaktur
+                    Mesin</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Produksi
+                    &amp; perakitan mesin</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 7">
+                <a href="#daftar" @click="selectField('Elektronik')"
+                  class="job-card" aria-label="Konsultasikan bidang Elektronik">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">08</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-chip" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Elektronik</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Perakitan
+                    komponen elektronik</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 8">
+                <a href="#daftar" @click="selectField('Pembuatan Kapal')"
+                  class="job-card"
+                  aria-label="Konsultasikan bidang Pembuatan Kapal">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">09</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-ship" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Pembuatan
+                    Kapal</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Konstruksi
+                    &amp; permesinan kapal</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 9">
+                <a href="#daftar" @click="selectField('Pembersihan Gedung')"
+                  class="job-card"
+                  aria-label="Konsultasikan bidang Pembersihan Gedung">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">10</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-sparkle" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Pembersihan
+                    Gedung</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Kebersihan
+                    &amp; perawatan gedung</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 10">
+                <a href="#daftar" @click="selectField('Suku Cadang')"
+                  class="job-card"
+                  aria-label="Konsultasikan bidang Suku Cadang">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">11</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-tool" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Suku
+                    Cadang</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Pembuatan
+                    komponen industri</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 11">
+                <a href="#daftar" @click="selectField('Penerbangan')"
+                  class="job-card"
+                  aria-label="Konsultasikan bidang Penerbangan">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">12</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-plane" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Penerbangan</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Operasional
+                    &amp; dukungan bandara</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 12">
+                <a href="#daftar" @click="selectField('Perhotelan')"
+                  class="job-card" aria-label="Konsultasikan bidang Perhotelan">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">13</span><span
+                    class="job-icon"><svg class="icon" aria-hidden="true"><use
+                        href="#i-hotel" /></svg></span><h3
+                    class="text-[13px] font-extrabold leading-6">Perhotelan</h3><p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Hospitalitas
+                    &amp; layanan tamu</p><span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 13">
+                <a href="#daftar" @click="selectField('Pengecatan')"
+                  class="job-card" aria-label="Konsultasikan bidang Pengecatan">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">14</span>
+                  <span class="job-icon"><svg class="icon"
+                      aria-hidden="true"><use
+                        href="#i-paint" /></svg></span>
+                  <h3
+                    class="text-[13px] font-extrabold leading-6">Pengecatan</h3>
+                  <p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Pelapisan
+                    &amp; penyelesaian produk</p>
+                  <span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+              <article class="group" x-show="jobSlide === 14">
+                <a href="#daftar" @click="selectField('Pengelasan')"
+                  class="job-card" aria-label="Konsultasikan bidang Pengelasan">
+                  <span
+                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">15</span>
+                  <span class="job-icon"><svg class="icon"
+                      aria-hidden="true"><use
+                        href="#i-weld" /></svg></span>
+                  <h3
+                    class="text-[13px] font-extrabold leading-6">Pengelasan</h3>
+                  <p
+                    class="mt-2 grow text-[11px] leading-5 text-muted">Penyambungan
+                    &amp; fabrikasi logam</p>
+                  <span
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
+                      class="icon !size-4 text-japan" aria-hidden="true"><use
+                        href="#i-up-right" /></svg></span>
+                </a>
+              </article>
+            </div>
+            <div class="mt-6 flex items-center justify-center gap-5">
+              <button type="button" class="job-slide-control"
+                aria-label="Bidang kerja sebelumnya" aria-controls="job-grid"
+                @click="previousJob()"><svg class="icon rotate-180"
+                  aria-hidden="true"><use href="#i-arrow" /></svg></button>
+              <p class="min-w-24 text-center text-xs font-bold text-muted"
+                aria-live="polite"><span
+                  x-text="String(jobSlide + 1).padStart(2, '0')">01</span> /
+                <span x-text="String(jobCount).padStart(2, '0')">15</span></p>
+              <button type="button" class="job-slide-control"
+                aria-label="Bidang kerja berikutnya" aria-controls="job-grid"
+                @click="nextJob()"><svg class="icon" aria-hidden="true"><use
+                    href="#i-arrow" /></svg></button>
+            </div>
           </div>
           <div
             class="mt-7 flex flex-col justify-between gap-4 sm:flex-row sm:items-center"><p
@@ -963,7 +961,7 @@
             <h2 id="register-heading" class="section-title">Mimpi besar
               dimulai<br>dari <span class="text-japan">satu langkah.</span></h2>
             <div class="registration-intro">
-              <p class="registration-label">Alur Pendaftaran</p>
+              <p class="registration-label">Alur Pendaftaran Nippon Ace</p>
               <h3>Dari Daftar Sampai Berangkat</h3>
               <p class="registration-summary">Proses terstruktur dan transparan.
                 Anda tahu setiap langkahnya &mdash; kami dampingi dari awal
@@ -973,7 +971,7 @@
               <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle
                   cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
               <div><p class="registration-label">Total Estimasi Waktu</p><p
-                  class="registration-duration">6&ndash;10 bulan</p><p>Dari
+                  class="registration-duration">3&ndash;10 bulan</p><p>Dari
                   pendaftaran hingga keberangkatan, tergantung kesiapan peserta
                   dan proses dokumen visa. Waktu tiap tahap merupakan perkiraan
                   dan dapat berjalan bersamaan atau berubah.</p></div>
@@ -983,77 +981,96 @@
                 <span class="registration-step-number"
                   aria-hidden="true">01</span>
                 <div class="registration-step-content">
-                  <h4>Pendaftaran &amp; Seleksi Awal</h4>
-                  <p>Isi formulir online. Tim kami akan menghubungi Anda melalui
-                    WhatsApp dalam 1 &times; 24 jam untuk seleksi berkas dan
-                    wawancara awal.</p>
-                  <span class="registration-step-duration"><svg class="icon"
-                      aria-hidden="true"><use href="#i-check" /></svg>1&ndash;2
-                    minggu</span>
+                  <h4>Pendaftaran &amp; Seleksi Berkas</h4>
+                  <p>Isi formulir pendaftaran dan kirim dokumen yang diperlukan.
+                    Tim Nippon Ace akan melakukan pengecekan dan seleksi
+                    awal.</p>
                 </div>
               </li>
               <li>
                 <span class="registration-step-number"
                   aria-hidden="true">02</span>
                 <div class="registration-step-content">
-                  <h4>Pelatihan Bahasa Jepang Intensif</h4>
-                  <p>Persiapkan kemampuan bahasa Jepang melalui kelas intensif
-                    di LPK mitra, dengan target JFT-Basic A2 atau JLPT N4.</p>
-                  <span class="registration-step-duration"><svg class="icon"
-                      aria-hidden="true"><use href="#i-check" /></svg>3&ndash;4
-                    bulan</span>
+                  <h4>Pengecekan Kemampuan Bahasa Jepang</h4>
+                  <p>Kandidat mengikuti pengecekan kemampuan bahasa Jepang untuk
+                    memastikan kesiapan mengikuti proses kerja di Jepang.</p>
                 </div>
               </li>
               <li>
                 <span class="registration-step-number"
                   aria-hidden="true">03</span>
                 <div class="registration-step-content">
-                  <h4>Ujian Sertifikasi</h4>
-                  <p>Ikuti ujian bahasa Jepang JFT-Basic atau JLPT serta ujian
-                    keterampilan SSW sesuai sektor pilihan dan persyaratan
-                    lowongan.</p>
-                  <span class="registration-step-duration"><svg class="icon"
-                      aria-hidden="true"><use href="#i-check" /></svg>1
-                    bulan</span>
+                  <h4>Pengajuan ke TSK</h4>
+                  <p>Kandidat yang memenuhi persyaratan akan diajukan kepada TSK
+                    (登録支援機関) untuk proses selanjutnya sesuai lowongan yang
+                    tersedia.</p>
                 </div>
               </li>
               <li>
                 <span class="registration-step-number"
                   aria-hidden="true">04</span>
                 <div class="registration-step-content">
-                  <h4>Interview Perusahaan Jepang</h4>
-                  <p>Kami memfasilitasi wawancara dengan calon perusahaan di
-                    Jepang, secara online atau langsung sesuai pengaturan
-                    perusahaan.</p>
-                  <span class="registration-step-duration"><svg class="icon"
-                      aria-hidden="true"><use href="#i-check" /></svg>1&ndash;2
-                    bulan</span>
+                  <h4>Interview dengan Perusahaan Jepang</h4>
+                  <p>Kandidat yang sesuai akan difasilitasi untuk mengikuti
+                    interview dengan perusahaan Jepang secara online atau sesuai
+                    ketentuan perusahaan.</p>
                 </div>
               </li>
               <li>
                 <span class="registration-step-number"
                   aria-hidden="true">05</span>
                 <div class="registration-step-content">
-                  <h4>Pengurusan Visa &amp; Dokumen</h4>
-                  <p>Kami mendampingi persiapan CoE (Certificate of
-                    Eligibility), visa kerja, asuransi, dan dokumen perjalanan
-                    sesuai kebutuhan proses Anda.</p>
+                  <h4>Kontrak Kerja &amp; Pengurusan Dokumen</h4>
+                  <p>Setelah dinyatakan lolos interview, kandidat melakukan
+                    penandatanganan kontrak kerja dan melengkapi dokumen yang
+                    diperlukan untuk proses selanjutnya.</p>
                   <span class="registration-step-duration"><svg class="icon"
-                      aria-hidden="true"><use href="#i-check" /></svg>1&ndash;2
+                      aria-hidden="true"><use href="#i-check" /></svg>1 hari–1
                     bulan</span>
+                </div>
+              </li>
+              <li>
+                <span class="registration-step-number"
+                  aria-hidden="true">06</span>
+                <div class="registration-step-content">
+                  <h4>Pengajuan &amp; Penerbitan COE</h4>
+                  <p>Proses pengajuan COE (Certificate of Eligibility) dilakukan
+                    sesuai prosedur. Setelah COE diterbitkan, kandidat
+                    melanjutkan ke tahap pengajuan visa.</p>
+                  <span class="registration-step-duration"><svg class="icon"
+                      aria-hidden="true"><use href="#i-check" /></svg>3–6
+                    bulan</span>
+                </div>
+              </li>
+              <li>
+                <span class="registration-step-number"
+                  aria-hidden="true">07</span>
+                <div class="registration-step-content">
+                  <h4>Pengajuan Visa Jepang</h4>
+                  <p>Kandidat melakukan proses pengajuan visa kerja Jepang
+                    dengan dokumen yang telah dipersiapkan.</p>
+                  <span class="registration-step-duration"><svg class="icon"
+                      aria-hidden="true"><use href="#i-check" /></svg>1 minggu–1
+                    bulan</span>
+                </div>
+              </li>
+              <li>
+                <span class="registration-step-number"
+                  aria-hidden="true">08</span>
+                <div class="registration-step-content">
+                  <h4>Persiapan Keberangkatan</h4>
+                  <p>Setelah visa terbit, kandidat mempersiapkan keberangkatan,
+                    termasuk tiket, perlengkapan, dan persiapan sebelum
+                    berangkat ke Jepang.</p>
                 </div>
               </li>
               <li class="registration-finish">
                 <span class="registration-step-number"
-                  aria-hidden="true">06</span>
+                  aria-hidden="true">09</span>
                 <div class="registration-step-content">
-                  <h4>Keberangkatan ke Jepang!</h4>
-                  <p>Setelah seluruh persyaratan dan dokumen siap, saatnya
-                    berangkat dan memulai perjalanan karier profesional Anda di
-                    Jepang bersama Nippon Ace.</p>
-                  <span class="registration-step-duration"><svg class="icon"
-                      aria-hidden="true"><use href="#i-plane" /></svg>Hari
-                    H</span>
+                  <h4>Keberangkatan ke Jepang</h4>
+                  <p>Seluruh proses selesai dan kandidat siap berangkat ke
+                    Jepang untuk memulai perjalanan karier baru.</p>
                 </div>
               </li>
             </ol>
@@ -1617,15 +1634,15 @@
     <footer class="bg-ink pb-7 pt-14 text-white">
       <div class="container-wide"><div
           class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]"><div><a
-              href="#beranda" class="inline-flex items-center gap-3"><svg
-                class="size-10" viewBox="0 0 64 64" aria-hidden="true"><rect
-                  width="64" height="64" rx="16" fill="#bc002d" /><circle
-                  cx="43" cy="20" r="7" fill="#fff" /><path
-                  d="M13 45V21h7l14 24h-8L17 29v16zm26 0V30h7v15z"
-                  fill="#fff" /></svg><span class="text-sm font-bold">Nippon
+              href="#beranda" class="inline-flex items-center gap-3"><img
+                src="assets/images/favicon.svg"
+                alt="Logo PT. Nippon Ace Indonesia" width="52" height="52"
+                decoding="async" loading="lazy" class="brand-mark"><span
+                class="text-sm font-bold">Nippon
                 Ace<span
                   class="block text-[10px] font-normal uppercase tracking-[0.2em] text-slate-300">Indonesia</span></span></a><p
-              class="mt-5 max-w-xs text-xs leading-6 text-slate-300">Konsultan
+              class="mt-5 max-w-xs text-xs leading-6 text-slate-300">Konsultasi
+              online
               dan penyedia informasi lowongan kerja di Jepang untuk perorangan,
               dengan LPK sebagai mitra kerja sama.</p><p
               class="mt-5 text-[10px] tracking-[0.18em] text-slate-400">INDONESIA
@@ -1640,7 +1657,8 @@
               class="mb-5 text-xs font-bold">Langkah Selanjutnya</p><div
               class="flex flex-col gap-3"><a href="https://wa.me/+817031159531"
                 target="_blank" rel="noopener noreferrer"
-                class="footer-link">Konsultasi Lowongan</a><a href="#kontak"
+                class="footer-link">Konsultasi Lowongan Kerja</a><a
+                href="#kontak"
                 class="footer-link">Hubungi Kami</a><a href="#privasi"
                 class="footer-link"
                 @click="document.getElementById('privasi').open = true">Privasi

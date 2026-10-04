@@ -1,29 +1,5 @@
 /* Alpine dimuat setelah berkas ini, menggunakan defer. */
 document.addEventListener('alpine:init', () => {
-  Alpine.data('legalDocuments', () => ({
-    selected: null,
-    trigger: null,
-    previousOverflow: '',
-    documents: {
-      nib: { title: 'NIB', number: '008260002116', url: 'assets/images/legalitas/NIB.pdf' },
-      sk: { title: 'SK Kemenkumham', number: 'AHU-A111550.AH.01.30.Tahun 2026', url: 'assets/images/legalitas/SK_Kemenkumham.pdf' },
-      npwp: { title: 'NPWP', number: '1000 0000 1074 5785', url: 'assets/images/legalitas/NPWP.pdf' }
-    },
-    openDocument(key, trigger) {
-      this.selected = this.documents[key];
-      this.trigger = trigger;
-      this.previousOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      this.$refs.preview.showModal();
-      this.$nextTick(() => this.$refs.closePreview.focus());
-    },
-    closePreview() { this.$refs.preview.close(); },
-    resetPreview() {
-      this.selected = null;
-      document.body.style.overflow = this.previousOverflow;
-      this.trigger?.focus({ preventScroll: true });
-    }
-  }));
 
   Alpine.data('heroCarousel', () => ({
     current: 0,
@@ -79,9 +55,8 @@ document.addEventListener('alpine:init', () => {
     menuOpen: false,
     headerOnHome: false,
     activeSection: 'beranda',
-    filter: 'Semua bidang',
-    jobLimit: 5,
-    jobsExpanded: false,
+    jobSlide: 0,
+    jobCount: 15,
     slide: 0,
     status: '',
     statusType: '',
@@ -103,14 +78,6 @@ document.addEventListener('alpine:init', () => {
     },
     init() {
       this.$nextTick(() => this.updateHeader());
-      this.jobMediaQuery = window.matchMedia('(max-width: 639px)');
-      this.syncJobLimit = () => {
-        this.jobLimit = this.jobMediaQuery.matches ? 3 : 5;
-        this.jobsExpanded = false;
-      };
-      this.syncJobLimit();
-      this.jobMediaQuery.addEventListener('change', this.syncJobLimit);
-      this.$watch('filter', () => { this.jobsExpanded = false; });
       this.$watch('menuOpen', value => {
         if (value) this.$nextTick(() => this.$refs.mobileNav.querySelector('a').focus());
       });
@@ -129,9 +96,6 @@ document.addEventListener('alpine:init', () => {
         sections.forEach(section => observer.observe(section));
       }
     },
-    destroy() {
-      this.jobMediaQuery?.removeEventListener('change', this.syncJobLimit);
-    },
     updateHeader() {
       const hero = document.getElementById('beranda').getBoundingClientRect();
       const headerHeight = this.$refs.siteHeader.offsetHeight;
@@ -141,18 +105,8 @@ document.addEventListener('alpine:init', () => {
       this.menuOpen = false;
       if (restoreFocus) this.$refs.menuButton.focus();
     },
-    showJob(category, element) {
-      if (this.filter !== 'Semua bidang' && this.filter !== category) return false;
-      if (this.jobsExpanded) return true;
-      const matchingCards = Array.from(document.querySelectorAll('#job-grid article'))
-        .filter(card => this.filter === 'Semua bidang' || card.dataset.category === this.filter);
-      return matchingCards.indexOf(element) < this.jobLimit;
-    },
-    filteredJobCount() {
-      return Array.from(document.querySelectorAll('#job-grid article'))
-        .filter(card => this.filter === 'Semua bidang' || card.dataset.category === this.filter).length;
-    },
-    toggleJobs() { this.jobsExpanded = !this.jobsExpanded; },
+    previousJob() { this.jobSlide = (this.jobSlide + this.jobCount - 1) % this.jobCount; },
+    nextJob() { this.jobSlide = (this.jobSlide + 1) % this.jobCount; },
     selectField(field) {
       this.form.field = field;
       this.step = 0;
