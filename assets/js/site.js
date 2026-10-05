@@ -62,10 +62,16 @@ document.addEventListener('alpine:init', () => {
     statusType: '',
     submitting: false,
     step: 0,
-    steps: ['Data Diri Calon Peserta', 'Data Diri Calon Peserta (Lanjutan)', 'Riwayat Kesehatan', 'Pendidikan', 'Riwayat Pekerjaan di Indonesia', 'Pengalaman di Jepang', 'Upload Dokumen', 'Pernyataan'],
+    routeStep: true,
+    leaveWarningTrigger: null,
+    indonesiaSteps: ['Data Diri Calon Peserta', 'Data Diri Calon Peserta (Lanjutan)', 'Riwayat Kesehatan', 'Pendidikan', 'Riwayat Pekerjaan di Indonesia', 'Pengalaman di Jepang', 'Upload Dokumen', 'Pernyataan'],
+    japanSteps: ['Data Kandidat di Jepang', 'Dokumen Kandidat di Jepang'],
+    get steps() {
+      return this.form.currentLocation === 'Jepang' ? this.japanSteps : this.indonesiaSteps;
+    },
     fileErrors: {},
     form: {
-      email: '', field: '', jobOrderConsultation: '', romaji: '', katakana: '',
+      currentLocation: '', email: '', field: '', jobOrderConsultation: '', romaji: '', katakana: '',
       gender: '', birthPlace: '', birthDate: '', identityAddress: '',
       maritalStatus: '', height: '', weight: '', motherName: '', fatherName: '',
       guardianPhone: '', guardianAddress: '', diagnosedDisease: '', diseaseName: '',
@@ -74,9 +80,20 @@ document.addEventListener('alpine:init', () => {
       resignationReason: '', workedInJapan: '', visitedJapan: '', overstay: '',
       deported: '', visaRejected: '', visaStatus: '', japanCompany: '',
       japanJobType: '', japanPeriod: '', returnReason: '', declaration: false,
+      ktpNumber: '', japanName: '', japanGender: '', japanBirthDate: '',
+      japanAddress: '', currentOccupation: '', japanVisaStatus: '', remainingTg: '',
+      japanExperience: '', ownedCertificates: '', zairyuExpiry: '',
+      desiredJobPrefecture: '', applyReason: '',
       website: ''
     },
     init() {
+      try {
+        const selectedField = sessionStorage.getItem('nipponAceSelectedField');
+        if (selectedField) {
+          this.form.field = selectedField;
+          sessionStorage.removeItem('nipponAceSelectedField');
+        }
+      } catch { }
       this.$nextTick(() => this.updateHeader());
       this.$watch('menuOpen', value => {
         if (value) this.$nextTick(() => this.$refs.mobileNav.querySelector('a').focus());
@@ -97,20 +114,38 @@ document.addEventListener('alpine:init', () => {
       }
     },
     updateHeader() {
-      const hero = document.getElementById('beranda').getBoundingClientRect();
+      const heroElement = document.getElementById('beranda');
+      if (!heroElement || !this.$refs.siteHeader) {
+        this.headerOnHome = false;
+        return;
+      }
+      const hero = heroElement.getBoundingClientRect();
       const headerHeight = this.$refs.siteHeader.offsetHeight;
       this.headerOnHome = hero.top <= headerHeight && hero.bottom > headerHeight;
     },
     closeMenu(restoreFocus = false) {
       this.menuOpen = false;
-      if (restoreFocus) this.$refs.menuButton.focus();
+      if (restoreFocus) this.$refs.menuButton?.focus();
+    },
+    requestLeave(event) {
+      this.leaveWarningTrigger = event.currentTarget;
+      if (!this.$refs.leaveWarning.open) this.$refs.leaveWarning.showModal();
+      this.$nextTick(() => this.$refs.stayOnForm?.focus());
+    },
+    cancelLeave() {
+      this.$refs.leaveWarning.close();
+      const trigger = this.leaveWarningTrigger;
+      this.leaveWarningTrigger = null;
+      this.$nextTick(() => trigger?.focus({ preventScroll: true }));
+    },
+    confirmLeave() {
+      this.$refs.leaveWarning.close();
+      window.location.href = 'index.html';
     },
     previousJob() { this.jobSlide = (this.jobSlide + this.jobCount - 1) % this.jobCount; },
     nextJob() { this.jobSlide = (this.jobSlide + 1) % this.jobCount; },
     selectField(field) {
-      this.form.field = field;
-      this.step = 0;
-      this.$nextTick(() => document.getElementById('email').focus({ preventScroll: true }));
+      try { sessionStorage.setItem('nipponAceSelectedField', field); } catch { }
     },
     validateFile(event, name) {
       const input = event.currentTarget;
@@ -125,7 +160,10 @@ document.addEventListener('alpine:init', () => {
       this.fileErrors[name] = message;
     },
     validateStep() {
-      const panel = this.$refs.applicantForm.querySelector(`[data-form-step="${this.step}"]`);
+      const panel = this.routeStep
+        ? this.$refs.applicantForm.querySelector('[data-location-step]')
+        : this.$refs.applicantForm.querySelector(`[data-form-route="${this.form.currentLocation}"][data-form-step="${this.step}"]`);
+      if (!panel) return false;
       const controls = Array.from(panel.querySelectorAll('input, select, textarea'))
         .filter(control => control.getClientRects().length > 0);
       for (const control of controls) {
@@ -148,21 +186,36 @@ document.addEventListener('alpine:init', () => {
       return true;
     },
     focusStepHeading() {
-      this.$refs.applicantForm.querySelector(`[data-form-step="${this.step}"] h4`).focus({ preventScroll: true });
+      if (this.routeStep) {
+        this.$refs.applicantForm.querySelector('[data-location-step] input[name="currentLocation"]')?.focus({ preventScroll: true });
+        return;
+      }
+      this.$refs.applicantForm.querySelector(`[data-form-route="${this.form.currentLocation}"][data-form-step="${this.step}"] h4`).focus({ preventScroll: true });
     },
     nextStep() {
       if (!this.validateStep()) return;
       this.status = '';
+      if (this.routeStep) {
+        this.routeStep = false;
+        this.step = 0;
+        this.$nextTick(() => this.focusStepHeading());
+        return;
+      }
       this.step = Math.min(this.step + 1, this.steps.length - 1);
       this.$nextTick(() => this.focusStepHeading());
     },
     previousStep() {
       this.status = '';
+      if (this.step === 0) {
+        this.routeStep = true;
+        this.$nextTick(() => this.focusStepHeading());
+        return;
+      }
       this.step = Math.max(this.step - 1, 0);
       this.$nextTick(() => this.focusStepHeading());
     },
     submit() {
-      if (this.submitting || this.step !== this.steps.length - 1) return;
+      if (this.submitting || this.routeStep || this.step !== this.steps.length - 1) return;
       this.status = '';
       if (!this.validateStep()) return;
       if (this.form.website) return;

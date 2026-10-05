@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulir Pendaftaran Kandidat | Nippon Ace Indonesia</title>
+        <meta name="description"
+            content="Formulir pendaftaran kandidat untuk konsultasi dan bimbingan karier di Jepang bersama Nippon Ace.">
+        <meta name="theme-color" content="#142638">
+        <link rel="icon" href="assets/images/favicon.svg?v=2"
+            type="image/svg+xml">
+        <link rel="preload" href="assets/fonts/plus-jakarta-latin.woff2"
+            as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="assets/css/site.min.css">
+        <script src="assets/js/config.js" defer></script>
+        <script src="assets/js/site.js" defer></script>
+        <script src="assets/js/alpine.min.js" defer></script>
+    </head>
+    <body x-data="companySite" @keydown.escape.window="closeMenu(true)">
+        <header class="border-b border-slate-200 bg-white">
+            <div
+                class="container-wide flex min-h-[76px] items-center justify-between gap-4">
+                <a href="index.html" @click.prevent="requestLeave($event)"
+                    class="flex items-center gap-3"
+                    aria-label="Nippon Ace — Beranda">
+                    <img src="assets/images/favicon.svg" alt width="44"
+                        height="44" class="brand-mark">
+                    <span class="text-sm font-extrabold">Nippon Ace<span
+                            class="block text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">Indonesia</span></span>
+                </a>
+                <a href="index.html"
+                    @click.prevent="requestLeave($event)"
+                    class="button-primary !min-h-10 !px-3 !py-2 !text-xs">
+                    <span aria-hidden="true">&#8592;</span>
+                    Kembali ke Beranda
+                </a>
+            </div>
+        </header>
+        <main id="main"
+            class="min-h-[calc(100vh-76px)] bg-paper py-10 sm:py-14">
+            <section id="daftar" aria-labelledby="register-heading"
+                class="container-wide">
+                <div
+                    class="mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-9">
+                    <p class="eyebrow">Konsultasi &amp; Bimbingan Karier</p>
+                    <h1 id="register-heading" class="section-title">Formulir
+                        Pendaftaran Kandidat</h1>
+                    <p class="mt-3 text-sm leading-7 text-muted">Lengkapi data
+                        sesuai kondisi Anda saat ini. Tanda * berarti wajib
+                        diisi.</p>
+                    <div x-show="routeStep" class="mt-6">
+                        <a
+                            href="assets/TemplateForm/%E5%B1%A5%E6%AD%B4%E6%9B%B8%20.xlsx"
+                            download="Template-CV.xlsx"
+                            class="button-secondary w-full justify-center">Unduh
+                            Template CV</a>
+                        <p class="mt-2 text-xs leading-6 text-muted">Isi
+                            template, lalu ekspor atau simpan sebagai PDF
+                            sebelum diunggah pada formulir.</p>
+                    </div>
+                    <form x-ref="applicantForm" class="mt-7 space-y-6"
+                        @submit.prevent="submit" novalidate>
+                        <section data-location-step x-show="routeStep"
+                            aria-labelledby="location-heading"
+                            class="space-y-5">
+                            <h2 id="location-heading" tabindex="-1"
+                                class="text-base font-extrabold">Di mana Anda
+                                saat ini? *</h2>
+                            <fieldset>
+                                <legend class="sr-only">Pilih lokasi Anda saat
+                                    ini</legend>
+                                <div class="flex flex-col gap-3">
+                                    <label
+                                        class="flex items-center gap-3 rounded-lg border border-slate-200 p-4 text-sm font-semibold"><input
+                                            type="radio" name="currentLocation"
+                                            value="Jepang"
+                                            x-model="form.currentLocation"
+                                            required> Jepang</label>
+                                    <label
+                                        class="flex items-center gap-3 rounded-lg border border-slate-200 p-4 text-sm font-semibold"><input
+                                            type="radio" name="currentLocation"
+                                            value="Indonesia"
+                                            x-model="form.currentLocation"
+                                            required> Indonesia</label>
+                                </div>
+                            </fieldset>
+                        </section>
+
+                        <section data-form-route="Indonesia" data-form-step="0"
+                            x-show="!routeStep && form.currentLocation === 'Indonesia' && step === 0"
+                            aria-labelledby="indonesia-step-0"
+                            class="space-y-5">
+                            <h2 id="indonesia-step-0" tabindex="-1"
+                                class="text-base font-extrabold">DATA DIRI CALON
+                                PESERTA</h2>
+                            <div class="space-y-5">
+                                <div><label for="email"
+                                        class="field-label">Email aktif
+                                        *</label><input id="email" name="email"
+                                        x-model="form.email" class="field"
+                                        type="email" autocomplete="email"
+                                        required></div>
+                                <div><label for="field"
+                                        class="field-label">Jenis pekerjaan yang
+                                        ingin diikuti *</label><select
+                                        id="field" name="field"
+                                        x-model="form.field" class="field"
+                                        required><option value>Pilih bidang
+                                            pekerjaan</option><option
+                                            value="Keperawatan (Kaigo)">Keperawatan
+                                            (Kaigo)</option><option
+                                            value="Pertanian (Nogyo)">Pertanian
+                                            (Nogyo)</option><option
+                                            value="Perikanan">Perikanan</option><option
+                                            value="Konstruksi">Konstruksi</option><option
+                                            value="Pengolahan Makanan">Pengolahan
+                                            Makanan</option><option
+                                            value="Restoran">Restoran</option><option
+                                            value="Manufaktur Mesin">Manufaktur
+                                            Mesin</option><option
+                                            value="Elektronik">Elektronik</option><option
+                                            value="Pembuatan Kapal">Pembuatan
+                                            Kapal</option><option
+                                            value="Pembersihan Gedung">Pembersihan
+                                            Gedung</option><option
+                                            value="Suku Cadang">Suku
+                                            Cadang</option><option
+                                            value="Penerbangan">Penerbangan</option><option
+                                            value="Perhotelan">Perhotelan</option><option
+                                            value="Pengecatan">Pengecatan</option><option
+                                            value="Pengelasan">Pengelasan</option></select></div>
+                                <fieldset><legend class="field-label">Apakah
+                                        bersedia untuk mengikuti konsultasi Job
+                                        Order kami? *</legend><div
+                                        class="flex flex-col gap-3"><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio"
+                                                name="jobOrderConsultation"
+                                                value="Ya"
+                                                x-model="form.jobOrderConsultation"
+                                                required> Ya</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio"
+                                                name="jobOrderConsultation"
+                                                value="Tidak"
+                                                x-model="form.jobOrderConsultation">
+                                            Tidak</label></div></fieldset>
+                                <div><label for="romaji"
+                                        class="field-label">Nama Lengkap Romaji
+                                        *</label><input id="romaji"
+                                        name="romaji" x-model="form.romaji"
+                                        class="field" type="text"
+                                        autocomplete="name" required></div>
+                                <div><label for="katakana"
+                                        class="field-label">Nama Lengkap
+                                        Katakana *</label><input id="katakana"
+                                        name="katakana" x-model="form.katakana"
+                                        class="field" type="text"
+                                        required></div>
+                                <div><label for="gender"
+                                        class="field-label">Jenis kelamin
+                                        *</label><select id="gender"
+                                        name="gender" x-model="form.gender"
+                                        class="field" required><option
+                                            value>Pilih jenis
+                                            kelamin</option><option
+                                            value="Laki-laki">Laki-laki</option><option
+                                            value="Perempuan">Perempuan</option></select></div>
+                                <div><label for="birthPlace"
+                                        class="field-label">Tempat lahir
+                                        *</label><input id="birthPlace"
+                                        name="birthPlace"
+                                        x-model="form.birthPlace" class="field"
+                                        type="text" required></div>
+                                <div><label for="birthDate"
+                                        class="field-label">Tanggal lahir
+                                        *</label><input id="birthDate"
+                                        name="birthDate"
+                                        x-model="form.birthDate" class="field"
+                                        type="date" required></div>
+                                <div><label for="identityAddress"
+                                        class="field-label">Alamat sesuai KTP
+                                        *</label><textarea id="identityAddress"
+                                        name="identityAddress"
+                                        x-model="form.identityAddress"
+                                        class="field resize-y" rows="3"
+                                        required></textarea></div>
+                            </div>
+                        </section>
+
+                        <section data-form-route="Indonesia" data-form-step="1"
+                            x-show="!routeStep && form.currentLocation === 'Indonesia' && step === 1"
+                            aria-labelledby="indonesia-step-1"
+                            class="space-y-5">
+                            <h2 id="indonesia-step-1" tabindex="-1"
+                                class="text-base font-extrabold">DATA DIRI CALON
+                                PESERTA (LANJUTAN)</h2>
+                            <div class="space-y-5">
+                                <fieldset><legend class="field-label">Status
+                                        pernikahan *</legend><div
+                                        class="flex flex-col gap-3"><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio"
+                                                name="maritalStatus"
+                                                value="Belum menikah"
+                                                x-model="form.maritalStatus"
+                                                required> Belum
+                                            menikah</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio"
+                                                name="maritalStatus"
+                                                value="Menikah"
+                                                x-model="form.maritalStatus">
+                                            Menikah</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio"
+                                                name="maritalStatus"
+                                                value="Cerai"
+                                                x-model="form.maritalStatus">
+                                            Cerai</label></div></fieldset>
+                                <div><label for="height"
+                                        class="field-label">Tinggi Badan (cm)
+                                        *</label><input id="height"
+                                        name="height" x-model="form.height"
+                                        class="field" type="number" min="1"
+                                        max="250" required></div>
+                                <div><label for="weight"
+                                        class="field-label">Berat Badan (kg)
+                                        *</label><input id="weight"
+                                        name="weight" x-model="form.weight"
+                                        class="field" type="number" min="1"
+                                        max="300" required></div>
+                                <div><label for="motherName"
+                                        class="field-label">Nama Orang Tua ibu
+                                        *</label><input id="motherName"
+                                        name="motherName"
+                                        x-model="form.motherName" class="field"
+                                        type="text" required></div>
+                                <div><label for="fatherName"
+                                        class="field-label">Nama Orang Tua ayah
+                                        *</label><input id="fatherName"
+                                        name="fatherName"
+                                        x-model="form.fatherName" class="field"
+                                        type="text" required></div>
+                                <div><label for="guardianPhone"
+                                        class="field-label">Nomor Telepon Orang
+                                        Tua/Wali *</label><input
+                                        id="guardianPhone" name="guardianPhone"
+                                        x-model="form.guardianPhone"
+                                        class="field" type="tel"
+                                        autocomplete="tel" required></div>
+                                <div><label for="guardianAddress"
+                                        class="field-label">Alamat Lengkap Orang
+                                        Tua/Wali *</label><textarea
+                                        id="guardianAddress"
+                                        name="guardianAddress"
+                                        x-model="form.guardianAddress"
+                                        class="field resize-y" rows="3"
+                                        required></textarea></div>
+                            </div>
+                        </section>
+
+                        <section data-form-route="Indonesia" data-form-step="2"
+                            x-show="!routeStep && form.currentLocation === 'Indonesia' && step === 2"
+                            aria-labelledby="indonesia-step-2"
+                            class="space-y-5">
+                            <h2 id="indonesia-step-2" tabindex="-1"
+                                class="text-base font-extrabold">RIWAYAT
+                                KESEHATAN</h2>
+                            <div class="space-y-5">
+                                <fieldset><legend class="field-label">Apakah
+                                        pernah atau sedang memiliki penyakit
+                                        menular yang telah didiagnosis Dokter?
+                                        *</legend><div
+                                        class="flex flex-col gap-3"><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio"
+                                                name="diagnosedDisease"
+                                                value="Ya"
+                                                x-model="form.diagnosedDisease"
+                                                required> Ya</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio"
+                                                name="diagnosedDisease"
+                                                value="Tidak"
+                                                x-model="form.diagnosedDisease">
+                                            Tidak</label></div></fieldset>
+                                <div x-show="form.diagnosedDisease === 'Ya'"
+                                    class="space-y-5"><div><label
+                                            for="diseaseName"
+                                            class="field-label">Nama
+                                            Penyakit</label><input
+                                            id="diseaseName" name="diseaseName"
+                                            x-model="form.diseaseName"
+                                            class="field"
+                                            type="text"></div><div><label
+                                            for="diagnosisYear"
+                                            class="field-label">Tahun
+                                            Diagnosis</label><input
+                                            id="diagnosisYear"
+                                            name="diagnosisYear"
+                                            x-model="form.diagnosisYear"
+                                            class="field" type="number"
+                                            min="1900"
+                                            max="2100"></div><fieldset><legend
+                                            class="field-label">Sudah
+                                            Sembuh?</legend><div
+                                            class="flex flex-col gap-3"><label
+                                                class="flex items-center gap-2 text-sm"><input
+                                                    type="radio"
+                                                    name="diseaseRecovered"
+                                                    value="Ya"
+                                                    x-model="form.diseaseRecovered">
+                                                Ya</label><label
+                                                class="flex items-center gap-2 text-sm"><input
+                                                    type="radio"
+                                                    name="diseaseRecovered"
+                                                    value="Tidak"
+                                                    x-model="form.diseaseRecovered">
+                                                Tidak</label></div></fieldset></div>
+                                <fieldset><legend class="field-label">Apakah
+                                        bersedia mengikuti medical check up
+                                        (MCU) jika diperlukan? *</legend><div
+                                        class="flex flex-col gap-3"><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio" name="willingMcu"
+                                                value="Ya"
+                                                x-model="form.willingMcu"
+                                                required> Ya</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio" name="willingMcu"
+                                                value="Tidak"
+                                                x-model="form.willingMcu">
+                                            Tidak</label></div></fieldset>
+                            </div>
+                        </section>
+
+                        <section data-form-route="Indonesia" data-form-step="3"
+                            x-show="!routeStep && form.currentLocation === 'Indonesia' && step === 3"
+                            aria-labelledby="indonesia-step-3"
+                            class="space-y-5">
+                            <h2 id="indonesia-step-3" tabindex="-1"
+                                class="text-base font-extrabold">PENDIDIKAN</h2>
+                            <div class="space-y-5">
+                                <fieldset><legend class="field-label">Pendidikan
+                                        Terakhir *</legend><div
+                                        class="flex flex-col gap-3"><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio" name="education"
+                                                value="SMA/SMK"
+                                                x-model="form.education"
+                                                required> SMA/SMK</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio" name="education"
+                                                value="D1"
+                                                x-model="form.education">
+                                            D1</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio" name="education"
+                                                value="D2"
+                                                x-model="form.education">
+                                            D2</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio" name="education"
+                                                value="D3"
+                                                x-model="form.education">
+                                            D3</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio" name="education"
+                                                value="D4/S1"
+                                                x-model="form.education">
+                                            D4/S1</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio" name="education"
+                                                value="S2"
+                                                x-model="form.education">
+                                            S2</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio" name="education"
+                                                value="S3"
+                                                x-model="form.education">
+                                            S3</label></div></fieldset>
+                                <div><label for="school"
+                                        class="field-label">Nama
+                                        Sekolah/Universitas *</label><input
+                                        id="school" name="school"
+                                        x-model="form.school" class="field"
+                                        type="text" required></div>
+                                <div><label for="major"
+                                        class="field-label">Jurusan
+                                        *</label><input id="major" name="major"
+                                        x-model="form.major" class="field"
+                                        type="text" required></div>
+                                <div><label for="latestGrade"
+                                        class="field-label">Nilai pada ijazah
+                                        atau IPK terakhir *</label><input
+                                        id="latestGrade" name="latestGrade"
+                                        x-model="form.latestGrade" class="field"
+                                        type="text" required></div>
+                            </div>
+                        </section>
+
+                        <section data-form-route="Indonesia" data-form-step="4"
+                            x-show="!routeStep && form.currentLocation === 'Indonesia' && step === 4"
+                            aria-labelledby="indonesia-step-4"
+                            class="space-y-5">
+                            <h2 id="indonesia-step-4" tabindex="-1"
+                                class="text-base font-extrabold">RIWAYAT
+                                PEKERJAAN DI INDONESIA</h2>
+                            <div class="space-y-5"><div><label for="lastCompany"
+                                        class="field-label">Nama Perusahaan
+                                        Terakhir</label><input id="lastCompany"
+                                        name="lastCompany"
+                                        x-model="form.lastCompany" class="field"
+                                        type="text"></div><div><label
+                                        for="lastPosition"
+                                        class="field-label">Posisi/Jabatan
+                                        Terakhir</label><input id="lastPosition"
+                                        name="lastPosition"
+                                        x-model="form.lastPosition"
+                                        class="field"
+                                        type="text"></div><div><label
+                                        for="resignationReason"
+                                        class="field-label">Alasan Berhenti
+                                        Kerja</label><textarea
+                                        id="resignationReason"
+                                        name="resignationReason"
+                                        x-model="form.resignationReason"
+                                        class="field resize-y"
+                                        rows="3"></textarea></div></div>
+                        </section>
+
+                        <section data-form-route="Indonesia" data-form-step="5"
+                            x-show="!routeStep && form.currentLocation === 'Indonesia' && step === 5"
+                            aria-labelledby="indonesia-step-5"
+                            class="space-y-5">
+                            <h2 id="indonesia-step-5" tabindex="-1"
+                                class="text-base font-extrabold">PENGALAMAN DI
+                                JEPANG</h2>
+                            <div class="space-y-5">
+                                <fieldset><legend class="field-label">Apakah
+                                        pernah kerja di Jepang? *</legend><div
+                                        class="flex flex-col gap-3"><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio"
+                                                name="workedInJapan"
+                                                value="Tidak"
+                                                x-model="form.workedInJapan"
+                                                required> Tidak</label><label
+                                            class="flex items-center gap-2 text-sm"><input
+                                                type="radio"
+                                                name="workedInJapan" value="Ya"
+                                                x-model="form.workedInJapan">
+                                            Ya</label></div></fieldset>
+                                <div x-show="form.workedInJapan === 'Tidak'"
+                                    class="space-y-5"><fieldset><legend
+                                            class="field-label">Apakah pernah
+                                            datang ke Jepang?</legend><div
+                                            class="flex flex-col gap-3"><label
+                                                class="flex items-center gap-2 text-sm"><input
+                                                    type="radio"
+                                                    name="visitedJapan"
+                                                    value="Ya"
+                                                    x-model="form.visitedJapan">
+                                                Ya</label><label
+                                                class="flex items-center gap-2 text-sm"><input
+                                                    type="radio"
+                                                    name="visitedJapan"
+                                                    value="Tidak"
+                                                    x-model="form.visitedJapan">
+                                                Tidak</label></div></fieldset><fieldset><legend
+                                            class="field-label">Pernah overstay
+                                            di Jepang? *</legend><div
+                                            class="flex flex-col gap-3"><label
+                                                class="flex items-center gap-2 text-sm"><input
+                                                    type="radio" name="overstay"
+                                                    value="Ya"
+                                                    x-model="form.overstay"
+                                                    required> Ya</label><label
+                                                class="flex items-center gap-2 text-sm"><input
+                                                    type="radio" name="overstay"
+                                                    value="Tidak"
+                                                    x-model="form.overstay">
+                                                Tidak</label></div></fieldset><fieldset><legend
+                                            class="field-label">Pernah
+                                            dideportasi dari Jepang?
+                                            *</legend><div
+                                            class="flex flex-col gap-3"><label
+                                                class="flex items-center gap-2 text-sm"><input
+                                                    type="radio" name="deported"
+                                                    value="Ya"
+                                                    x-model="form.deported"
+                                                    required> Ya</label><label
+                                                class="flex items-center gap-2 text-sm"><input
+                                                    type="radio" name="deported"
+                                                    value="Tidak"
+                                                    x-model="form.deported">
+                                                Tidak</label></div></fieldset><fieldset><legend
+                                            class="field-label">Pernah ditolak
+                                            visa Jepang? *</legend><div
+                                            class="flex flex-col gap-3"><label
+                                                class="flex items-center gap-2 text-sm"><input
+                                                    type="radio"
+                                                    name="visaRejected"
+                                                    value="Ya"
+                                                    x-model="form.visaRejected"
+                                                    required> Ya</label><label
+                                                class="flex items-center gap-2 text-sm"><input
+                                                    type="radio"
+                                                    name="visaRejected"
+                                                    value="Tidak"
+                                                    x-model="form.visaRejected">
+                                                Tidak</label></div></fieldset></div>
+                                <div x-show="form.workedInJapan === 'Ya'"
+                                    class="space-y-5"><div><label
+                                            for="visaStatus"
+                                            class="field-label">Status VISA
+                                            *</label><input id="visaStatus"
+                                            name="visaStatus"
+                                            x-model="form.visaStatus"
+                                            class="field" type="text"
+                                            required></div><div><label
+                                            for="japanCompany"
+                                            class="field-label">Nama Perusahaan
+                                            *</label><input id="japanCompany"
+                                            name="japanCompany"
+                                            x-model="form.japanCompany"
+                                            class="field" type="text"
+                                            required></div><div><label
+                                            for="japanJobType"
+                                            class="field-label">Jenis Pekerjaan
+                                            *</label><input id="japanJobType"
+                                            name="japanJobType"
+                                            x-model="form.japanJobType"
+                                            class="field" type="text"
+                                            required></div><div><label
+                                            for="japanPeriod"
+                                            class="field-label">Periode
+                                            Pekerjaan *</label><input
+                                            id="japanPeriod" name="japanPeriod"
+                                            x-model="form.japanPeriod"
+                                            class="field" type="text"
+                                            placeholder="Contoh: Januari 2022–Desember 2024"
+                                            required></div><div><label
+                                            for="returnReason"
+                                            class="field-label">Alasan Kembali
+                                            ke Indonesia *</label><textarea
+                                            id="returnReason"
+                                            name="returnReason"
+                                            x-model="form.returnReason"
+                                            class="field resize-y" rows="3"
+                                            required></textarea></div></div>
+                            </div>
+                        </section>
+
+                        <section data-form-route="Indonesia" data-form-step="6"
+                            x-show="!routeStep && form.currentLocation === 'Indonesia' && step === 6"
+                            aria-labelledby="indonesia-step-6"
+                            class="space-y-5">
+                            <h2 id="indonesia-step-6" tabindex="-1"
+                                class="text-base font-extrabold">UPLOAD DOKUMEN
+                                YANG DIBUTUHKAN</h2>
+                            <p class="text-xs leading-6 text-muted">Format PDF,
+                                maksimal 10 MB per dokumen. Dokumen yang
+                                bertanda * wajib diunggah.</p>
+                            <div class="space-y-5">
+                                <div><label for="cv"
+                                        class="field-label">Curriculum Vitae
+                                        (CV) *</label><input id="cv" name="cv"
+                                        class="field" type="file"
+                                        accept="application/pdf,.pdf" required
+                                        @change="validateFile($event, 'cv')"><p
+                                        x-show="fileErrors.cv"
+                                        x-text="fileErrors.cv"
+                                        class="field-error"></p></div>
+                                <div><label for="parentStatement"
+                                        class="field-label">Surat Pernyataan
+                                        Orang Tua (dapat menyusul)</label><input
+                                        id="parentStatement"
+                                        name="parentStatement" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf"
+                                        @change="validateFile($event, 'parentStatement')"><p
+                                        x-show="fileErrors.parentStatement"
+                                        x-text="fileErrors.parentStatement"
+                                        class="field-error"></p></div>
+                                <div><label for="identityCard"
+                                        class="field-label">KTP *</label><input
+                                        id="identityCard" name="identityCard"
+                                        class="field" type="file"
+                                        accept="application/pdf,.pdf" required
+                                        @change="validateFile($event, 'identityCard')"><p
+                                        x-show="fileErrors.identityCard"
+                                        x-text="fileErrors.identityCard"
+                                        class="field-error"></p></div>
+                                <div><label for="familyCard"
+                                        class="field-label">Kartu Keluarga
+                                        *</label><input id="familyCard"
+                                        name="familyCard" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf" required
+                                        @change="validateFile($event, 'familyCard')"><p
+                                        x-show="fileErrors.familyCard"
+                                        x-text="fileErrors.familyCard"
+                                        class="field-error"></p></div>
+                                <div><label for="diploma"
+                                        class="field-label">Ijazah Terakhir
+                                        *</label><input id="diploma"
+                                        name="diploma" class="field" type="file"
+                                        accept="application/pdf,.pdf" required
+                                        @change="validateFile($event, 'diploma')"><p
+                                        x-show="fileErrors.diploma"
+                                        x-text="fileErrors.diploma"
+                                        class="field-error"></p></div>
+                                <div><label for="passport"
+                                        class="field-label">Paspor (Bagian
+                                        Halaman Data Diri) (dapat
+                                        menyusul)</label><input id="passport"
+                                        name="passport" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf"
+                                        @change="validateFile($event, 'passport')"><p
+                                        x-show="fileErrors.passport"
+                                        x-text="fileErrors.passport"
+                                        class="field-error"></p></div>
+                                <div><label for="japaneseCertificate"
+                                        class="field-label">Sertifikat Bahasa
+                                        Jepang (JLPT/JFT)</label><input
+                                        id="japaneseCertificate"
+                                        name="japaneseCertificate" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf"
+                                        @change="validateFile($event, 'japaneseCertificate')"><p
+                                        x-show="fileErrors.japaneseCertificate"
+                                        x-text="fileErrors.japaneseCertificate"
+                                        class="field-error"></p></div>
+                                <div><label for="sswCertificate"
+                                        class="field-label">Sertifikat SSW
+                                        (Specified Skill Worker)</label><input
+                                        id="sswCertificate"
+                                        name="sswCertificate" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf"
+                                        @change="validateFile($event, 'sswCertificate')"><p
+                                        x-show="fileErrors.sswCertificate"
+                                        x-text="fileErrors.sswCertificate"
+                                        class="field-error"></p></div>
+                                <div><label for="japanCompletionDocument"
+                                        class="field-label">SENMONKYU/HYOKA
+                                        CHOSO/SHURYOSHO</label><input
+                                        id="japanCompletionDocument"
+                                        name="japanCompletionDocument"
+                                        class="field" type="file"
+                                        accept="application/pdf,.pdf"
+                                        @change="validateFile($event, 'japanCompletionDocument')"><p
+                                        x-show="fileErrors.japanCompletionDocument"
+                                        x-text="fileErrors.japanCompletionDocument"
+                                        class="field-error"></p></div>
+                                <div><label for="driversLicense"
+                                        class="field-label">SIM (jika
+                                        ada)</label><input id="driversLicense"
+                                        name="driversLicense" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf"
+                                        @change="validateFile($event, 'driversLicense')"><p
+                                        x-show="fileErrors.driversLicense"
+                                        x-text="fileErrors.driversLicense"
+                                        class="field-error"></p></div>
+                            </div>
+                        </section>
+
+                        <section data-form-route="Indonesia" data-form-step="7"
+                            x-show="!routeStep && form.currentLocation === 'Indonesia' && step === 7"
+                            aria-labelledby="indonesia-step-7"
+                            class="space-y-5">
+                            <h2 id="indonesia-step-7" tabindex="-1"
+                                class="text-base font-extrabold">PERNYATAAN</h2>
+                            <label for="declaration"
+                                class="flex cursor-pointer items-start gap-3 text-sm leading-7 text-muted"><input
+                                    id="declaration" name="declaration"
+                                    x-model="form.declaration" type="checkbox"
+                                    required
+                                    class="mt-1 size-4 shrink-0 accent-japan">Dengan
+                                ini, Saya menyatakan bahwa apa yang saya isi
+                                adalah data yang benar dan tidak ada manipulasi
+                                data. Jika Saya melakukan manipulasi data, maka
+                                Saya siap untuk diproses sebagaimana mestinya.
+                                Saya menyatakan untuk tidak akan apply job lain
+                                sampai dengan saya dinyatakan tidak
+                                lolos.</label>
+                        </section>
+
+                        <section data-form-route="Jepang" data-form-step="0"
+                            x-show="!routeStep && form.currentLocation === 'Jepang' && step === 0"
+                            aria-labelledby="japan-step-0" class="space-y-5">
+                            <h2 id="japan-step-0" tabindex="-1"
+                                class="text-base font-extrabold">DATA KANDIDAT
+                                DI JEPANG</h2>
+                            <div class="space-y-5">
+                                <div><label for="ktpNumber"
+                                        class="field-label">No. KTP
+                                        *</label><input id="ktpNumber"
+                                        name="ktpNumber"
+                                        x-model="form.ktpNumber" class="field"
+                                        type="text" inputmode="numeric"
+                                        required></div>
+                                <div><label for="japanName"
+                                        class="field-label">Nama lengkap
+                                        *</label><input id="japanName"
+                                        name="japanName"
+                                        x-model="form.japanName" class="field"
+                                        type="text" autocomplete="name"
+                                        required></div>
+                                <div><label for="japanGender"
+                                        class="field-label">Gender
+                                        *</label><select id="japanGender"
+                                        name="japanGender"
+                                        x-model="form.japanGender" class="field"
+                                        required><option value>Pilih
+                                            gender</option><option
+                                            value="Laki-laki">Laki-laki</option><option
+                                            value="Perempuan">Perempuan</option></select></div>
+                                <div><label for="japanBirthDate"
+                                        class="field-label">Tanggal lahir
+                                        *</label><input id="japanBirthDate"
+                                        name="japanBirthDate"
+                                        x-model="form.japanBirthDate"
+                                        class="field" type="date"
+                                        required></div>
+                                <div><label for="japanAddress"
+                                        class="field-label">Alamat saat ini di
+                                        Jepang *</label><textarea
+                                        id="japanAddress" name="japanAddress"
+                                        x-model="form.japanAddress"
+                                        class="field resize-y" rows="3"
+                                        required></textarea></div>
+                                <div><label for="currentOccupation"
+                                        class="field-label">Pekerjaan saat ini
+                                        *</label><input id="currentOccupation"
+                                        name="currentOccupation"
+                                        x-model="form.currentOccupation"
+                                        class="field" type="text"
+                                        required></div>
+                                <div><label for="japanVisaStatus"
+                                        class="field-label">Status visa
+                                        *</label><input id="japanVisaStatus"
+                                        name="japanVisaStatus"
+                                        x-model="form.japanVisaStatus"
+                                        class="field" type="text"
+                                        required></div>
+                                <div><label for="remainingTg"
+                                        class="field-label">Sisa masa TG (bulan)
+                                        *</label><input id="remainingTg"
+                                        name="remainingTg"
+                                        x-model="form.remainingTg" class="field"
+                                        type="number" min="0" required></div>
+                                <div><label for="japanExperience"
+                                        class="field-label">Pengalaman kerja di
+                                        Jepang *</label><textarea
+                                        id="japanExperience"
+                                        name="japanExperience"
+                                        x-model="form.japanExperience"
+                                        class="field resize-y" rows="3"
+                                        required></textarea></div>
+                                <div><label for="ownedCertificates"
+                                        class="field-label">Sertifikat yang
+                                        dimiliki</label><textarea
+                                        id="ownedCertificates"
+                                        name="ownedCertificates"
+                                        x-model="form.ownedCertificates"
+                                        class="field resize-y" rows="3"
+                                        placeholder="Contoh: JLPT N4, SSW Kaigo. Jika belum ada, isi Tidak ada."></textarea></div>
+                                <div><label for="zairyuExpiry"
+                                        class="field-label">Zairyū card berlaku
+                                        sampai *</label><input id="zairyuExpiry"
+                                        name="zairyuExpiry"
+                                        x-model="form.zairyuExpiry"
+                                        class="field" type="date"
+                                        required></div>
+                                <div><label for="desiredJobPrefecture"
+                                        class="field-label">Pekerjaan dan
+                                        prefektur yang diinginkan
+                                        *</label><textarea
+                                        id="desiredJobPrefecture"
+                                        name="desiredJobPrefecture"
+                                        x-model="form.desiredJobPrefecture"
+                                        class="field resize-y" rows="3"
+                                        required></textarea></div>
+                                <div><label for="applyReason"
+                                        class="field-label">Alasan
+                                        melamar/pindah kerja *</label><textarea
+                                        id="applyReason" name="applyReason"
+                                        x-model="form.applyReason"
+                                        class="field resize-y" rows="3"
+                                        required></textarea></div>
+                            </div>
+                        </section>
+
+                        <section data-form-route="Jepang" data-form-step="1"
+                            x-show="!routeStep && form.currentLocation === 'Jepang' && step === 1"
+                            aria-labelledby="japan-step-1" class="space-y-5">
+                            <h2 id="japan-step-1" tabindex="-1"
+                                class="text-base font-extrabold">DOKUMEN
+                                KANDIDAT DI JEPANG</h2>
+                            <p class="text-xs leading-6 text-muted">Unggah
+                                setiap dokumen sebagai PDF, maksimal 10 MB per
+                                file. Unduh template CV di atas, lalu simpan
+                                sebagai PDF sebelum diunggah.</p>
+                            <div class="space-y-5">
+                                <div><label for="japanCv"
+                                        class="field-label">Curriculum Vitae
+                                        (CV) PDF *</label><input id="japanCv"
+                                        name="japanCv" class="field" type="file"
+                                        accept="application/pdf,.pdf" required
+                                        @change="validateFile($event, 'japanCv')"><p
+                                        x-show="fileErrors.japanCv"
+                                        x-text="fileErrors.japanCv"
+                                        class="field-error"></p></div>
+                                <div><label for="zairyuFront"
+                                        class="field-label">Zairyū card bagian
+                                        depan *</label><input id="zairyuFront"
+                                        name="zairyuFront" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf" required
+                                        @change="validateFile($event, 'zairyuFront')"><p
+                                        x-show="fileErrors.zairyuFront"
+                                        x-text="fileErrors.zairyuFront"
+                                        class="field-error"></p></div>
+                                <div><label for="zairyuBack"
+                                        class="field-label">Zairyū card bagian
+                                        belakang *</label><input id="zairyuBack"
+                                        name="zairyuBack" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf" required
+                                        @change="validateFile($event, 'zairyuBack')"><p
+                                        x-show="fileErrors.zairyuBack"
+                                        x-text="fileErrors.zairyuBack"
+                                        class="field-error"></p></div>
+                                <div><label for="japanLanguageCertificate"
+                                        class="field-label">Sertifikat bahasa
+                                        Jepang (jika ada)</label><input
+                                        id="japanLanguageCertificate"
+                                        name="japanLanguageCertificate"
+                                        class="field" type="file"
+                                        accept="application/pdf,.pdf"
+                                        @change="validateFile($event, 'japanLanguageCertificate')"><p
+                                        x-show="fileErrors.japanLanguageCertificate"
+                                        x-text="fileErrors.japanLanguageCertificate"
+                                        class="field-error"></p></div>
+                                <div><label for="japanSswCertificate"
+                                        class="field-label">Senmonkyū /
+                                        sertifikat SSW (jika ada)</label><input
+                                        id="japanSswCertificate"
+                                        name="japanSswCertificate" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf"
+                                        @change="validateFile($event, 'japanSswCertificate')"><p
+                                        x-show="fileErrors.japanSswCertificate"
+                                        x-text="fileErrors.japanSswCertificate"
+                                        class="field-error"></p></div>
+                                <div><label for="japanPassport"
+                                        class="field-label">Paspor halaman data
+                                        diri *</label><input id="japanPassport"
+                                        name="japanPassport" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf" required
+                                        @change="validateFile($event, 'japanPassport')"><p
+                                        x-show="fileErrors.japanPassport"
+                                        x-text="fileErrors.japanPassport"
+                                        class="field-error"></p></div>
+                                <div><label for="carLicense"
+                                        class="field-label">SIM mobil (jika
+                                        ada)</label><input id="carLicense"
+                                        name="carLicense" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf"
+                                        @change="validateFile($event, 'carLicense')"><p
+                                        x-show="fileErrors.carLicense"
+                                        x-text="fileErrors.carLicense"
+                                        class="field-error"></p></div>
+                                <div><label for="forkliftLicense"
+                                        class="field-label">Sertifikat forklift
+                                        (jika ada)</label><input
+                                        id="forkliftLicense"
+                                        name="forkliftLicense" class="field"
+                                        type="file"
+                                        accept="application/pdf,.pdf"
+                                        @change="validateFile($event, 'forkliftLicense')"><p
+                                        x-show="fileErrors.forkliftLicense"
+                                        x-text="fileErrors.forkliftLicense"
+                                        class="field-error"></p></div>
+                                <div><label for="loaderLicense"
+                                        class="field-label">Sertifikat loader
+                                        (jika ada)</label><input
+                                        id="loaderLicense" name="loaderLicense"
+                                        class="field" type="file"
+                                        accept="application/pdf,.pdf"
+                                        @change="validateFile($event, 'loaderLicense')"><p
+                                        x-show="fileErrors.loaderLicense"
+                                        x-text="fileErrors.loaderLicense"
+                                        class="field-error"></p></div>
+                            </div>
+                            <div class="hidden" aria-hidden="true"><label
+                                    for="website">Website</label><input
+                                    id="website" name="website"
+                                    x-model="form.website" tabindex="-1"
+                                    autocomplete="off"></div>
+                        </section>
+
+                        <div
+                            class="flex items-center justify-between gap-4 border-t border-slate-100 pt-6">
+                            <button type="button" x-show="!routeStep"
+                                @click="previousStep()" class="button-secondary"
+                                x-cloak>Kembali</button>
+                            <a href="index.html" x-show="routeStep"
+                                @click.prevent="requestLeave($event)"
+                                class="button-secondary" x-cloak>Kembali</a>
+                            <button type="button"
+                                x-show="routeStep || step < steps.length - 1"
+                                @click="nextStep()" class="button-primary"><span
+                                    x-text="routeStep ? 'Lanjutkan' : 'Selanjutnya'">Lanjutkan</span></button>
+                            <button type="submit"
+                                x-show="!routeStep && step === steps.length - 1"
+                                class="button-primary" :disabled="submitting"
+                                :aria-busy="submitting" x-cloak><span
+                                    x-text="submitting ? 'Memproses…' : 'Kirim Formulir'">Kirim
+                                    Formulir</span><svg class="icon !size-4"
+                                    aria-hidden="true"><use
+                                        href="#i-arrow" /></svg></button>
+                        </div>
+                        <p role="status" aria-live="polite" x-show="status"
+                            x-text="status"
+                            class="rounded-lg border p-4 text-xs leading-6"
+                            :class="statusType === 'error' ? 'border-red-200 bg-red-50 text-red-800' : 'border-slate-200 bg-paper text-muted'"></p>
+                    </form>
+                    <div x-show="!routeStep"
+                        class="mt-6 border-t border-slate-100 pt-5">
+                        <p class="text-xs font-bold text-japan"
+                            aria-live="polite"
+                            x-text="'Bagian ' + (step + 1) + ' dari ' + steps.length + ': ' + steps[step]">Bagian
+                            1 dari 8</p>
+                        <progress class="mt-3 w-full accent-japan"
+                            :value="step + 1" :max="steps.length"
+                            :aria-label="'Progres formulir, bagian ' + (step + 1) + ' dari ' + steps.length">1</progress>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="border-t border-slate-200 bg-white py-6">
+            <div
+                class="container-wide flex flex-wrap items-center justify-between gap-3 text-xs text-muted">
+                <span>© 2026 PT. Nippon Ace Indonesia.</span>
+                <a href="index.html" @click.prevent="requestLeave($event)"
+                    class="font-semibold text-japan">Kembali ke
+                    Beranda</a>
+            </div>
+        </footer>
+        <dialog x-ref="leaveWarning" class="leave-warning-modal"
+            aria-labelledby="leave-warning-title"
+            aria-describedby="leave-warning-description"
+            @cancel.prevent="cancelLeave()"
+            @click="if ($event.target === $event.currentTarget) cancelLeave()">
+            <div class="leave-warning-content">
+                <p class="eyebrow">Konfirmasi keluar</p>
+                <h2 id="leave-warning-title"
+                    class="mt-3 text-xl font-extrabold">Tinggalkan
+                    formulir?</h2>
+                <p id="leave-warning-description"
+                    class="mt-3 text-sm leading-6 text-muted">Jika Anda
+                    meninggalkan halaman ini, semua data yang sudah diinput akan
+                    hilang.</p>
+                <div
+                    class="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+                    <button type="button" x-ref="stayOnForm"
+                        @click="cancelLeave()" class="button-secondary">Tetap di
+                        Form</button>
+                    <button type="button" @click="confirmLeave()"
+                        class="button-primary">Kembali ke Beranda</button>
+                </div>
+            </div>
+        </dialog>
+    </body>
+</html>
