@@ -556,7 +556,7 @@
             </h2>
           </div>
           <div id="job-carousel" class="mt-9" role="region"
-            aria-roledescription="carousel" aria-label="15 bidang kerja pilihan"
+            aria-roledescription="carousel" aria-label="16 bidang kerja pilihan"
             @keydown.arrow-right.prevent="nextJob()"
             @keydown.arrow-left.prevent="previousJob()">
             <div id="job-grid" class="mx-auto max-w-4xl" aria-live="polite"
@@ -813,6 +813,16 @@
                         href="#i-up-right" /></svg></span>
                 </a>
               </article>
+              <article class="group" x-show="jobSlide === 15" x-cloak>
+                <a href="formulir.html" @click="selectField('Peternakan')"
+                  class="job-card" aria-label="Konsultasikan bidang Peternakan">
+                  <span class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">16</span>
+                  <span class="job-icon" role="img" aria-label="Bidang kerja peternakan"></span>
+                  <h3 class="text-[13px] font-extrabold leading-6">Peternakan</h3>
+                  <p class="mt-2 grow text-[11px] leading-5 text-muted">Perawatan ternak, pemberian pakan, dan pengelolaan peternakan</p>
+                  <span class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Pangan &amp; alam<svg class="icon !size-4 text-japan" aria-hidden="true"><use href="#i-up-right" /></svg></span>
+                </a>
+              </article>
             </div>
             <div class="mt-6 flex items-center justify-center gap-5">
               <button type="button" class="job-slide-control"
@@ -822,7 +832,7 @@
               <p class="min-w-24 text-center text-xs font-bold text-muted"
                 aria-live="polite"><span
                   x-text="String(jobSlide + 1).padStart(2, '0')">01</span> /
-                <span x-text="String(jobCount).padStart(2, '0')">15</span></p>
+                <span x-text="String(jobCount).padStart(2, '0')">16</span></p>
               <button type="button" class="job-slide-control"
                 aria-label="Bidang kerja berikutnya" aria-controls="job-grid"
                 @click="nextJob()"><svg class="icon" aria-hidden="true"><use
@@ -886,21 +896,21 @@
               class="mt-5 max-w-sm text-sm leading-7 text-muted">Gambaran
               pengalaman kandidat menjalani konsultasi dan bimbingan karier
               bersama Nippon Ace.</p><p
-              class="mt-4 text-[10px] text-muted">&nbsp;</p></div>
+              class="mt-4 text-[10px] text-muted">Cerita ilustrasi, bukan kutipan kandidat terverifikasi.</p></div>
           <div
             class="reveal rounded-2xl border border-white/15 bg-ink p-7 text-white shadow-sm sm:p-10"
             role="region" aria-roledescription="carousel"
             aria-label="Testimoni contoh kandidat"
-            @keydown.arrow-right.prevent="slide = (slide + 1) % 2"
-            @keydown.arrow-left.prevent="slide = (slide + 1) % 2">
+            @keydown.arrow-right.prevent="nextStory()"
+            @keydown.arrow-left.prevent="previousStory()">
             <div class="mb-5 flex items-center justify-between"><span
                 class="text-5xl font-extrabold leading-none text-white"
                 aria-hidden="true">“</span><span
-                class="text-sm tracking-[0.2em] text-white"
+                class="text-sm tracking-[0.2em] text-[#FFD700]"
                 aria-label="Penilaian contoh 5 dari 5">★★★★★</span></div>
             <div class="min-h-[240px] sm:min-h-[205px]" aria-live="polite"
               aria-atomic="true">
-              <article x-show="slide === 0" aria-label="Testimoni 1 dari 2"><h3
+              <article x-show="slide === 0" aria-label="Testimoni 1 dari 5"><h3
                   class="sr-only">Cerita Andi Saputra</h3><blockquote
                   class="text-lg font-medium leading-8 tracking-tight">“Awalnya
                   saya belum tahu bagaimana menyiapkan karier ke Jepang.
@@ -914,7 +924,7 @@
                       ·
                       Osaka, Jepang</p></div></div></article>
               <article x-show="slide === 1" x-cloak
-                aria-label="Testimoni 2 dari 2"><h3 class="sr-only">Cerita Siti
+                aria-label="Testimoni 2 dari 5"><h3 class="sr-only">Cerita Siti
                   Rahma</h3><blockquote
                   class="text-lg font-medium leading-8 tracking-tight">“Saya
                   mengenal Nippon Ace melalui LPK tempat saya belajar.
@@ -927,27 +937,45 @@
                       class="mt-1 text-[11px] text-slate-300">Keperawatan
                       (Kaigo) ·
                       Nagoya, Jepang</p></div></div></article>
+              <article x-show="slide === 2" x-cloak aria-label="Testimoni 3 dari 5">
+                <h3 class="sr-only">Cerita Rina Anggraini</h3>
+                <blockquote class="text-lg font-medium leading-8 tracking-tight">“Saya mulai dengan merapikan tujuan dan mengenali bidang yang sesuai dengan minat saya. Gambaran persiapan bahasa dan dokumen membuat langkah berikutnya terasa lebih jelas.”</blockquote>
+                <div class="mt-6 flex items-center gap-3">
+                  <span class="flex size-11 items-center justify-center rounded-full bg-[#eaf0ed] text-sm font-bold text-[#3f7651]">RA</span>
+                  <div><p class="text-sm font-bold">Rina Anggraini</p><p class="mt-1 text-[11px] text-slate-300">Pertanian (Nogyo) · Cerita ilustrasi</p></div>
+                </div>
+              </article>
+              <article x-show="slide === 3" x-cloak aria-label="Testimoni 4 dari 5">
+                <h3 class="sr-only">Cerita Dimas Wijaya</h3>
+                <blockquote class="text-lg font-medium leading-8 tracking-tight">“Latar belakang teknik membuat saya tertarik pada pekerjaan manufaktur. Memahami kebutuhan kualifikasi dan menyusun rencana belajar membantu saya menyiapkan diri dengan lebih terarah.”</blockquote>
+                <div class="mt-6 flex items-center gap-3">
+                  <span class="flex size-11 items-center justify-center rounded-full bg-[#eaf0ed] text-sm font-bold text-[#3f7651]">DW</span>
+                  <div><p class="text-sm font-bold">Dimas Wijaya</p><p class="mt-1 text-[11px] text-slate-300">Manufaktur Mesin · Cerita ilustrasi</p></div>
+                </div>
+              </article>
+              <article x-show="slide === 4" x-cloak aria-label="Testimoni 5 dari 5">
+                <h3 class="sr-only">Cerita Maya Permata</h3>
+                <blockquote class="text-lg font-medium leading-8 tracking-tight">“Saya ingin mengembangkan kemampuan pelayanan di bidang perhotelan. Menetapkan target belajar bahasa dan meninjau pengalaman kerja menjadi langkah awal dalam persiapan karier saya.”</blockquote>
+                <div class="mt-6 flex items-center gap-3">
+                  <span class="flex size-11 items-center justify-center rounded-full bg-[#eaf0ed] text-sm font-bold text-[#3f7651]">MP</span>
+                  <div><p class="text-sm font-bold">Maya Permata</p><p class="mt-1 text-[11px] text-slate-300">Perhotelan · Cerita ilustrasi</p></div>
+                </div>
+              </article>
             </div>
             <div
-              class="mt-6 flex items-center justify-between border-t border-white/15 pt-4"><div
-                class="flex gap-1"><button type="button" @click="slide = 0"
-                  :aria-pressed="slide === 0"
-                  aria-label="Tampilkan testimoni Andi"
-                  class="flex size-11 items-center justify-center"><span
-                    class="h-1.5 rounded-full"
-                    :class="slide === 0 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button><button
-                  type="button" @click="slide = 1" :aria-pressed="slide === 1"
-                  aria-label="Tampilkan testimoni Siti"
-                  class="flex size-11 items-center justify-center"><span
-                    class="h-1.5 rounded-full"
-                    :class="slide === 1 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button></div><div
+              class="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-4"><div
+                class="flex gap-1"><button type="button" @click="slide = 0" :aria-pressed="slide === 0" aria-label="Tampilkan testimoni Andi" class="flex size-9 items-center justify-center"><span class="h-1.5 rounded-full" :class="slide === 0 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button>
+                  <button type="button" @click="slide = 1" :aria-pressed="slide === 1" aria-label="Tampilkan testimoni Siti" class="flex size-9 items-center justify-center"><span class="h-1.5 rounded-full" :class="slide === 1 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button>
+                  <button type="button" @click="slide = 2" :aria-pressed="slide === 2" aria-label="Tampilkan testimoni Rina" class="flex size-9 items-center justify-center"><span class="h-1.5 rounded-full" :class="slide === 2 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button>
+                  <button type="button" @click="slide = 3" :aria-pressed="slide === 3" aria-label="Tampilkan testimoni Dimas" class="flex size-9 items-center justify-center"><span class="h-1.5 rounded-full" :class="slide === 3 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button>
+                  <button type="button" @click="slide = 4" :aria-pressed="slide === 4" aria-label="Tampilkan testimoni Maya" class="flex size-9 items-center justify-center"><span class="h-1.5 rounded-full" :class="slide === 4 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button></div><div
                 class="flex gap-2"><button type="button"
-                  @click="slide = (slide + 1) % 2"
+                  @click="previousStory()"
                   class="flex size-11 items-center justify-center rounded-full border border-white/15 text-white hover:border-japan"
                   aria-label="Testimoni sebelumnya"><svg
                     class="icon !size-4 rotate-180" aria-hidden="true"><use
                       href="#i-arrow" /></svg></button><button type="button"
-                  @click="slide = (slide + 1) % 2"
+                  @click="nextStory()"
                   class="flex size-11 items-center justify-center rounded-full border border-white/15 text-white hover:border-japan"
                   aria-label="Testimoni berikutnya"><svg class="icon !size-4"
                     aria-hidden="true"><use
@@ -1130,7 +1158,7 @@
                         value="Penerbangan">Penerbangan</option><option
                         value="Perhotelan">Perhotelan</option><option
                         value="Pengecatan">Pengecatan</option><option
-                        value="Pengelasan">Pengelasan</option></select></div>
+                        value="Pengelasan">Pengelasan</option><option value="Peternakan">Peternakan</option></select></div>
                   <fieldset><legend class="field-label">Apakah bersedia untuk
                       mengikuti konsultasi Job Order kami? *</legend><div
                       class="flex flex-col gap-3"><label

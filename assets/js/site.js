@@ -56,8 +56,9 @@ document.addEventListener('alpine:init', () => {
     headerOnHome: false,
     activeSection: 'beranda',
     jobSlide: 0,
-    jobCount: 15,
+    jobCount: 16,
     slide: 0,
+    storyCount: 5,
     status: '',
     statusType: '',
     submitting: false,
@@ -71,7 +72,7 @@ document.addEventListener('alpine:init', () => {
     },
     fileErrors: {},
     form: {
-      currentLocation: '', email: '', field: '', jobOrderConsultation: '', romaji: '', katakana: '',
+      currentLocation: '', email: '', field: '', jobOrderConsultation: '', indonesiaKtpNumber: '', romaji: '', katakana: '',
       gender: '', birthPlace: '', birthDate: '', identityAddress: '',
       maritalStatus: '', height: '', weight: '', motherName: '', fatherName: '',
       guardianPhone: '', guardianAddress: '', diagnosedDisease: '', diseaseName: '',
@@ -80,7 +81,7 @@ document.addEventListener('alpine:init', () => {
       resignationReason: '', workedInJapan: '', visitedJapan: '', overstay: '',
       deported: '', visaRejected: '', visaStatus: '', japanCompany: '',
       japanJobType: '', japanPeriod: '', returnReason: '', declaration: false,
-      ktpNumber: '', japanName: '', japanGender: '', japanBirthDate: '',
+      passportNumber: '', japanName: '', japanGender: '', japanBirthDate: '',
       japanAddress: '', currentOccupation: '', japanVisaStatus: '', remainingTg: '',
       japanExperience: '', ownedCertificates: '', zairyuExpiry: '',
       desiredJobPrefecture: '', applyReason: '',
@@ -144,6 +145,8 @@ document.addEventListener('alpine:init', () => {
     },
     previousJob() { this.jobSlide = (this.jobSlide + this.jobCount - 1) % this.jobCount; },
     nextJob() { this.jobSlide = (this.jobSlide + 1) % this.jobCount; },
+    previousStory() { this.slide = (this.slide + this.storyCount - 1) % this.storyCount; },
+    nextStory() { this.slide = (this.slide + 1) % this.storyCount; },
     selectField(field) {
       try { sessionStorage.setItem('nipponAceSelectedField', field); } catch { }
     },
@@ -190,7 +193,7 @@ document.addEventListener('alpine:init', () => {
         this.$refs.applicantForm.querySelector('[data-location-step] input[name="currentLocation"]')?.focus({ preventScroll: true });
         return;
       }
-      this.$refs.applicantForm.querySelector(`[data-form-route="${this.form.currentLocation}"][data-form-step="${this.step}"] h4`).focus({ preventScroll: true });
+      this.$refs.applicantForm.querySelector(`[data-form-route="${this.form.currentLocation}"][data-form-step="${this.step}"] h2`)?.focus({ preventScroll: true });
     },
     nextStep() {
       if (!this.validateStep()) return;
@@ -214,19 +217,47 @@ document.addEventListener('alpine:init', () => {
       this.step = Math.max(this.step - 1, 0);
       this.$nextTick(() => this.focusStepHeading());
     },
-    submit() {
+    async submit() {
       if (this.submitting || this.routeStep || this.step !== this.steps.length - 1) return;
       this.status = '';
       if (!this.validateStep()) return;
       if (this.form.website) return;
       const config = window.NIPPON_ACE_CONFIG || {};
-      if (config.webhookUrl && !config.webhookUrl.includes('YOUR_DEPLOYMENT_ID')) {
+      if (!config.apiUrl) {
         this.statusType = 'error';
-        this.status = 'Endpoint saat ini belum mendukung formulir pendaftaran dan unggahan dokumen. Data belum dikirim. Hubungi admin untuk menyiapkan backend pendaftaran yang aman.';
+        this.status = 'Alamat API pendaftaran belum dikonfigurasi.';
         return;
       }
-      this.statusType = 'info';
-      this.status = 'Formulir demo: data dan dokumen belum dikirim atau disimpan. Layanan pendaftaran belum diaktifkan.';
+
+      this.submitting = true;
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), config.requestTimeout || 120000);
+
+      try {
+        const response = await fetch(config.apiUrl, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(this.$refs.applicantForm),
+          signal: controller.signal
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+          const validationMessage = payload.errors
+            ? Object.values(payload.errors).flat()[0]
+            : payload.msg || payload.message;
+          throw new Error(validationMessage || 'Pendaftaran gagal dikirim.');
+        }
+        this.statusType = 'success';
+        this.status = payload.msg || 'Pendaftaran berhasil dikirim!';
+      } catch (error) {
+        this.statusType = 'error';
+        this.status = error.name === 'AbortError'
+          ? 'Waktu unggah habis. Periksa koneksi dan coba kembali.'
+          : error.message || 'Pendaftaran gagal dikirim. Silakan coba lagi.';
+      } finally {
+        window.clearTimeout(timeout);
+        this.submitting = false;
+      }
     }
   }));
 });

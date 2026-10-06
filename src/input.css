@@ -223,6 +223,10 @@
     background-image: url("../images/sector-pengelasan.webp");
   }
 
+  #job-grid article:nth-child(16) .job-icon {
+    background-image: url("../images/sector-peternakan.webp");
+  }
+
   #job-grid .job-card>span:first-child {
     z-index: 1;
     top: 16px;

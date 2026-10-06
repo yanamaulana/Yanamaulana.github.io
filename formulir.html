@@ -128,7 +128,7 @@
                                             value="Penerbangan">Penerbangan</option><option
                                             value="Perhotelan">Perhotelan</option><option
                                             value="Pengecatan">Pengecatan</option><option
-                                            value="Pengelasan">Pengelasan</option></select></div>
+                                            value="Pengelasan">Pengelasan</option><option value="Peternakan">Peternakan</option></select></div>
                                 <fieldset><legend class="field-label">Apakah
                                         bersedia untuk mengikuti konsultasi Job
                                         Order kami? *</legend><div
@@ -145,6 +145,16 @@
                                                 value="Tidak"
                                                 x-model="form.jobOrderConsultation">
                                             Tidak</label></div></fieldset>
+                                <div><label for="indonesiaKtpNumber"
+                                        class="field-label">Nomor KTP
+                                        *</label><input id="indonesiaKtpNumber"
+                                        name="indonesiaKtpNumber"
+                                        x-model="form.indonesiaKtpNumber"
+                                        class="field" type="text"
+                                        inputmode="numeric" minlength="16"
+                                        maxlength="16" pattern="[0-9]{16}"
+                                        title="Nomor KTP harus terdiri dari 16 digit angka."
+                                        autocomplete="off" required></div>
                                 <div><label for="romaji"
                                         class="field-label">Nama Lengkap Romaji
                                         *</label><input id="romaji"
@@ -697,13 +707,14 @@
                                 class="text-base font-extrabold">DATA KANDIDAT
                                 DI JEPANG</h2>
                             <div class="space-y-5">
-                                <div><label for="ktpNumber"
-                                        class="field-label">No. KTP
-                                        *</label><input id="ktpNumber"
-                                        name="ktpNumber"
-                                        x-model="form.ktpNumber" class="field"
-                                        type="text" inputmode="numeric"
-                                        required></div>
+                                <div><label for="passportNumber"
+                                        class="field-label">Nomor Paspor
+                                        *</label><input id="passportNumber"
+                                        name="passportNumber"
+                                        x-model="form.passportNumber" class="field"
+                                        type="text" maxlength="30" pattern="[A-Za-z0-9]+"
+                                        title="Nomor paspor hanya boleh berisi huruf dan angka, maksimal 30 karakter."
+                                        autocomplete="off" required></div>
                                 <div><label for="japanName"
                                         class="field-label">Nama lengkap
                                         *</label><input id="japanName"
@@ -931,7 +942,7 @@
                         <p role="status" aria-live="polite" x-show="status"
                             x-text="status"
                             class="rounded-lg border p-4 text-xs leading-6"
-                            :class="statusType === 'error' ? 'border-red-200 bg-red-50 text-red-800' : 'border-slate-200 bg-paper text-muted'"></p>
+                            :class="statusType === 'error' ? 'border-red-200 bg-red-50 text-red-800' : statusType === 'success' ? 'border-green-200 bg-green-50 text-green-800' : 'border-slate-200 bg-paper text-muted'"></p>
                     </form>
                     <div x-show="!routeStep"
                         class="mt-6 border-t border-slate-100 pt-5">
