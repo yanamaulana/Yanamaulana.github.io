@@ -1,5 +1,42 @@
 /* Alpine dimuat setelah berkas ini, menggunakan defer. */
 document.addEventListener('alpine:init', () => {
+  Alpine.data('legalDocuments', () => ({
+    selected: null,
+    trigger: null,
+    previousOverflow: '',
+    documents: {
+      nib: { title: 'NIB', number: '008260002116', url: 'assets/images/legalitas/NIB.pdf' },
+      sk: { title: 'SK Kemenkumham', number: 'AHU-A111550.AH.01.30.Tahun 2026', url: 'assets/images/legalitas/SK_Kemenkumham.pdf' },
+      npwp: { title: 'NPWP', number: '10.000.001.0-745.785', url: 'assets/images/legalitas/NPWP.pdf' }
+    },
+    openDocument(key, trigger) {
+      this.selected = this.documents[key];
+      this.trigger = trigger;
+      this.previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      this.$refs.preview.showModal();
+      this.$nextTick(() => this.$refs.closePreview.focus());
+    },
+    closePreview() { this.$refs.preview.close(); },
+    resetPreview() {
+      this.selected = null;
+      document.body.style.overflow = this.previousOverflow;
+      this.trigger?.focus({ preventScroll: true });
+    }
+  }));
+
+  Alpine.data('registrationGateway', () => ({
+    location: '',
+    urls: {
+      Jepang: 'https://docs.google.com/forms/d/1epKv2KoZmBMgRK3YwpQCEp9OM43XvFwcx9BjGqcBmlw',
+      Indonesia: 'https://docs.google.com/forms/d/e/1FAIpQLSde_1RnADofHXSdzWNTfDeR6R0udPwm2IfGcBylfB7awt2m4g/viewform?usp=publish-editor'
+    },
+    continueRegistration() {
+      if (!this.$refs.locationForm.reportValidity()) return;
+      const url = this.urls[this.location];
+      if (url) window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  }));
 
   Alpine.data('heroCarousel', () => ({
     current: 0,
@@ -56,16 +93,23 @@ document.addEventListener('alpine:init', () => {
     headerOnHome: false,
     activeSection: 'beranda',
     jobSlide: 0,
-    jobCount: 15,
+    jobCount: 16,
     slide: 0,
+    storyCount: 5,
     status: '',
     statusType: '',
     submitting: false,
     step: 0,
-    steps: ['Data Diri Calon Peserta', 'Data Diri Calon Peserta (Lanjutan)', 'Riwayat Kesehatan', 'Pendidikan', 'Riwayat Pekerjaan di Indonesia', 'Pengalaman di Jepang', 'Upload Dokumen', 'Pernyataan'],
+    routeStep: true,
+    leaveWarningTrigger: null,
+    indonesiaSteps: ['Data Diri Calon Peserta', 'Data Diri Calon Peserta (Lanjutan)', 'Riwayat Kesehatan', 'Pendidikan', 'Riwayat Pekerjaan di Indonesia', 'Pengalaman di Jepang', 'Upload Dokumen', 'Pernyataan'],
+    japanSteps: ['Data Kandidat di Jepang', 'Dokumen Kandidat di Jepang'],
+    get steps() {
+      return this.form.currentLocation === 'Jepang' ? this.japanSteps : this.indonesiaSteps;
+    },
     fileErrors: {},
     form: {
-      email: '', field: '', jobOrderConsultation: '', romaji: '', katakana: '',
+      currentLocation: '', email: '', field: '', jobOrderConsultation: '', indonesiaKtpNumber: '', romaji: '', katakana: '',
       gender: '', birthPlace: '', birthDate: '', identityAddress: '',
       maritalStatus: '', height: '', weight: '', motherName: '', fatherName: '',
       guardianPhone: '', guardianAddress: '', diagnosedDisease: '', diseaseName: '',
@@ -74,9 +118,20 @@ document.addEventListener('alpine:init', () => {
       resignationReason: '', workedInJapan: '', visitedJapan: '', overstay: '',
       deported: '', visaRejected: '', visaStatus: '', japanCompany: '',
       japanJobType: '', japanPeriod: '', returnReason: '', declaration: false,
+      passportNumber: '', japanName: '', japanGender: '', japanBirthDate: '',
+      japanAddress: '', currentOccupation: '', japanVisaStatus: '', remainingTg: '',
+      japanExperience: '', ownedCertificates: '', zairyuExpiry: '',
+      desiredJobPrefecture: '', applyReason: '',
       website: ''
     },
     init() {
+      try {
+        const selectedField = sessionStorage.getItem('nipponAceSelectedField');
+        if (selectedField) {
+          this.form.field = selectedField;
+          sessionStorage.removeItem('nipponAceSelectedField');
+        }
+      } catch { }
       this.$nextTick(() => this.updateHeader());
       this.$watch('menuOpen', value => {
         if (value) this.$nextTick(() => this.$refs.mobileNav.querySelector('a').focus());
@@ -97,20 +152,40 @@ document.addEventListener('alpine:init', () => {
       }
     },
     updateHeader() {
-      const hero = document.getElementById('beranda').getBoundingClientRect();
+      const heroElement = document.getElementById('beranda');
+      if (!heroElement || !this.$refs.siteHeader) {
+        this.headerOnHome = false;
+        return;
+      }
+      const hero = heroElement.getBoundingClientRect();
       const headerHeight = this.$refs.siteHeader.offsetHeight;
       this.headerOnHome = hero.top <= headerHeight && hero.bottom > headerHeight;
     },
     closeMenu(restoreFocus = false) {
       this.menuOpen = false;
-      if (restoreFocus) this.$refs.menuButton.focus();
+      if (restoreFocus) this.$refs.menuButton?.focus();
+    },
+    requestLeave(event) {
+      this.leaveWarningTrigger = event.currentTarget;
+      if (!this.$refs.leaveWarning.open) this.$refs.leaveWarning.showModal();
+      this.$nextTick(() => this.$refs.stayOnForm?.focus());
+    },
+    cancelLeave() {
+      this.$refs.leaveWarning.close();
+      const trigger = this.leaveWarningTrigger;
+      this.leaveWarningTrigger = null;
+      this.$nextTick(() => trigger?.focus({ preventScroll: true }));
+    },
+    confirmLeave() {
+      this.$refs.leaveWarning.close();
+      window.location.href = 'index.html';
     },
     previousJob() { this.jobSlide = (this.jobSlide + this.jobCount - 1) % this.jobCount; },
     nextJob() { this.jobSlide = (this.jobSlide + 1) % this.jobCount; },
+    previousStory() { this.slide = (this.slide + this.storyCount - 1) % this.storyCount; },
+    nextStory() { this.slide = (this.slide + 1) % this.storyCount; },
     selectField(field) {
-      this.form.field = field;
-      this.step = 0;
-      this.$nextTick(() => document.getElementById('email').focus({ preventScroll: true }));
+      try { sessionStorage.setItem('nipponAceSelectedField', field); } catch { }
     },
     validateFile(event, name) {
       const input = event.currentTarget;
@@ -125,7 +200,10 @@ document.addEventListener('alpine:init', () => {
       this.fileErrors[name] = message;
     },
     validateStep() {
-      const panel = this.$refs.applicantForm.querySelector(`[data-form-step="${this.step}"]`);
+      const panel = this.routeStep
+        ? this.$refs.applicantForm.querySelector('[data-location-step]')
+        : this.$refs.applicantForm.querySelector(`[data-form-route="${this.form.currentLocation}"][data-form-step="${this.step}"]`);
+      if (!panel) return false;
       const controls = Array.from(panel.querySelectorAll('input, select, textarea'))
         .filter(control => control.getClientRects().length > 0);
       for (const control of controls) {
@@ -148,32 +226,75 @@ document.addEventListener('alpine:init', () => {
       return true;
     },
     focusStepHeading() {
-      this.$refs.applicantForm.querySelector(`[data-form-step="${this.step}"] h4`).focus({ preventScroll: true });
+      if (this.routeStep) {
+        this.$refs.applicantForm.querySelector('[data-location-step] input[name="currentLocation"]')?.focus({ preventScroll: true });
+        return;
+      }
+      this.$refs.applicantForm.querySelector(`[data-form-route="${this.form.currentLocation}"][data-form-step="${this.step}"] h2`)?.focus({ preventScroll: true });
     },
     nextStep() {
       if (!this.validateStep()) return;
       this.status = '';
+      if (this.routeStep) {
+        this.routeStep = false;
+        this.step = 0;
+        this.$nextTick(() => this.focusStepHeading());
+        return;
+      }
       this.step = Math.min(this.step + 1, this.steps.length - 1);
       this.$nextTick(() => this.focusStepHeading());
     },
     previousStep() {
       this.status = '';
+      if (this.step === 0) {
+        this.routeStep = true;
+        this.$nextTick(() => this.focusStepHeading());
+        return;
+      }
       this.step = Math.max(this.step - 1, 0);
       this.$nextTick(() => this.focusStepHeading());
     },
-    submit() {
-      if (this.submitting || this.step !== this.steps.length - 1) return;
+    async submit() {
+      if (this.submitting || this.routeStep || this.step !== this.steps.length - 1) return;
       this.status = '';
       if (!this.validateStep()) return;
       if (this.form.website) return;
       const config = window.NIPPON_ACE_CONFIG || {};
-      if (config.webhookUrl && !config.webhookUrl.includes('YOUR_DEPLOYMENT_ID')) {
+      if (!config.apiUrl) {
         this.statusType = 'error';
-        this.status = 'Endpoint saat ini belum mendukung formulir pendaftaran dan unggahan dokumen. Data belum dikirim. Hubungi admin untuk menyiapkan backend pendaftaran yang aman.';
+        this.status = 'Alamat API pendaftaran belum dikonfigurasi.';
         return;
       }
-      this.statusType = 'info';
-      this.status = 'Formulir demo: data dan dokumen belum dikirim atau disimpan. Layanan pendaftaran belum diaktifkan.';
+
+      this.submitting = true;
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), config.requestTimeout || 120000);
+
+      try {
+        const response = await fetch(config.apiUrl, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(this.$refs.applicantForm),
+          signal: controller.signal
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+          const validationMessage = payload.errors
+            ? Object.values(payload.errors).flat()[0]
+            : payload.msg || payload.message;
+          throw new Error(validationMessage || 'Pendaftaran gagal dikirim.');
+        }
+        this.statusType = 'success';
+        this.status = payload.msg || 'Pendaftaran berhasil dikirim!';
+      } catch (error) {
+        this.statusType = 'error';
+        this.status = error.name === 'AbortError'
+          ? 'Waktu unggah habis. Periksa koneksi dan coba kembali.'
+          : error.message || 'Pendaftaran gagal dikirim. Silakan coba lagi.';
+      } finally {
+        window.clearTimeout(timeout);
+        this.submitting = false;
+      }
     }
   }));
 });

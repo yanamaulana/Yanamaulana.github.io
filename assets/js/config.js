@@ -1,5 +1,5 @@
-/* Ganti hanya dengan URL deployment Web App /exec milik Anda. */
+/* Ubah apiUrl bila backend Laravel dijalankan pada host/port lain. */
 window.NIPPON_ACE_CONFIG = Object.freeze({
-  webhookUrl: 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec',
-  requestTimeout: 20000
+  apiUrl: '../be-nipponace/public/api/register',
+  requestTimeout: 120000
 });
