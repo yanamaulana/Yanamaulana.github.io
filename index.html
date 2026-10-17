@@ -1,1340 +1,1406 @@
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="en-us" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <title>YM-PORTFOLIO</title>
+    <meta name="description" content="Comming soon page - flat able">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konsultasi &amp; Bimbingan Karier Jepang | Nippon Ace
-      Indonesia</title>
-    <meta name="description"
-      content="Nippon Ace memberikan konsultasi dan bimbingan karier di Jepang bagi kandidat Indonesia dan LPK mitra.">
-    <meta name="theme-color" content="#142638">
-    <!-- Domain contoh: ganti seluruh example.com sebelum publikasi. -->
-    <link rel="canonical" href="https://example.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="id_ID">
-    <meta property="og:site_name" content="Nippon Ace">
-    <meta property="og:title"
-      content="Konsultasi &amp; Bimbingan Karier Jepang | Nippon Ace Indonesia">
-    <meta property="og:description"
-      content="Dapatkan konsultasi dan bimbingan karier untuk merencanakan langkah kerja di Jepang bersama Nippon Ace.">
-    <meta property="og:url" content="https://example.com/">
-    <meta property="og:image"
-      content="https://example.com/assets/images/og-japan.webp">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt"
-      content="Suasana jalan tradisional dan Pagoda Yasaka di Kyoto, Jepang">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-      content="Konsultasi &amp; Bimbingan Karier Jepang | Nippon Ace Indonesia">
-    <meta name="twitter:description"
-      content="Konsultasi dan pendampingan karier di Jepang bagi kandidat perorangan dan LPK mitra.">
-    <meta name="twitter:image"
-      content="https://example.com/assets/images/og-japan.webp">
-    <meta name="twitter:image:alt"
-      content="Suasana Kyoto untuk perjalanan karier ke Jepang">
-    <link rel="icon" href="assets/images/favicon.svg?v=2" type="image/svg+xml">
-    <link rel="preload" href="assets/fonts/plus-jakarta-latin.woff2" as="font"
-      type="font/woff2" crossorigin>
-    <!-- Prioritaskan background slide pertama untuk LCP. -->
-    <link rel="preload" as="image" href="assets/images/hero-fuji.webp"
-      fetchpriority="high">
-    <link rel="stylesheet" href="assets/css/site.min.css">
-    <script src="assets/js/config.js" defer></script>
-    <script src="assets/js/site.js" defer></script>
-    <script src="assets/js/alpine.min.js" defer></script>
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "PT. Nippon Ace Indonesia",
-    "alternateName": "Nippon Ace",
-    "url": "https://example.com/",
-    "logo": "https://example.com/assets/images/favicon.svg",
-    "description": "PT. Nippon Ace Indonesia memberikan konsultasi dan bimbingan karier di Jepang bagi kandidat Indonesia dan LPK mitra.",
-    "areaServed": [{"@type": "Country", "name": "Indonesia"}, {"@type": "Country", "name": "Japan"}]
-  }
-  </script>
-  </head>
-  <body x-data="companySite" @keydown.escape.window="closeMenu(true)">
-    <a href="#main"
-      class="fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-ink p-4 text-white focus:translate-y-0">Lewati
-      ke konten utama</a>
-    <!-- Satu sprite ikon inline, tanpa library ikon atau request tambahan. -->
-    <svg xmlns="http://www.w3.org/2000/svg"
-      class="absolute size-0 overflow-hidden" aria-hidden="true">
-      <defs>
-        <symbol id="i-arrow" viewBox="0 0 24 24"><path
-            d="M4 12h15m-6-6 6 6-6 6" /></symbol>
-        <symbol id="i-up-right" viewBox="0 0 24 24"><path
-            d="M6 18 18 6M6 6h12v12" /></symbol>
-        <symbol id="i-check" viewBox="0 0 24 24"><path
-            d="m5 12 4 4L19 6" /></symbol>
-        <symbol id="i-shield" viewBox="0 0 24 24"><path
-            d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6z" /><path
-            d="m8 12 3 3 5-6" /></symbol>
-        <symbol id="i-book" viewBox="0 0 24 24"><path
-            d="M12 5v15M3 4c4-1 6 0 9 1 3-1 5-2 9-1v15c-4-1-6 0-9 1-3-1-5-2-9-1z" /></symbol>
-        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12"
-            r="9" /><ellipse cx="12" cy="12" rx="4" ry="9" /><path
-            d="M3 12h18" /></symbol>
-        <symbol id="i-chat" viewBox="0 0 24 24"><path
-            d="M21 11a9 9 0 0 1-9 9 10 10 0 0 1-4-1l-5 2 1-5a9 9 0 1 1 17-5Z" /><path
-            d="M8 10h8m-8 4h5" /></symbol>
-        <symbol id="i-pin" viewBox="0 0 24 24"><path
-            d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" /><circle cx="12"
-            cy="10" r="2.5" /></symbol>
-        <symbol id="i-heart" viewBox="0 0 24 24"><path
-            d="M20 5c-3-3-6-1-8 1-2-2-5-4-8-1-5 5 4 12 8 15 4-3 13-10 8-15Z" /><path
-            d="M3 11h5l2-3 3 7 2-4h6" /></symbol>
-        <symbol id="i-leaf" viewBox="0 0 24 24"><path
-            d="M20 3C8 2 2 8 5 15c3 7 17 3 15-12Z" /><path
-            d="m3 21 12-12" /></symbol>
-        <symbol id="i-fish" viewBox="0 0 24 24"><path
-            d="M3 12s4-7 10-7c4 0 6 4 6 4l3-3v12l-3-3s-2 4-6 4C7 19 3 12 3 12Z" /><circle
-            cx="9" cy="11" r=".7" /><path d="M14 6c-2 3-2 9 0 12" /></symbol>
-        <symbol id="i-building" viewBox="0 0 24 24"><path
-            d="M3 21h18M6 21V7h12v14M9 7V3h6v4M9 11h1m4 0h1m-6 4h1m4 0h1m-4 6v-3h2v3" /></symbol>
-        <symbol id="i-food" viewBox="0 0 24 24"><path
-            d="M4 10h16v9H4zM7 10V6a2 2 0 0 1 4 0v4m2 0V5a2 2 0 0 1 4 0v5M3 19h18" /></symbol>
-        <symbol id="i-utensils" viewBox="0 0 24 24"><path
-            d="M4 3v6c0 3 6 3 6 0V3M7 3v18M19 21V3c-5 3-5 10 0 10" /></symbol>
-        <symbol id="i-gear" viewBox="0 0 24 24"><path
-            d="m9 3-1 3-3 1-2 4 2 2v4l4 3 3-1 3 1 4-3v-4l2-2-2-4-3-1-1-3z" /><circle
-            cx="12" cy="12" r="3" /></symbol>
-        <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12"
-            height="12" rx="2" /><path
-            d="M9 3v3m6-3v3M9 18v3m6-3v3M3 9h3m-3 6h3m12-6h3m-3 6h3M10 10h4v4h-4z" /></symbol>
-        <symbol id="i-ship" viewBox="0 0 24 24"><path
-            d="M3 13 12 9l9 4-3 6H6zM7 11V5h10v6M12 5V2M3 22l3-2 3 2 3-2 3 2 3-2 3 2" /></symbol>
-        <symbol id="i-sparkle" viewBox="0 0 24 24"><path
-            d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5zM20 2v4m-2-2h4" /></symbol>
-        <symbol id="i-tool" viewBox="0 0 24 24"><path
-            d="M14 4a6 6 0 0 0-7 7l-5 6a3 3 0 0 0 5 4l6-6a6 6 0 0 0 7-8l-4 4-3-3 4-4Z" /></symbol>
-        <symbol id="i-plane" viewBox="0 0 24 24"><path
-            d="m22 2-8 20-3-9L2 10zM11 13 22 2" /></symbol>
-        <symbol id="i-hotel" viewBox="0 0 24 24"><path
-            d="M4 21V3h16v18M2 21h20M8 7h1m6 0h1m-8 4h1m6 0h1m-6 10v-6h4v6" /></symbol>
-        <symbol id="i-paint" viewBox="0 0 24 24"><rect x="3" y="3" width="14"
-            height="6" rx="2" /><path d="M17 6h4v7H10v8H7v-8" /></symbol>
-        <symbol id="i-weld" viewBox="0 0 24 24"><path
-            d="m4 19 9-9 3 3-9 9zM13 10l4-4m1 5h4m-8-8V1m5 4 3-3M2 11h4m0-5 2 2" /></symbol>
-        <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="7"
-            r="3" /><path
-            d="M3 21v-3a6 6 0 0 1 12 0v3m2-17a3 3 0 0 1 0 6m2 11v-3a6 6 0 0 0-2-4" /></symbol>
-      </defs>
-    </svg>
+    <meta name="author" content="Codedthemes">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img\code.svg">
+    <link rel="stylesheet" href="css\style-v2.css">
+    <!-- Modernizr runs quickly on page load for detecting features -->
+    <script src="js\modernizr.custom.js"></script>
+</head>
 
-    <header x-ref="siteHeader" class="site-header sticky top-0 z-50"
-      style="margin-bottom: -85px"
-      :class="{ 'is-home': headerOnHome && !menuOpen }"
-      @scroll.window.passive="updateHeader()" @resize.window="updateHeader()">
-      <div
-        class="container-wide flex h-[84px] items-center justify-between gap-6">
-        <a href="index.html" class="flex shrink-0 items-center gap-2.5"
-          aria-label="Nippon Ace — Beranda">
-          <img src="assets/images/favicon.svg"
-            alt="Logo PT. Nippon Ace Indonesia" width="52" height="52"
-            decoding="async" loading="eager" class="brand-mark">
-          <span
-            class="text-[15px] font-extrabold leading-[1.3] tracking-tight">Nippon
-            Ace<span
-              class="block text-[10px] font-semibold uppercase tracking-[0.23em] text-muted">Indonesia</span></span>
-        </a>
-        <nav aria-label="Navigasi utama"
-          class="hidden items-center gap-7 lg:flex">
-          <a class="nav-link" :class="{active: activeSection === 'beranda'}"
-            href="#beranda">Beranda</a>
-          <a class="nav-link" :class="{active: activeSection === 'tentang'}"
-            href="#tentang">Tentang Kami</a>
-          <a class="nav-link" :class="{active: activeSection === 'lowongan'}"
-            href="#lowongan">Bidang Kerja</a>
-          <a class="nav-link" :class="{active: activeSection === 'testimoni'}"
-            href="#testimoni">Cerita Kandidat</a>
-          <a class="nav-link" :class="{active: activeSection === 'kontak'}"
-            href="#kontak">Kontak</a>
+<body>
+    <!-- Loading overlay -->
+    <div id="loading" class="dark-back">
+        <div class="loading-bar"></div>
+        <span id="ucapan" class="loading-text opacity-0">So Excited ?</span>
+    </div>
+    <!-- Informations bar on top of the screen -->
+    <div class="info-bar bar-intro">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-lg-6 info-bar-left">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-6 info-bar-right">
+                <a data-dialog="somedialog" class="action-btn trigger">🕑 <strong id="jam"> </strong> : <strong id="menit"></strong> : <strong id="detik"></strong></a>
+            </div>
+        </div>
+    </div>
+    <!-- END - Informations bar on top of the screen -->
+    <!-- Slider Wrapper -->
+    <div id="slider" class="sl-slider-wrapper" style="background: #00416a; /* fallback for old browsers; */
+    background: -webkit-linear-gradient(to right, #00416a, #e4e5e6); /* Chrome 10-25, Safari 5.1-6; */
+    background: linear-gradient(to right, #00416a, #e4e5e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+; */">
+        <div class="sl-slider">
+            <!-- SLIDE 1 / Home -->
+            <div class="sl-slide bg-1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+                <div class="sl-slide-inner">
+                    <div class="content-slide">
+                        <div class="container">
+                            <img src="img\avatar.png" alt="" class="brand-logo text-intro opacity-0 shadow p-3 mb-5 bg-black rounded">
+                            <h1 class="text-intro opacity-0">Yana Maulana</h1>
+                            <h3 class="text-intro opacity-0">Hollaa.. I'm Maulana (Yana), I'm a Software developer. I
+                                like
+                                problem solving.
+                                <br> My specialty is focus on Web, API and Databases development-.
+                            </h3>
+                            <!-- Text or Icons, as you want :-) / Uncomment the part you need and comment or delete the other one -->
+                            <!-- <p class="social-text text-intro opacity-0">
+			    					<a href="#" target="_blank">TWITTER</a> / 
+			    					<a href="#" target="_blank">FACEBOOK</a> / 
+			    					<a href="#" target="_blank">YOUTUBE</a>
+			    				</p> -->
+                            <h3 class="social-icon text-intro opacity-0">
+                                <a href="https://twitter.com/Yana_mzn" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/mohamed.maulana1" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/kmprtyn/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.codewars.com/users/yana14045" target="_blank"><i class="fa fa-code"></i></a>
+                                <a href="https://www.linkedin.com/in/yana-maulana-20a948193/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END - SLIDE 1 / Home -->
+
+            <!-- SLIDE 2 / About -->
+            <div class="sl-slide bg-2" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+                <div class="sl-slide-inner">
+                    <div class="content-slide">
+                        <div class="container">
+                            <h2><strong>WORK EXPERIENCE</strong></h2>
+                            <div class="row about-part">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <p>
+                                        <strong>Chief MIS</strong><br />&nbsp;
+                                        PT. Samick Indonesia <br />&nbsp;
+                                        August 2023 - Present <br />&nbsp;
+                                        Jl. Raya KH Umar Rw. Ilat, Desa Kidul, <br />&nbsp;
+                                        Kec. Cileungsi, Kabupaten Bogor,<br />&nbsp;
+                                        Jawa Barat 17151 Indonesia<br />
+                                        <a style="color: darkslateblue;" href="http://www.samickguitar.com/" target="_blank">samickguitar.com</a></br>
+                                        <strong>Description :</strong> <br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Tuning & Manage company
+                                        databases.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Create and formulate reports for each
+                                        part of the business process more efficiently.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Manage, Maintain, and Develop the Sunfish ERP System<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Manage, Maintain, and Develop the Sunfish HR System<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Integrating additional modules into the ERP system.</b></a> <br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Delivering a presentation on a new module within the ERP system to employees.</b></a> <br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Identifying the business processes and tools to be employed in the development of the ERP system.</b></a> <br />
+                                        <br />
+                                    </p>
+                                    <hr class="devider" style="border-color: black;">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <p>
+                                        <strong>Senior PHP Programmer</strong><br />&nbsp;
+                                        PT. Dasa Windu Agung <br />&nbsp;
+                                        July 2021 - July 2023 <br />&nbsp;
+                                        Jl. Pangkalan 1A No.18
+                                        Bantargebang Kota Bekasi, <br />&nbsp;
+                                        Jawa Barat 17151 Indonesia<br />
+                                        <a style="color: darkslateblue;" href="https://www.dwa.co.id/" target="_blank">www.dwa.co.id</a></br>
+                                        <strong>Description :</strong> <br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Tuning & Manage company
+                                        databases.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Create and formulate reports for each
+                                        part of the business process more efficiently.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Migrate DwaSys (ERP Application) from
+                                        Desktop application to web based application<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Migrate DwaHris (HR Application) from
+                                        Desktop application to web based application<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Develop employee application <a href="http://mynik.dwa.co.id/mynik/" target="_blank"
+                                            class="text-info"><b>MyNik</b></a> <br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Integrating additional modules into the ERP system.</b></a> <br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Delivering a presentation on a new module within the ERP system to employees.</b></a> <br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Conducting testing and providing guidance to junior programmers in the formulation of new modules and the migration
+                                        of ERP systems.</b></a> <br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Identifying the business processes and tools to be employed in the development of the ERP system.</b></a> <br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Preparing and selecting the necessary software for a new facility in Karawang.</b></a> <br />
+                                        <br />
+                                    </p>
+                                    <hr class="devider" style="border-color: black;">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <p>
+                                        <strong>PHP Programmer (Web Application Developer)</strong><br />&nbsp;
+                                        PT. INDO TAICHEN TEXTILE INDUSTRY <br />&nbsp;
+                                        August 2020 - July 2021 <br />&nbsp;
+                                        Jl. Gatot Subroto Km.3 (Jl. Kalisabi) Desa Uwung Jaya,<br />&nbsp;
+                                        Cibodas 15138 Kota Tangerang-Banten-Indonesia<br />
+                                        <a style="color: darkslateblue;" href="https://www.indotaichen.com/" target="_blank">www.indotaichen.com</a></br>
+                                        <strong>Description :</strong> <br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Managing company databases.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Create and formulate reports for each
+                                        part of the business process more
+                                        efficiently.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Improve the system towards
+                                        digitization.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Turning existing systems towards
+                                        process automation.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Translating business processes.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Training employees to use new
+                                        applications.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Collaborate with production division,
+                                        Lab, accounting,
+                                        &nbsp;&nbsp;&nbsp;&nbsp;planning,
+                                        warehouse & HR to
+                                        formulate a more digitalized &nbsp;&nbsp;&nbsp;&nbsp;business process to form an
+                                        automation system in
+                                        each &nbsp;&nbsp;&nbsp;&nbsp;division.<br />
+                                    </p>
+                                    <hr class="devider" style="border-color: black;">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <p>
+                                        <strong>Software Application Developer</strong><br />&nbsp;
+                                        PT. Sinar Sakti Metalindo <br />&nbsp;
+                                        May 2019 - May 2020 <br />&nbsp;
+                                        Jl. Raya Narogong Km. 16 Kp. Bakom No. 46,<br />&nbsp;
+                                        Limusnunggal - Cileungsi Bogor 16820, Indonesia<br />
+                                        <a style="color: darkslateblue;" href="https://www.sinarsaktimetalindo.com/" target="_blank">www.sinarsaktimetalindo.com</a></br>
+                                        <strong>Description :</strong> <br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Managing company databases.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Create and formulate reports for each
+                                        part of the business
+                                        &nbsp;&nbsp;&nbsp;&nbsp;process more efficiently.<br />
+                                        <i class="ionicons ion-arrow-right-b"></i> Develop & maintain of the system used
+                                        by the
+                                        &nbsp;&nbsp;&nbsp;&nbsp;company which includes the
+                                        production planning system &nbsp;&nbsp;&nbsp;&nbsp;(PPIC), Data Production
+                                        (Finish Good),
+                                        data inventory in &nbsp;&nbsp;&nbsp;&nbsp;and out (Warehouse), product quality
+                                        data (QC)
+                                        and &nbsp;&nbsp;&nbsp;&nbsp;maintenance environment for the Global Shop Solution
+                                        &nbsp;&nbsp;&nbsp;&nbsp;(ERP) application.
+                                        <br />
+                                    </p>
+                                    <hr class="devider" style="border-color: black;">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END - SLIDE 2 / About -->
+            <!-- SLIDE 3 / Portfolio -->
+            <div class="sl-slide bg-3" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+                <div class="sl-slide-inner">
+                    <div class="content-slide">
+                        <div class="container">
+                            <h2> <strong>MY LASTEST PROJECT</strong></h2>
+                            <h3>Several projects that i have been completed and still in progress : </h3>
+                            <!-- Projects -->
+                            <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                <!-- 1 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\eta\1.PNG" class="gallery-link small" data-image="img/eta/1.PNG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\eta\1.PNG" itemprop="thumbnail" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>School Staff Attendance and Payroll System
+                                                <small>PHP, Codeigniter,
+                                                    Jquery, Bootstrap, Mysql, MS-SQL, DataTable , HIKVISION FINGERPRINT ACCESS CONTROL DS-K1T8003MF & Ivms-4200
+                                                </small>
+                                            </h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Login Page</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+
+                                <!-- 5 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\eta\5.PNG" class="gallery-link small" data-image="img/eta/5.PNG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\eta\5.PNG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>School Staff Attendance and Payroll System
+                                                <small>PHP, Codeigniter,
+                                                    Jquery, Bootstrap, Mysql, MS-SQL, DataTable , HIKVISION FINGERPRINT ACCESS CONTROL DS-K1T8003MF & Ivms-4200
+                                                </small>
+                                            </h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Monitoring Attendance</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 6 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\eta\6.PNG" class="gallery-link small" data-image="img/eta/6.PNG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\eta\6.PNG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>School Staff Attendance and Payroll System
+                                                <small>PHP, Codeigniter,
+                                                    Jquery, Bootstrap, Mysql, MS-SQL, DataTable , HIKVISION FINGERPRINT ACCESS CONTROL DS-K1T8003MF & Ivms-4200
+                                                </small>
+                                            </h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Managing Master Data By Administrator</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 4 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\eta\4.PNG" class="gallery-link small" data-image="img/eta/4.PNG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\eta\4.PNG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>School Staff Attendance and Payroll System
+                                                <small>PHP, Codeigniter,
+                                                    Jquery, Bootstrap, Mysql, MS-SQL, DataTable , HIKVISION FINGERPRINT ACCESS CONTROL DS-K1T8003MF & Ivms-4200
+                                                </small>
+                                            </h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Slip Payment</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 2 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\eta\2.PNG" class="gallery-link small" data-image="img/eta/2.PNG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\eta\2.PNG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                        <figcaption itemprop="caption description">
+                                            <div class="photo-details">
+                                                <h4>School Staff Attendance and Payroll System
+                                                    <small>PHP, Codeigniter,
+                                                        Jquery, Bootstrap, Mysql, MS-SQL, DataTable , HIKVISION FINGERPRINT ACCESS CONTROL DS-K1T8003MF & Ivms-4200
+                                                    </small>
+                                                </h4>
+                                                <i class="icon ion-plus-circled"></i>
+                                                <p>Dashboard Attendance</p>
+                                            </div>
+                                        </figcaption>
+                                </figure>
+                                <!-- 3 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\eta\3.PNG" class="gallery-link small" data-image="img/eta/3.PNG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\eta\3.PNG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>School Staff Attendance and Payroll System
+                                                <small>PHP, Codeigniter,
+                                                    Jquery, Bootstrap, Mysql, MS-SQL, DataTable , HIKVISION FINGERPRINT ACCESS CONTROL DS-K1T8003MF & Ivms-4200
+                                                </small>
+                                            </h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Monitoring & History Attendance Page</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <!-- END ETA -->
+                            <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                <!-- 1 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\impsys\detail-monitoring.png" class="gallery-link small" data-image="img/impsys/detail-monitoring.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\impsys\detail-monitoring.png" itemprop="thumbnail" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>ERP & Oven System With Barcode for Wooden Pallets
+                                                Manufacturer<small>PHP, Laravel 7,
+                                                    Jquery, Bootstrap,Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Detail Receipt Monitoring</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 2 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\impsys\print-barcode.png" class="gallery-link small" data-image="img/impsys/print-barcode.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\impsys\print-barcode.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                        <figcaption itemprop="caption description">
+                                            <div class="photo-details">
+                                                <h4>ERP & Oven System With Barcode for Wooden Pallets
+                                                    Manufacturer<small>PHP, Laravel 7,
+                                                        Jquery, Bootstrap,Mysql, DataTable</small></h4>
+                                                <i class="icon ion-plus-circled"></i>
+                                                <p>Barcode Print</p>
+                                            </div>
+                                        </figcaption>
+                                </figure>
+                                <!-- 3 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\impsys\master-data.png" class="gallery-link small" data-image="img/impsys/master-data.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\impsys\master-data.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>ERP & Oven System With Barcode for Wooden Pallets
+                                                Manufacturer<small>PHP, Laravel 7,
+                                                    Jquery, Bootstrap,Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Portal Master Data</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 4 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\impsys\form-lpb.png" class="gallery-link small" data-image="img/impsys/form-lpb.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\impsys\form-lpb.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>ERP & Oven System With Barcode for Wooden Pallets
+                                                Manufacturer<small>PHP, Laravel 7,
+                                                    Jquery, Bootstrap,Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Material Receipt Form</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 5 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\impsys\report.png" class="gallery-link small" data-image="img/impsys/report.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\impsys\report.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>ERP & Oven System With Barcode for Wooden Pallets
+                                                Manufacturer<small>PHP, Laravel 7,
+                                                    Jquery, Bootstrap,Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Report/Print</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 6 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\impsys\monitoring-status.png" class="gallery-link small" data-image="img/impsys/monitoring-status.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\impsys\monitoring-status.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>ERP & Oven System With Barcode for Wooden Pallets
+                                                Manufacturer<small>PHP, Laravel 7,
+                                                    Jquery, Bootstrap,Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Monitoring Stock</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                <!-- 1 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\mynik\login.png" class="gallery-link small" data-image="img/mynik/login.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\mynik\login.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Employee Information System (MyNik)<small>PHP, Laravel 7, Lumen,
+                                                    Jquery,
+                                                    Bootstrap, Mysql, MSSQL</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Login Page Mynik</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 2 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\mynik\dashboard.png" class="gallery-link small" data-image="img/mynik/dashboard.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\mynik\dashboard.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                        <figcaption itemprop="caption description">
+                                            <div class="photo-details">
+                                                <h4>Employee Information System (MyNik)<small>PHP,Laravel 7,
+                                                        Lumen,
+                                                        Jquery, Bootstrap, Mysql, MSSQL</small></h4>
+                                                <i class="icon ion-plus-circled"></i>
+                                                <p>Dashboard MyNik</p>
+                                            </div>
+                                        </figcaption>
+                                </figure>
+                                <!-- 3 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\mynik\form-cuti.png" class="gallery-link small" data-image="img/mynik/form-cuti.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\mynik\form-cuti.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Employee Information System (MyNik)<small>PHP,Laravel 7, Lumen,
+                                                    Jquery, Bootstrap, Mysql, MSSQL</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Work Leave Form Mynik</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 4 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\mynik\form-cuti2.png" class="gallery-link small" data-image="img/mynik/form-cuti2.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\mynik\form-cuti2.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Employee Information System (MyNik)<small>PHP,Laravel 7, Lumen,
+                                                    Jquery, Bootstrap, Mysql, MSSQL</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Work Leave Form Mynik</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 5 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\mynik\schedule-shift.png" class="gallery-link small" data-image="img/mynik/schedule-shift.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\mynik\schedule-shift.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Employee Information System (MyNik)<small>PHP,Laravel 7, Lumen,
+                                                    Jquery, Bootstrap, Mysql, MSSQL</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Employee Shift Schedule</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 6 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\mynik\absensi.png" class="gallery-link small" data-image="img/mynik/absensi.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\mynik\absensi.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Employee Information System (MyNik)<small>PHP,Laravel 7, Lumen,
+                                                    Jquery, Bootstrap, Mysql, MSSQL</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Attendace Information Page</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                <!-- 1 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\arkland\login-administrator-page.png" class="gallery-link small" data-image="img/arkland/login-administrator-page.png" itemprop="contentUrl"
+                                        data-size="1920x923">
+                                        <img src="img\arkland\login-administrator-page.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>CMS (Arkland-group.com)<small>PHP, Codeigniter3,
+                                                    Jquery, Bootstrap,
+                                                    Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Login Page CMS</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 2 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\arkland\cms-carousel.png" class="gallery-link small" data-image="img/arkland/cms-carousel.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\arkland\cms-carousel.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                        <figcaption itemprop="caption description">
+                                            <div class="photo-details">
+                                                <h4>CMS (Arkland-group.com)<small>PHP, Codeigniter3,
+                                                        Jquery, Bootstrap,
+                                                        Mysql, DataTable</small></h4>
+                                                <i class="icon ion-plus-circled"></i>
+                                                <p>CMS : Set Up Page for Carousel</p>
+                                            </div>
+                                        </figcaption>
+                                </figure>
+                                <!-- 3 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\arkland\cms-pricing.png" class="gallery-link small" data-image="img/arkland/cms-pricing.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\arkland\cms-pricing.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>CMS (Arkland-group.com)<small>PHP, Codeigniter3,
+                                                    Jquery, Bootstrap,
+                                                    Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>CMS : Set Up Page for Pricing</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+
+                            <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                <!-- 1 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\arkland\landing-page.png" class="gallery-link small" data-image="img/arkland/landing-page.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\arkland\landing-page.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Company Profile with CMS (Arkland-group.com)<small>PHP, Codeigniter3,
+                                                    Jquery, Bootstrap,
+                                                    Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Landing Page Carousel Arkland-group.com</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 2 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\arkland\pricing-page.png" class="gallery-link small" data-image="img/arkland/pricing-page.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\arkland\pricing-page.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                        <figcaption itemprop="caption description">
+                                            <div class="photo-details">
+                                                <h4>Company Profile with CMS (Arkland-group.com)<small>PHP,Codeigniter3,
+                                                        Jquery, Bootstrap,Mysql, DataTable</small></h4>
+                                                <i class="icon ion-plus-circled"></i>
+                                                <p>Pricing Page Arkland-group.com</p>
+                                            </div>
+                                        </figcaption>
+                                </figure>
+                                <!-- 3 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\arkland\location-page.png" class="gallery-link small" data-image="img/arkland/location-page.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\arkland\location-page.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Company Profile with CMS (Arkland-group.com)<small>PHP,Codeigniter3,
+                                                    Jquery, Bootstrap,Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Contact & Location Page Arkland-group.com</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 4 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\arkland\contact-page.png" class="gallery-link small" data-image="img/arkland/contact-page.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\arkland\contact-page.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Company Profile with CMS (Arkland-group.com)<small>PHP,Codeigniter3,
+                                                    Jquery, Bootstrap,Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Contact & Location Page Arkland-group.com</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 5 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\arkland\visimisi-page.png" class="gallery-link small" data-image="img/arkland/visimisi-page.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\arkland\visimisi-page.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Company Profile with CMS (Arkland-group.com)<small>PHP,Codeigniter3,
+                                                    Jquery, Bootstrap,Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Vision & Mission Page Arkland-group.com</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 6 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\arkland\subscriber-page.png" class="gallery-link small" data-image="img/arkland/subscriber-page.png" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\arkland\subscriber-page.png" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Company Profile with CMS (Arkland-group.com)<small>PHP,Codeigniter3,
+                                                    Jquery, Bootstrap,Mysql, DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>Subscriber Page Arkland-group.com</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                <!-- 1 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\laborat\laborat1.JPG" class="gallery-link small" data-image="img/laborat/laborat1.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\laborat\laborat1.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Sistem Informasi Resep Laborat <small>PHP, Laravel, Jquery, Bootstrap,
+                                                    Mysql,
+                                                    DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>This is view of login page</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 2 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\laborat\laborat2.JPG" class="gallery-link small" data-image="img/laborat/laborat2.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\laborat\laborat2.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                        <figcaption itemprop="caption description">
+                                            <div class="photo-details">
+                                                <h4>Sistem Informasi Resep Laborat <small>PHP, Laravel, Jquery,
+                                                        Bootstrap, Mysql,
+                                                        DataTable</small></h4>
+                                                <i class="icon ion-plus-circled"></i>
+                                                <p>This is view of dashboard page</p>
+                                            </div>
+                                        </figcaption>
+                                </figure>
+                                <!-- 3 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\laborat\laborat3.JPG" class="gallery-link small" data-image="img/laborat/laborat3.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\laborat\laborat3.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Sistem Informasi Resep Laborat <small>PHP, Laravel, Jquery, Bootstrap,
+                                                    Mysql,
+                                                    DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>This is view of Datatable Library on enviroment SIRL.</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <hr class="devider">
+                            <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                <!-- 4 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\gkg\gkg1.jpg" class="gallery-link small" data-image="img/gkg/gkg1.jpg" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\gkg\gkg1.jpg" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Sistem Informasi GKG <small>Codeigniter 3, Jquery, Bootstrap, Mysql,
+                                                    DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>This is view of Login page.</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 5 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\gkg\gkg2.JPG" class="gallery-link small" data-image="img/gkg/gkg2.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\gkg\gkg2.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Sistem Informasi GKG <small>Codeigniter 3, Jquery, Bootstrap, Mysql,
+                                                    DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>This is view of Dashboard page GKG.</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 6 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\gkg\gkg3.JPG" class="gallery-link small" data-image="img/gkg/gkg3.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\gkg\gkg3.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Sistem Informasi GKG <small>Codeigniter 3, Jquery, Bootstrap, Mysql,
+                                                    DataTable</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>This is view of Datatable Library on enviroment GKG.</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <hr class="devider">
+                            <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                <!-- 1 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\besonline\besonline1.JPG" class="gallery-link small" data-image="img/besonline/besonline1.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\besonline\besonline1.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Web UD. Sumber Murni (Besonline-Scaffolding) <small>PHP, API
+                                                    rajaongkir.com, Jquery,
+                                                    Bootstrap, Mysql</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>This is view of home page</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 2 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\besonline\besonline2.JPG" class="gallery-link small" data-image="img/besonline/besonline2.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\besonline\besonline2.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                        <figcaption itemprop="caption description">
+                                            <div class="photo-details">
+                                                <h4>Web UD. Sumber Murni (Besonline-Scaffolding) <small>PHP, API
+                                                        rajaongkir.com, Jquery,
+                                                        Bootstrap, Mysql</small></h4>
+                                                <i class="icon ion-plus-circled"></i>
+                                                <p>This is view of Order Page</p>
+                                            </div>
+                                        </figcaption>
+                                </figure>
+                                <!-- 3 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\besonline\besonline3.JPG" class="gallery-link small" data-image="img/besonline/besonline3.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\besonline\besonline3.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Web UD. Sumber Murni (Besonline-Scaffolding) <small>PHP, API
+                                                    rajaongkir.com, Jquery,
+                                                    Bootstrap, Mysql</small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>This is view of Shopping page</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <hr class="devider">
+                            <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                <!-- 1 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\movieapp\movieapp1.JPG" class="gallery-link small" data-image="img/movieapp/movieapp1.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\movieapp\movieapp1.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Movie Blog (Course Andre Madarang) <small>Laravel, API themoviedb,
+                                                    Tailwind CSS, Alpine.js, LiveWire </small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>This is view of Movie page</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 2 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\movieapp\movieapp2.JPG" class="gallery-link small" data-image="img/movieapp/movieapp2.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\movieapp\movieapp2.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                        <figcaption itemprop="caption description">
+                                            <div class="photo-details">
+                                                <h4>Movie Blog (Course Andre Madarang) <small>Laravel, API themoviedb,
+                                                        Tailwind CSS, Alpine.js, LiveWire </small></h4>
+                                                <i class="icon ion-plus-circled"></i>
+                                                <p>This is view of Tv Show page</p>
+                                            </div>
+                                        </figcaption>
+                                </figure>
+                                <!-- 3 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\movieapp\movieapp3.JPG" class="gallery-link small" data-image="img/movieapp/movieapp3.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\movieapp\movieapp3.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Movie Blog (Course Andre Madarang) <small>Laravel, API themoviedb,
+                                                    Tailwind CSS, Alpine.js, LiveWire </small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>This is view of Trailer and synopsis page</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <hr class="devider">
+                            <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                <!-- 1 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\iqc\iqc1.JPG" class="gallery-link small" data-image="img/iqc/iqc1.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\iqc\iqc1.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Quality Control & Defect Management <small>Laravel, Jquery,
+                                                    Metronic, Bootstrap, Editor DataTable </small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>This is view of Login page</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <!-- 2 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\iqc\iqc2.JPG" class="gallery-link small" data-image="img/iqc/iqc2.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\iqc\iqc2.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <div class="portfolio my-gallery" itemscope="" itemtype="http://schema.org/ImageGallery">
+                                        <figcaption itemprop="caption description">
+                                            <div class="photo-details">
+                                                <h4>Quality Control & Defect Management <small>Laravel, Jquery,
+                                                        Metronic, Bootstrap, Editor DataTable </small></h4>
+                                                <i class="icon ion-plus-circled"></i>
+                                                <p>This is view of Dashbord page</p>
+                                            </div>
+                                        </figcaption>
+                                </figure>
+                                <!-- 3 / PICTURE -->
+                                <figure class="col-xs-12 col-sm-12 col-md-6 col-lg-4 annex-img split-section" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                                    <a href="img\iqc\iqc3.JPG" class="gallery-link small" data-image="img/iqc/iqc3.JPG" itemprop="contentUrl" data-size="1920x923">
+                                        <img src="img\iqc\iqc3.JPG" itemprop="thumbnail" loading="lazy" alt="This is my work" class="img-responsive gallery-img small-square">
+                                    </a>
+                                    <figcaption itemprop="caption description">
+                                        <div class="photo-details">
+                                            <h4>Quality Control & Defect Management <small>Laravel, Jquery,
+                                                    Metronic, Bootstrap, Editor DataTable </small></h4>
+                                            <i class="icon ion-plus-circled"></i>
+                                            <p>This is view of Table & DataTable Plugin</p>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <!-- END - Projects -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END - SLIDE 3 / Portfolio -->
+            <!-- SLIDE 4 / Services -->
+            <div class="sl-slide bg-4" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
+                <div class="sl-slide-inner">
+                    <div class="content-slide">
+                        <div class="container">
+                            <h2>MY STANDART IN SOFTWARE DEVELOPMENT</h2>
+                            <p class="resume"> The goal is to develop software that is lightweight and secure, easy to
+                                maintaining in the long term.</p>
+                            <div class="row services">
+                                <!-- 1 / SERVICE -->
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><i class="icon ion-lock-combination"></i></span>
+                                        <h3>OWASP</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 3 / SERVICE -->
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><i class="icon ion-chatbubbles"></i></span>
+                                        <h3>Friendly Support</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row services">
+                                <!-- 2 / SERVICE -->
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon icon-clock"><i class="icon ion-android-time"></i></span>
+                                        <h3>Lite Speed & Minimize Resources</h3>
+                                    </div>
+                                </div>
+                                <!-- 4 / SERVICE -->
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><i class="icon ion-trophy"></i></span>
+                                        <h3>User Frienly & Customizable</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container" style="margin-top: -200px;">
+                            <h2>FREQUENTLY USED TOOLS, FRAMEWORKS & DATABASES</h2>
+                            <p class="resume">so you can judge my ability.</p>
+                            <div class="row services">
+                                <!-- 1 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon">
+                                            <img src="img/skill/php.svg" style="width: 70px">
+                                        </span>
+                                        <h3>PHP Languange</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 2 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/laravel.svg" style="width: 50px"></span>
+                                        <h3>Laravel</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 3 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/codeigniter.svg" style="width: 50px"></span>
+                                        <h3>Codeigniter 3</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row services">
+                                <!-- 1 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon">
+                                            <img src="img/skill/logo-javascript.svg" style="width: 50px">
+                                        </span>
+                                        <h3>Vanilla Javascript</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 2 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/es6.svg" style="width: 50px"></span>
+                                        <h3>Javascript ES6</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 3 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/jquery.svg" style="width: 90px"></span>
+                                        <h3>Jquery</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row services">
+                                <!-- 1 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon">
+                                            <img src="img/skill/css-3.svg" style="width: 50px">
+                                        </span>
+                                        <h3>CSS 3</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 2 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/bootstrap-5-1.svg" style="width: 50px"></span>
+                                        <h3>Bootstrap 4 & 5</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 3 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/tailwindcss.svg" style="width: 50px"></span>
+                                        <h3>TailwindCss</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row services">
+                                <!-- 1 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/amazon-database.svg" style="width: 50px"></span>
+                                        <h3>Restful API</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 2 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/lumen-1.svg" style="width: 30px"></span>
+                                        <h3>Lumen</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 3 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/postman.svg" style="width: 50px"></span>
+                                        <h3>Postman</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row services">
+                                <!-- 1 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon">
+                                            <img src="img/skill/mysql-6.svg" style="width: 50px">
+                                        </span>
+                                        <h3>MySql</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 2 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/microsoft-sql-server-1.svg" style="width: 90px"></span>
+                                        <h3>MSSQL</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 3 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/postgresql.svg" style="width: 50px"></span>
+                                        <h3>PostgreSql</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row services">
+                                <!-- 1 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon">
+                                            <img src="img/skill/github-icon-1.svg" style="width: 50px">
+                                        </span>
+                                        <h3>GitHub</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 2 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/git-bash.svg" style="width: 50px"></span>
+                                        <h3>GitBash Command</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 3 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/visual-studio-code-1.svg" style="width: 50px"></span>
+                                        <h3>VS Code</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row services">
+                                <!-- 1 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon">
+                                            <img src="img/skill/sublime-text.svg" style="width: 50px">
+                                        </span>
+                                        <h3>Sublime-Text</h3>
+                                    </div>
+                                </div>
+
+                                <!-- 2 / SERVICE -->
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 box-info">
+                                    <div class="box-info-light">
+                                        <span class="icon"><img src="img/skill/material-ui-1.svg" style="width: 50px"></span>
+                                        <h3>Material-UI</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END - SLIDE 4 / Services -->
+            <!-- SLIDE 5 / Contact -->
+            <div class="sl-slide bg-5" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
+                <div class="sl-slide-inner">
+                    <div class="content-slide">
+                        <div class="container">
+                            <h2><strong>GET IN TOUCH</strong></h2>
+                            <p class="resume">I like to discuss and talk about software and database development, if you
+                                interest to use my services, please contact below, Regards Yana Maulana
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 info-contact">
+                                    <h3>Glad to help you</h3>
+                                    <p>If you have any further suggestions, questions or comments, here are the best
+                                        ways to connect with us!</p>
+                                    <br>
+                                    <p class="list-info">
+                                        <i class="icon ion-ios-telephone"></i> Phone : <a href="https://wa.me/+6289531148569"><span>(+62)
+                                                895-3114-8569</span></a>
+                                        <br>
+                                        <i class="icon ion-ios-email"></i> Email : <a href="mailto: yanamaulana45@yahoo.co.id"><span>yanamaulana45@yahoo.co.id</span></a>
+                                        <br>
+                                        <i class="icon ion-ios-location"></i> Location : Bogor, Cileungsi Harvest
+                                        City
+                                    </p>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-lg-offset-1">
+                                    <!-- Contact Form -->
+                                    <br />
+                                    <div class="alert alert-info alert-dismissible" role="alert" id="alert" style="visibility: hidden;">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <strong>Success!</strong> Your message was entered into inbox!.
+                                    </div>
+                                    <form name="submit-to-google-sheet" id="submit-to-google-sheet">
+                                        <div class="row">
+                                            <!-- Full name -->
+                                            <div class="col-xs-12 col-sm-12 col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" id="name" class="form form-control" placeholder="Your Name*" onfocus="this.placeholder = ''"
+                                                        onblur="this.placeholder = 'Your Name*'" name="name" data-name="Name" required="">
+                                                </div>
+                                            </div>
+                                            <!-- E-mail -->
+                                            <div class="col-xs-12 col-sm-12 col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="email" id="email" class="form form-control" placeholder="Your Email*" onfocus="this.placeholder = ''"
+                                                        onblur="this.placeholder = 'Your Email*'" name="email" data-name="Email Address" required="">
+                                                </div>
+                                            </div>
+                                            <!-- Subject -->
+                                            <div class="col-xs-12 col-sm-12 col-lg-12">
+                                                <div class="form-group">
+                                                    <input type="text" id="subject" class="form form-control" placeholder="Regarding..." onfocus="this.placeholder = ''"
+                                                        onblur="this.placeholder = 'Regarding...'" name="subject" data-name="Subject">
+                                                </div>
+                                            </div>
+                                            <!-- Message -->
+                                            <div class="col-xs-12 col-sm-12 col-lg-12 no-padding">
+                                                <div class="form-group">
+                                                    <textarea id="text-area" class="form textarea form-control" placeholder="Your message here..." onfocus="this.placeholder = ''"
+                                                        onblur="this.placeholder = 'Your message here... 20 characters Min.*'" name="message" data-name="Text Area" required=""></textarea>
+                                                </div>
+                                                <!-- <span class="sub-text">* Required fields</span> -->
+                                            </div>
+                                        </div>
+                                        <!-- Button submit -->
+                                        <button type="submit" id="submit" class="btn btn-danger">Send my
+                                            Message</button>
+                                        <div class="progress" id="progress" style="visibility: hidden;">
+                                            <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                                                style="width: 100%">
+                                                <span class="sr-only">100% Complete</span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- END - Contact Form -->
+                                    <!-- Answer for the contact form is displayed in the next div, do not remove it. -->
+                                    <div id="block-answer">
+                                        <div id="answer"></div>
+                                    </div>
+                                    <!-- END - Answer for the contact form is displayed in the next div, do not remove it. -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END - SLIDE 5 / Contact -->
+        </div>
+        <!-- END - sl-slider -->
+        <!-- Arrow nav -->
+        <nav id="nav-arrows" class="nav-arrows">
+            <span class="nav-arrow-prev">Previous</span>
+            <span class="nav-arrow-next"><img src="img/next.png" alt=""></span>
         </nav>
-        <a
-          class="button-primary hidden !min-h-10 !px-5 !py-3 !text-xs sm:inline-flex"
-          href="formulir.html">Formulir Pendaftaran <svg class="icon !size-4"
-            aria-hidden="true"><use href="#i-up-right" /></svg></a>
-        <button type="button" x-ref="menuButton" @click="menuOpen = !menuOpen"
-          :aria-expanded="menuOpen" aria-controls="mobile-nav"
-          aria-label="Buka atau tutup navigasi"
-          class="flex size-11 items-center justify-center rounded-lg border border-slate-200 lg:hidden">
-          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path
-              :d="menuOpen ? 'M6 6l12 12M6 18 18 6' : 'M4 6h16M4 12h16M4 18h16'"
-              d="M4 6h16M4 12h16M4 18h16" /></svg>
-        </button>
-      </div>
-      <nav id="mobile-nav" x-ref="mobileNav" x-show="menuOpen" x-cloak
-        @click.outside="closeMenu()" aria-label="Navigasi seluler"
-        class="absolute inset-x-0 border-b border-slate-200 bg-white px-6 py-4 shadow-lg lg:hidden">
-        <a href="#beranda" @click="closeMenu()"
-          class="nav-link block">Beranda</a><a href="#tentang"
-          @click="closeMenu()" class="nav-link block">Tentang Kami</a><a
-          href="#lowongan" @click="closeMenu()" class="nav-link block">Bidang
-          Kerja</a><a href="#testimoni" @click="closeMenu()"
-          class="nav-link block">Cerita Kandidat</a><a href="#kontak"
-          @click="closeMenu()" class="nav-link block">Kontak</a><a
-          href="formulir.html" @click="closeMenu()"
-          class="button-primary mt-3 w-full">Formulir Pendaftaran</a>
-      </nav>
-    </header>
+        <!-- END - Arrow nav -->
+        <!-- Bottom nav -->
+        <nav id="nav-multi-square" class="nav-multi-square nav-intro opacity-0">
+            <span class="nav-square-current nav-square">
+                <span><i class="fa fa-home"></i>Home</span>
+            </span>
+            <span class="nav-square">
+                <span><i class="fa fa-code-fork"></i>About</span>
+            </span>
+            <span class="nav-square">
+                <span><i class="fa fa-briefcase"></i>Portfolio</span>
+            </span>
+            <span class="nav-square">
+                <span><i class="fa fa-list-ol"></i>Services</span>
+            </span>
+            <span class="nav-square">
+                <span><i class="fa fa-commenting-o"></i>Contact</span>
+            </span>
+        </nav>
+        <!-- END - Bottom nav -->
+    </div>
+    <!-- END - Slider Wrapper -->
 
-    <main id="main">
-      <section id="beranda" class="hero-carousel"
-        aria-label="Peluang karier di Jepang" aria-roledescription="carousel"
-        x-data="heroCarousel" @mouseenter="hovered = true; stop()"
-        @mouseleave="hovered = false; start()"
-        @focusin="focused = true; stop()" @focusout="leaveFocus()"
-        @keydown.arrow-right.prevent="goTo(current + 1)"
-        @keydown.arrow-left.prevent="goTo(current - 1)">
-        <!-- Background dekoratif: informasi slide disampaikan melalui H1 dan paragraf. -->
-        <div class="hero-backgrounds" aria-hidden="true">
-          <img src="assets/images/hero-fuji.webp" alt width="1920" height="1249"
-            loading="eager" fetchpriority="high" decoding="async"
-            class="hero-background is-active"
-            :class="{ 'is-active': current === 0 }">
-          <img src="assets/images/hero-agriculture.webp" alt width="1920"
-            height="1280"
-            loading="lazy" fetchpriority="low" decoding="async"
-            class="hero-background" :class="{ 'is-active': current === 1 }">
-          <img src="assets/images/hero-tokyo.webp" alt width="1600"
-            height="2400" loading="lazy" fetchpriority="low" decoding="async"
-            class="hero-background" :class="{ 'is-active': current === 2 }">
+    <!-- Newsletter Popup -->
+    <div id="somedialog" class="dialog">
+        <div class="dialog__overlay"></div>
+        <div class="dialog__content">
+            <div class="header-picture"></div>
+            <div class="dialog-inner">
+                <h3>Thanks For Visit My Portfolio</h3>
+                <p>
+                    Contact me, if you need my help to Develop, Upgrade or Maintain Your Software.<br />
+                    <i class="fa fa-envelope"></i>&nbsp;&nbsp; Yanamaulana45@yahoo.co.id<br />
+                    <i class="fa fa-phone"></i>&nbsp;&nbsp; +6289531148569<br /><br />
+                </p>
+                <div id="subscribe">
+                    <div class="form-group">
+                        <div class="controls">
+                            <input style="color: white; background-color: black;" type="text" value="Finish" id="mail-sub" name="email" class="btn btn-dark btn-block" data-dialog-close="">
+                            <i class="fa fa-spinner opacity-0"></i>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hero-scrim" aria-hidden="true"></div>
-        <div class="container-wide hero-inner">
-          <div class="hero-content">
-            <p class="hero-kicker"><span aria-hidden="true"></span> INDONESIA TO
-              JAPAN</p>
-            <!-- Satu H1, tiga variasi teks statis agar slide pertama tetap terbaca tanpa JavaScript. -->
-            <div id="hero-copy" :aria-live="timer ? 'off' : 'polite'"
-              aria-atomic="true">
-              <h1 id="hero-heading" class="hero-title">
-                <span class="hero-copy-part is-active"
-                  :class="{ 'is-active': current === 0 }"
-                  :aria-hidden="current !== 0">Raih Karir Impianmu di Jepang
-                  Bersama Kami</span>
-                <span class="hero-copy-part"
-                  :class="{ 'is-active': current === 1 }" aria-hidden="true"
-                  :aria-hidden="current !== 1">Bimbingan Karier Sesuai Minat
-                  dan Pengalamanmu</span>
-                <span class="hero-copy-part"
-                  :class="{ 'is-active': current === 2 }" aria-hidden="true"
-                  :aria-hidden="current !== 2">Konsultasi Karier untuk Rencana
-                  Kerja di Jepang</span>
-              </h1>
-              <p class="hero-description">
-                <span class="hero-copy-part is-active"
-                  :class="{ 'is-active': current === 0 }"
-                  :aria-hidden="current !== 0">Dapatkan konsultasi dan
-                  bimbingan karier di Jepang. Kami mendampingi perorangan dan
-                  LPK mitra memahami pilihan, persyaratan, dan tahapan
-                  persiapan.</span>
-                <span class="hero-copy-part"
-                  :class="{ 'is-active': current === 1 }" aria-hidden="true"
-                  :aria-hidden="current !== 1">Mulai dari bidang pilihanmu,
-                  tim kami membimbingmu memahami kualifikasi, persiapan, dan
-                  langkah yang perlu ditempuh.</span>
-                <span class="hero-copy-part"
-                  :class="{ 'is-active': current === 2 }" aria-hidden="true"
-                  :aria-hidden="current !== 2">Diskusikan minat, pengalaman,
-                  dan rencana kariermu di Jepang untuk menentukan langkah
-                  persiapan yang sesuai.</span>
-              </p>
+    </div>
+    </div>
+    <!-- END - Newsletter Popup -->
+    <!-- Root element of PhotoSwipe, the gallery. Must have class pswp. -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- Background of PhotoSwipe. 
+	        	It's a separate element as animating opacity is faster than rgba(). -->
+        <div class="pswp__bg"></div>
+        <!-- Slides wrapper with overflow:hidden. -->
+        <div class="pswp__scroll-wrap">
+            <!-- Container that holds slides. 
+		            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+		            Don't modify these 3 pswp__item elements, data is added later on. -->
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
             </div>
-            <div class="hero-actions">
-              <a href="formulir.html" class="button-primary">Daftar Sekarang
-                <svg
-                  class="icon !size-4" aria-hidden="true"><use
-                    href="#i-arrow" /></svg></a>
-              <a href="#lowongan" class="button-secondary">Jelajahi Bidang Kerja
-                <svg class="icon !size-4" aria-hidden="true"><use
-                    href="#i-up-right" /></svg></a>
+            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <!--  Controls are self-explanatory. Order can be changed. -->
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                    <!-- element will get class pswp__preloader - -active when preloader is running -->
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
             </div>
-          </div>
-          <div class="hero-controls" x-cloak>
-            <div class="hero-dots" role="group" aria-label="Pilih slide hero">
-              <button type="button" class="hero-dot" @click="goTo(0)"
-                :aria-pressed="current === 0" aria-label="Slide 1: Gunung Fuji"
-                aria-controls="hero-copy"><span></span></button>
-              <button type="button" class="hero-dot" @click="goTo(1)"
-                :aria-pressed="current === 1"
-                aria-label="Slide 2: Pertanian"
-                aria-controls="hero-copy"><span></span></button>
-              <button type="button" class="hero-dot" @click="goTo(2)"
-                :aria-pressed="current === 2"
-                aria-label="Slide 3: Tokyo malam hari"
-                aria-controls="hero-copy"><span></span></button>
-            </div>
-            <div class="hero-arrows">
-              <button type="button" class="hero-control hero-playback"
-                @click="togglePlayback()" x-show="!reducedMotion"
-                :aria-label="paused ? 'Putar otomatis hero' : 'Jeda otomatis hero'"
-                :aria-pressed="paused"><span
-                  x-text="paused ? 'Putar' : 'Jeda'">Jeda</span></button>
-              <span class="hero-counter" aria-hidden="true"><span
-                  x-text="String(current + 1).padStart(2, '0')">01</span> /
-                03</span>
-              <button type="button" class="hero-control"
-                @click="goTo(current - 1)" aria-label="Slide hero sebelumnya"
-                aria-controls="hero-copy"><svg class="icon rotate-180"
-                  aria-hidden="true"><use href="#i-arrow" /></svg></button>
-              <button type="button" class="hero-control"
-                @click="goTo(current + 1)" aria-label="Slide hero berikutnya"
-                aria-controls="hero-copy"><svg class="icon"
-                  aria-hidden="true"><use href="#i-arrow" /></svg></button>
-            </div>
-          </div>
         </div>
-      </section>
+    </div>
+    <!-- END - Root element of PhotoSwipe, the gallery. Must have class pswp. -->
+    <!-- //////////////////////\\\\\\\\\\\\\\\\\\\\\\ -->
+    <!-- ********** List of jQuery Plugins ********** -->
+    <!-- \\\\\\\\\\\\\\\\\\\\\\////////////////////// -->
+    <!-- * Libraries jQuery, Easing and Bootstrap - Be careful to not remove them * -->
+    <script data-cfasync="false" src="..\..\..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js">
+    </script>
+    <script src="js\jquery.min.js"></script>
+    <script src="js\jquery.easings.min.js"></script>
+    <script src="js\bootstrap.min.js"></script>
+    <!-- SlitSlider plugin -->
+    <script src="js\jquery.ba-cond.min.js"></script>
+    <script src="js\jquery.slitslider.js"></script>
+    <!-- Newsletter plugin -->
+    <script src="js\notifyMe.js"></script>
+    <!-- Contact form plugin -->
+    <script src="js\contact-me.js"></script>
+    <!-- Popup Newsletter Form -->
+    <script src="js\classie.js"></script>
+    <script src="js\dialogFx.js"></script>
+    <!-- PhotoSwipe Core JS file -->
+    <script src="js\photoswipe.js"></script>
+    <!-- PhotoSwipe UI JS file -->
+    <script src="js\photoswipe-ui-default.js"></script>
+    <!-- Custom Scrollbar plugin -->
+    <script src="js\jquery.mCustomScrollbar.js"></script>
+    <!-- Countdown plugin -->
+    <script src="js\jquery.countdown.js"></script>
+    <script>
+        $("#countdown")
+            // Year/Month/Day Hour:Minute:Second
+            .countdown("2018/10/24 15:30:30", function (event) {
+                $(this).html(
+                    event.strftime('%D Days %Hh %Mm %Ss')
+                );
+            });
+    </script>
+    <!-- Main application scripts -->
+    <script src="js\main.js"></script>
+    <script>
+        window.setTimeout("waktu()", 1000);
 
-      <section id="tentang" aria-labelledby="about-heading"
-        class="pb-20 lg:pb-24">
-        <div class="mt-8 bg-[#f8f5f2] py-20 lg:py-24">
-          <div class="container-wide">
-            <div
-              class="reveal grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
-              <div class="relative pb-7 pr-7"><img
-                  src="assets/images/background_visi_misi.jpeg"
-                  alt="Pemandangan Gunung Fuji dan pagoda di Jepang sebagai ilustrasi tujuan karier"
-                  width="1920" height="1080" loading="lazy" decoding="async"
-                  class="h-[360px] w-full rounded-2xl object-cover sm:h-[460px] lg:h-[560px]"><div
-                  class="absolute bottom-0 right-0 rounded-xl bg-japan px-7 py-6 text-white"><p
-                    class="text-[10px] tracking-[0.18em]">INDONESIA ×
-                    JAPAN</p><p
-                    class="mt-2 text-xl font-bold">Menghubungkan
-                    potensi.<br>Membuka kesempatan.</p></div></div>
-              <div>
-                <p class="eyebrow">Tentang kami</p>
-                <h2 id="about-heading" class="section-title">Visi &amp;
-                  Misi</h2>
-                <article class="mt-6">
-                  <h3
-                    class="mb-3 text-xs font-bold uppercase tracking-widest text-japan">01
-                    / Visi kami</h3>
-                  <p class="text-base font-semibold leading-7">Menjadi layanan
-                    konsultasi dan bimbingan karier di Jepang yang terpercaya,
-                    membantu kandidat Indonesia memahami pilihan karier serta
-                    mempersiapkan langkahnya secara tepat.</p>
-                </article>
-                <article class="mt-6">
-                  <h3
-                    class="mb-3 text-xs font-bold uppercase tracking-widest text-japan">02
-                    / Misi kami</h3>
-                  <ol class="mission-list text-sm leading-6 text-muted"
-                    role="list">
-                    <li>Memberikan konsultasi mengenai pilihan bidang karier di
-                      Jepang, kualifikasi, dan tahapan persiapan secara
-                      jelas.</li>
-                    <li>Mendampingi kandidat menyiapkan langkah karier, mulai
-                      dari memahami profil hingga mengikuti proses rekrutmen
-                      mitra.</li>
-                    <li>Membantu kandidat menilai kesesuaian minat, kemampuan,
-                      pengalaman, dan kualifikasi dengan pilihan kariernya.</li>
-                    <li>Bekerja sama dengan LPK dan mitra terkait untuk
-                      memperkuat bimbingan serta persiapan karier di
-                      Jepang.</li>
-                    <li>Mengutamakan transparansi, profesionalisme, dan
-                      kepercayaan dalam setiap layanan yang diberikan.</li>
-                  </ol>
-                </article>
-                <a href="#kontak"
-                  class="mt-6 inline-flex items-center gap-3 text-sm font-bold text-japan">Kenali
-                  kami lebih dekat <svg class="icon !size-4"
-                    aria-hidden="true"><use href="#i-arrow" /></svg></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container-wide">
-          <section class="legal-section" aria-labelledby="legal-heading" x-data="legalDocuments">
-            <h2 id="legal-heading"
-              class="text-2xl font-extrabold tracking-tight">Legalitas
-              Perusahaan</h2>
-            <p class="mt-3 text-sm leading-6 text-muted">Klik dokumen untuk
-              melihat preview legalitas Nippon Ace.</p>
-            <div class="legal-grid">
-              <a class="legal-card" href="assets/images/legalitas/NIB.pdf"
-                target="_blank" rel="noopener noreferrer"
-                @click.prevent="openDocument('nib', $event.currentTarget)"
-                aria-haspopup="dialog" aria-controls="legal-preview">
-                <svg class="icon text-japan" aria-hidden="true"><use
-                    href="#i-shield" /></svg>
-                <h3>NIB</h3><p>008260002116</p><span>&nbsp; <span
-                    aria-hidden="true">&#8599;</span></span>
-              </a>
-              <a class="legal-card"
-                href="assets/images/legalitas/SK_Kemenkumham.pdf"
-                target="_blank" rel="noopener noreferrer"
-                @click.prevent="openDocument('sk', $event.currentTarget)"
-                aria-haspopup="dialog" aria-controls="legal-preview">
-                <svg class="icon text-japan" aria-hidden="true"><use
-                    href="#i-shield" /></svg>
-                <h3>SK Kemenkumham</h3><p>AHU-A111550.AH.01.30.Tahun
-                  2026</p><span>&nbsp; <span
-                    aria-hidden="true">&#8599;</span></span>
-              </a>
-              <a class="legal-card" href="assets/images/legalitas/NPWP.pdf"
-                target="_blank" rel="noopener noreferrer"
-                @click.prevent="openDocument('npwp', $event.currentTarget)"
-                aria-haspopup="dialog" aria-controls="legal-preview">
-                <svg class="icon text-japan" aria-hidden="true"><use
-                    href="#i-shield" /></svg>
-                <h3>NPWP</h3><p>10.000.001.0-745.785</p><span>&nbsp; <span
-                    aria-hidden="true">&#8599;</span></span>
-              </a>
-            </div>
-            <dialog id="legal-preview" class="legal-modal" x-ref="preview"
-              aria-labelledby="legal-preview-title"
-              aria-describedby="legal-preview-number"
-              @cancel.prevent="closePreview()" @close="resetPreview()"
-              @keydown.escape.stop.prevent="closePreview()"
-              @click="if ($event.target === $event.currentTarget) closePreview()">
-              <div class="legal-modal-content">
-                <header class="legal-modal-header">
-                  <div><h2 id="legal-preview-title" x-text="selected?.title"
-                      class="text-xl font-extrabold"></h2><p
-                      id="legal-preview-number" x-text="selected?.number"
-                      class="mt-2 text-sm text-muted"></p></div>
-                  <button type="button" class="legal-modal-close"
-                    x-ref="closePreview" @click="closePreview()"
-                    aria-label="Tutup preview PDF">&#215;</button>
-                </header>
-                <div class="legal-preview-frame">
-                  <template x-if="selected">
-                    <iframe :src="selected.url"
-                      :title="'Preview PDF ' + selected.title"
-                      class="legal-pdf"></iframe>
-                  </template>
-                </div>
-                <footer class="legal-modal-footer">
-                  <p>Preview tidak tampil? Buka PDF di tab baru.</p>
-                  <a :href="selected?.url" target="_blank"
-                    rel="noopener noreferrer" class="button-primary">Buka PDF
-                    <span aria-hidden="true">&#8599;</span></a>
-                </footer>
-              </div>
-            </dialog>
-          </section>
-          <section aria-labelledby="benefits-heading" class="mt-16">
-            <div class="reveal benefits-intro">
-              <div>
-                <p class="eyebrow">Kenapa Nippon Ace?</p>
-                <h2 id="benefits-heading" class="section-title">Kepercayaan dan
-                  pengalaman kami,<br>
-                  <span class="text-japan">untuk langkah karier baru Anda di
-                    Jepang.</span></h2>
-              </div>
-              <div class="benefits-description">
-                <p>Kami berfokus pada layanan konsultasi dan bimbingan karier
-                  bagi kandidat yang merencanakan langkah kerja di Jepang.</p>
-                <p>Kami mendampingi kandidat memahami minat, kualifikasi, dan
-                  persiapan yang dibutuhkan agar rencana kariernya lebih terarah
-                  dan matang.</p>
-              </div>
-            </div>
-            <div class="reveal mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              <article class="rounded-xl border border-slate-200 p-6"><span
-                  class="mb-6 flex size-12 items-center justify-center rounded-xl bg-japan/5 text-japan"><svg
-                    class="icon" aria-hidden="true"><use
-                      href="#i-book" /></svg></span><h3
-                  class="text-[15px] font-extrabold">Konsultasi Karier</h3><p
-                  class="mt-3 text-xs leading-6 text-muted">Diskusikan minat dan
-                  pengalamanmu untuk menentukan arah karier dan persiapan kerja
-                  di Jepang.</p></article>
-              <article class="rounded-xl border border-slate-200 p-6"><span
-                  class="mb-6 flex size-12 items-center justify-center rounded-xl bg-japan/5 text-japan"><svg
-                    class="icon" aria-hidden="true"><use
-                      href="#i-shield" /></svg></span><h3
-                  class="text-[15px] font-extrabold">Proses Transparan</h3><p
-                  class="mt-3 text-xs leading-6 text-muted">Pahami tahapan,
-                  persyaratan, dan rincian biaya sebelum mengambil
-                  keputusan.</p></article>
-              <article class="rounded-xl border border-slate-200 p-6"><span
-                  class="mb-6 flex size-12 items-center justify-center rounded-xl bg-japan/5 text-japan"><svg
-                    class="icon" aria-hidden="true"><use
-                      href="#i-globe" /></svg></span><h3
-                  class="text-[15px] font-extrabold">Kemitraan LPK</h3><p
-                  class="mt-3 text-xs leading-6 text-muted">Kami bekerja sama
-                  dengan LPK untuk memperkuat konsultasi dan pendampingan karier
-                  bagi kandidat.</p></article>
-              <article class="rounded-xl border border-slate-200 p-6"><span
-                  class="mb-6 flex size-12 items-center justify-center rounded-xl bg-japan/5 text-japan"><svg
-                    class="icon" aria-hidden="true"><use
-                      href="#i-chat" /></svg></span><h3
-                  class="text-[15px] font-extrabold">Akses Perorangan</h3><p
-                  class="mt-3 text-xs leading-6 text-muted">Peminat perorangan
-                  dapat berkonsultasi mengenai minat, kualifikasi, dan langkah
-                  persiapan karier di Jepang.</p></article>
-            </div>
-            <p class="mt-4 text-[10px] text-muted">Layanan konsultasi dan
-              bimbingan ditujukan bagi LPK mitra serta kandidat perorangan.
-              Detail proses dan persyaratan dibahas sesuai kebutuhan.</p>
-          </section>
-          <div class="reveal mt-14"><div
-              class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center"><h2
-                class="text-xl font-extrabold">Layanan &amp; Kemitraan</h2><p
-                class="text-[11px] text-muted">Menghubungkan kebutuhan LPK dan
-                peminat perorangan.</p></div><div
-              class="mt-5 grid gap-4 sm:grid-cols-3"><div
-                class="flex items-center gap-4 rounded-xl border border-dashed border-slate-300 bg-paper px-6 py-5"><svg
-                  class="icon text-muted" aria-hidden="true"><use
-                    href="#i-shield" /></svg><div><p
-                    class="font-extrabold tracking-tight">Mitra LPK</p><p
-                    class="mt-1 text-[10px] text-muted">Pendampingan konsultasi
-                    karier kandidat</p></div></div><div
-                class="flex items-center gap-4 rounded-xl border border-dashed border-slate-300 bg-paper px-6 py-5"><svg
-                  class="icon text-muted" aria-hidden="true"><use
-                    href="#i-globe" /></svg><div><p
-                    class="font-extrabold tracking-tight">Perorangan</p><p
-                    class="mt-1 text-[10px] text-muted">Bimbingan minat dan
-                    persiapan karier</p></div></div><div
-                class="flex items-center gap-4 rounded-xl border border-dashed border-slate-300 bg-paper px-6 py-5"><svg
-                  class="icon text-muted" aria-hidden="true"><use
-                    href="#i-building" /></svg><div><p
-                    class="font-extrabold tracking-[0.16em]">Karier Jepang</p><p
-                    class="mt-1 text-[10px] text-muted">Konsultasi bidang dan
-                    persiapan kerja</p></div></div></div></div>
-          <div class="reveal mt-16"><p class="eyebrow">Orang-orang di balik
-              perjalananmu</p><h2 class="section-title">Kenali tim
-              kami.</h2><div
-              class="directors-grid">
-              <article
-                class="overflow-hidden rounded-xl border border-slate-200"><img
-                  src="assets/images/Pejabat/rachma.jpeg"
-                  alt="Rachma Dinna, Direktur PT Nippon Ace Indonesia"
-                  width="400" height="480" loading="lazy" decoding="async"
-                  class="h-64 w-full bg-paper object-cover object-[center_35%]"><div
-                  class="p-5"><h3 class="font-bold">Rachma Dinna</h3><p
-                    class="mt-1 text-xs text-japan">Direktur Utama/CEO (Chief
-                    Executive Officer)</p></div></article>
-              <article
-                class="overflow-hidden rounded-xl border border-slate-200"><img
-                  src="assets/images/Pejabat/fahmi.jpeg"
-                  alt="Ichwannul Fahmi, Direktur Operasional PT Nippon Ace Indonesia"
-                  width="400" height="480" loading="lazy" decoding="async"
-                  class="h-64 w-full bg-paper object-cover object-[center_35%]"><div
-                  class="p-5"><h3 class="font-bold">Ichwannul Fahmi</h3><p
-                    class="mt-1 text-xs text-japan">Direktur Operasional/COO
-                    (Chief Operating Officer)</p></div></article>
+        function waktu() {
+            var waktu = new Date();
+            setTimeout("waktu()", 1000);
+            document.getElementById("jam").innerHTML = waktu.getHours();
+            document.getElementById("menit").innerHTML = waktu.getMinutes();
+            document.getElementById("detik").innerHTML = waktu.getSeconds();
+        }
 
+        const time = new Date();
+        let jamUcapan = parseInt(time.getHours());
+        if (jamUcapan >= 1 && jamUcapan <= 10) {
+            ucapan =
+                '<h3 class="display-2" style="color: white; font-style: italic; font-weight: bold;">Good Morning .....</h3>';
+        } else if (jamUcapan >= 10 && jamUcapan <= 18) {
+            ucapan =
+                '<h3 class="display-2" style="color: white; font-style: italic; font-weight: bold;">Good Afternoon .....</h3>';
+        } else if (jamUcapan >= 18 && jamUcapan <= 24) {
+            ucapan =
+                '<h3 class="display-2" style="color: white; font-style: italic; font-weight: bold;">Good Night .....</h3>';
+        }
 
-            </div><p class="mt-3 text-[10px] text-muted">&nbsp;</p></div>
-        </div>
-      </section>
+        document.getElementById("ucapan").innerHTML = ucapan;
+    </script>
+    <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxqAyUNmJx_ZCCt2-T6JrkKKPu5L7FsB15y2T32fmjrVSa0_r1CCzdofFM_gfyAyAQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const btnsubmit = document.getElementById('submit')
+    const progress = document.getElementById('progress')
+    
+    // Pastikan Anda memiliki elemen dengan id="alert" di HTML Anda, 
+    // jika tidak ada, script bisa error di bagian alerts.style.visibility
+    const alerts = document.getElementById('alert') 
 
-      <section id="lowongan" aria-labelledby="jobs-heading"
-        class="border-y border-slate-100 bg-paper pt-10 pb-20 lg:pt-12 lg:pb-24">
-        <div class="container-wide">
-          <div class="reveal flex flex-col items-center text-center">
-            <p class="eyebrow">Temukan peluangmu</p>
-            <h2 id="jobs-heading"
-              class="section-title mt-2 text-[clamp(1rem,4.2vw,1.75rem)]">
-              Banyak jalan.<br class="sm:hidden">
-              <span class="whitespace-nowrap">Satu tujuan:
-                <span class="text-japan">Jepang.</span>
-              </span>
-            </h2>
-          </div>
-          <div id="job-carousel" class="mt-9" role="region"
-            aria-roledescription="carousel" aria-label="16 bidang kerja pilihan"
-            @keydown.arrow-right.prevent="nextJob()"
-            @keydown.arrow-left.prevent="previousJob()">
-            <div id="job-grid" class="mx-auto max-w-4xl" aria-live="polite"
-              aria-atomic="true">
-              <article class="group" x-show="jobSlide === 0">
-                <a href="formulir.html"
-                  class="job-card"
-                  aria-label="Konsultasikan bidang Keperawatan (Kaigo)">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">01</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-heart" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Keperawatan
-                    (Kaigo)</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Pendampingan
-                    &amp; perawatan lansia</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 1">
-                <a href="formulir.html"
-                  class="job-card"
-                  aria-label="Konsultasikan bidang Pertanian (Nogyo)">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">02</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-leaf" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Pertanian
-                    (Nogyo)</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Budidaya
-                    &amp; pengelolaan pertanian</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Pangan
-                    &amp; alam<svg class="icon !size-4 text-japan"
-                      aria-hidden="true"><use href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 2">
-                <a href="formulir.html"
-                  class="job-card" aria-label="Konsultasikan bidang Perikanan">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">03</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-fish" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Perikanan</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Perikanan
-                    tangkap &amp; budidaya</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Pangan
-                    &amp; alam<svg class="icon !size-4 text-japan"
-                      aria-hidden="true"><use href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 3">
-                <a href="formulir.html"
-                  class="job-card" aria-label="Konsultasikan bidang Konstruksi">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">04</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-building" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Konstruksi</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Pembangunan
-                    &amp; infrastruktur</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 4">
-                <a href="formulir.html"
-                  class="job-card"
-                  aria-label="Konsultasikan bidang Pengolahan Makanan">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">05</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-food" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Pengolahan
-                    Makanan</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Produksi
-                    &amp; pengolahan pangan</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Pangan
-                    &amp; alam<svg class="icon !size-4 text-japan"
-                      aria-hidden="true"><use href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 5">
-                <a href="formulir.html"
-                  class="job-card" aria-label="Konsultasikan bidang Restoran">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">06</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-utensils" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Restoran</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Pelayanan
-                    &amp; operasional restoran</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 6">
-                <a href="formulir.html"
-                  class="job-card"
-                  aria-label="Konsultasikan bidang Manufaktur Mesin">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">07</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-gear" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Manufaktur
-                    Mesin</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Produksi
-                    &amp; perakitan mesin</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 7">
-                <a href="formulir.html"
-                  class="job-card" aria-label="Konsultasikan bidang Elektronik">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">08</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-chip" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Elektronik</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Perakitan
-                    komponen elektronik</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 8">
-                <a href="formulir.html"
-                  class="job-card"
-                  aria-label="Konsultasikan bidang Pembuatan Kapal">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">09</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-ship" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Pembuatan
-                    Kapal</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Konstruksi
-                    &amp; permesinan kapal</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 9">
-                <a href="formulir.html"
-                  class="job-card"
-                  aria-label="Konsultasikan bidang Pembersihan Gedung">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">10</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-sparkle" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Pembersihan
-                    Gedung</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Kebersihan
-                    &amp; perawatan gedung</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 10">
-                <a href="formulir.html"
-                  class="job-card"
-                  aria-label="Konsultasikan bidang Suku Cadang">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">11</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-tool" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Suku
-                    Cadang</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Pembuatan
-                    komponen industri</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 11">
-                <a href="formulir.html"
-                  class="job-card"
-                  aria-label="Konsultasikan bidang Penerbangan">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">12</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-plane" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Penerbangan</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Operasional
-                    &amp; dukungan bandara</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 12">
-                <a href="formulir.html"
-                  class="job-card" aria-label="Konsultasikan bidang Perhotelan">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">13</span><span
-                    class="job-icon"><svg class="icon" aria-hidden="true"><use
-                        href="#i-hotel" /></svg></span><h3
-                    class="text-[13px] font-extrabold leading-6">Perhotelan</h3><p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Hospitalitas
-                    &amp; layanan tamu</p><span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Layanan<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 13">
-                <a href="formulir.html"
-                  class="job-card" aria-label="Konsultasikan bidang Pengecatan">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">14</span>
-                  <span class="job-icon"><svg class="icon"
-                      aria-hidden="true"><use
-                        href="#i-paint" /></svg></span>
-                  <h3
-                    class="text-[13px] font-extrabold leading-6">Pengecatan</h3>
-                  <p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Pelapisan
-                    &amp; penyelesaian produk</p>
-                  <span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 14">
-                <a href="formulir.html"
-                  class="job-card" aria-label="Konsultasikan bidang Pengelasan">
-                  <span
-                    class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">15</span>
-                  <span class="job-icon"><svg class="icon"
-                      aria-hidden="true"><use
-                        href="#i-weld" /></svg></span>
-                  <h3
-                    class="text-[13px] font-extrabold leading-6">Pengelasan</h3>
-                  <p
-                    class="mt-2 grow text-[11px] leading-5 text-muted">Penyambungan
-                    &amp; fabrikasi logam</p>
-                  <span
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Industri<svg
-                      class="icon !size-4 text-japan" aria-hidden="true"><use
-                        href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-              <article class="group" x-show="jobSlide === 15" x-cloak>
-                <a href="formulir.html" @click="selectField('Peternakan')"
-                  class="job-card" aria-label="Konsultasikan bidang Peternakan">
-                  <span class="absolute right-5 top-5 text-[10px] font-semibold text-slate-400">16</span>
-                  <span class="job-icon" role="img" aria-label="Bidang kerja peternakan"></span>
-                  <h3 class="text-[13px] font-extrabold leading-6">Peternakan</h3>
-                  <p class="mt-2 grow text-[11px] leading-5 text-muted">Perawatan ternak, pemberian pakan, dan pengelolaan peternakan</p>
-                  <span class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] font-semibold text-muted">Pangan &amp; alam<svg class="icon !size-4 text-japan" aria-hidden="true"><use href="#i-up-right" /></svg></span>
-                </a>
-              </article>
-            </div>
-            <div class="mt-6 flex items-center justify-center gap-5">
-              <button type="button" class="job-slide-control"
-                aria-label="Bidang kerja sebelumnya" aria-controls="job-grid"
-                @click="previousJob()"><svg class="icon rotate-180"
-                  aria-hidden="true"><use href="#i-arrow" /></svg></button>
-              <p class="min-w-24 text-center text-xs font-bold text-muted"
-                aria-live="polite"><span
-                  x-text="String(jobSlide + 1).padStart(2, '0')">01</span> /
-                <span x-text="String(jobCount).padStart(2, '0')">16</span></p>
-              <button type="button" class="job-slide-control"
-                aria-label="Bidang kerja berikutnya" aria-controls="job-grid"
-                @click="nextJob()"><svg class="icon" aria-hidden="true"><use
-                    href="#i-arrow" /></svg></button>
-            </div>
-          </div>
-          <div
-            class="mt-7 flex flex-col justify-between gap-4 sm:flex-row sm:items-center"><p
-              class="max-w-2xl text-[11px] leading-6 text-muted">Daftar bidang
-              ini menjadi bahan konsultasi, bukan daftar lowongan yang
-              disediakan Nippon Ace. Kami membantu membahas minat, kualifikasi,
-              dan persiapan karier di Jepang. <a
-                href="https://www.ssw.go.jp/en/about/visa/"
-                target="_blank" rel="noopener noreferrer"
-                class="font-semibold underline underline-offset-2">Informasi
-                resmi SSW ↗</a></p><a href="formulir.html"
-              class="shrink-0 text-xs font-bold text-japan">Bantu saya memilih
-              <span aria-hidden="true">→</span></a></div>
-        </div>
-      </section>
+    form.addEventListener('submit', e => {
+            e.preventDefault()
 
-      <section aria-labelledby="stats-heading" class="bg-ink py-16 text-white">
-        <div class="container-wide"><div
-            class="mb-10 flex flex-col justify-between gap-3 md:flex-row md:items-center"><h2
-              id="stats-heading"
-              class="text-xl font-bold tracking-tight">Langkah nyata, cerita
-              yang bermakna.</h2><p class="text-xs text-slate-300">Setiap angka
-              menyimpan sebuah perjalanan.</p></div><div
-            class="grid grid-cols-2 gap-y-9 lg:grid-cols-4">
-            <div class="border-l border-white/15 pl-5 first:border-japan"><p
-                class="text-4xl font-extrabold tracking-tight sm:text-5xl"
-                data-count="1200" data-suffix="+"
-                aria-label="1.200 lebih pendaftar">1,200+</p><p
-                class="mt-3 text-xs text-slate-300">Pendaftar</p></div>
-            <div class="border-l border-white/15 pl-5"><p
-                class="text-4xl font-extrabold tracking-tight sm:text-5xl"
-                data-count="850" data-suffix="+"
-                aria-label="850 lebih kandidat berkonsultasi">850+</p><p
-                class="mt-3 text-xs text-slate-300">Kandidat
-                Berkonsultasi</p></div>
-            <div class="border-l border-white/15 pl-5"><p
-                class="text-4xl font-extrabold tracking-tight sm:text-5xl"
-                data-count="50" data-suffix="+"
-                aria-label="50 lebih mitra">50+</p><p
-                class="mt-3 text-xs text-slate-300">Mitra LPK</p></div>
-            <div class="border-l border-white/15 pl-5"><p
-                class="text-4xl font-extrabold tracking-tight sm:text-5xl"
-                data-count="98" data-suffix="%"
-                aria-label="98 persen lulus wawancara">98%</p><p
-                class="mt-3 text-xs text-slate-300">Lulus Wawancara</p></div>
-          </div><p class="mt-7 text-[10px] text-slate-400">&nbsp;</p></div>
-      </section>
+            btnsubmit.style.visibility = "hidden";
+            progress.style.visibility = "visible";
 
-      <section id="testimoni" aria-labelledby="stories-heading"
-        class="bg-[#f8f5f2] py-20">
-        <div
-          class="container-wide grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
-          <div class="reveal"><p class="eyebrow">Cerita kandidat</p><h2
-              id="stories-heading" class="section-title">Dulu sebuah
-              mimpi.<br>Kini sebuah cerita.</h2><p
-              class="mt-5 max-w-sm text-sm leading-7 text-muted">Gambaran
-              pengalaman kandidat menjalani konsultasi dan bimbingan karier
-              bersama Nippon Ace.</p><p
-              class="mt-4 text-[10px] text-muted">Cerita ilustrasi, bukan kutipan kandidat terverifikasi.</p></div>
-          <div
-            class="reveal rounded-2xl border border-white/15 bg-ink p-7 text-white shadow-sm sm:p-10"
-            role="region" aria-roledescription="carousel"
-            aria-label="Testimoni contoh kandidat"
-            @keydown.arrow-right.prevent="nextStory()"
-            @keydown.arrow-left.prevent="previousStory()">
-            <div class="mb-5 flex items-center justify-between"><span
-                class="text-5xl font-extrabold leading-none text-white"
-                aria-hidden="true">“</span><span
-                class="text-sm tracking-[0.2em] text-[#FFD700]"
-                aria-label="Penilaian contoh 5 dari 5">★★★★★</span></div>
-            <div class="min-h-[240px] sm:min-h-[205px]" aria-live="polite"
-              aria-atomic="true">
-              <article x-show="slide === 0" aria-label="Testimoni 1 dari 5"><h3
-                  class="sr-only">Cerita Andi Saputra</h3><blockquote
-                  class="text-lg font-medium leading-8 tracking-tight">“Awalnya
-                  saya belum tahu bagaimana menyiapkan karier ke Jepang.
-                  Konsultasi dengan tim Nippon Ace membantu saya memahami
-                  kualifikasi dan langkah persiapan yang perlu
-                  dilakukan.”</blockquote><div
-                  class="mt-6 flex items-center gap-3"><span
-                    class="flex size-11 items-center justify-center rounded-full bg-[#eaf0ed] text-sm font-bold text-[#3f7651]">AS</span><div><p
-                      class="text-sm font-bold">Andi Saputra</p><p
-                      class="mt-1 text-[11px] text-slate-300">Pengolahan Makanan
-                      ·
-                      Osaka, Jepang</p></div></div></article>
-              <article x-show="slide === 1" x-cloak
-                aria-label="Testimoni 2 dari 5"><h3 class="sr-only">Cerita Siti
-                  Rahma</h3><blockquote
-                  class="text-lg font-medium leading-8 tracking-tight">“Saya
-                  mengenal Nippon Ace melalui LPK tempat saya belajar.
-                  Konsultasi dan bimbingan dari tim membantu saya memahami
-                  bidang, kualifikasi, dan langkah persiapan yang sesuai dengan
-                  minat saya.”</blockquote><div
-                  class="mt-6 flex items-center gap-3"><span
-                    class="flex size-11 items-center justify-center rounded-full bg-japan text-sm font-bold text-white">SR</span><div><p
-                      class="text-sm font-bold">Siti Rahma</p><p
-                      class="mt-1 text-[11px] text-slate-300">Keperawatan
-                      (Kaigo) ·
-                      Nagoya, Jepang</p></div></div></article>
-              <article x-show="slide === 2" x-cloak aria-label="Testimoni 3 dari 5">
-                <h3 class="sr-only">Cerita Rina Anggraini</h3>
-                <blockquote class="text-lg font-medium leading-8 tracking-tight">“Saya mulai dengan merapikan tujuan dan mengenali bidang yang sesuai dengan minat saya. Gambaran persiapan bahasa dan dokumen membuat langkah berikutnya terasa lebih jelas.”</blockquote>
-                <div class="mt-6 flex items-center gap-3">
-                  <span class="flex size-11 items-center justify-center rounded-full bg-[#eaf0ed] text-sm font-bold text-[#3f7651]">RA</span>
-                  <div><p class="text-sm font-bold">Rina Anggraini</p><p class="mt-1 text-[11px] text-slate-300">Pertanian (Nogyo) · Cerita ilustrasi</p></div>
-                </div>
-              </article>
-              <article x-show="slide === 3" x-cloak aria-label="Testimoni 4 dari 5">
-                <h3 class="sr-only">Cerita Dimas Wijaya</h3>
-                <blockquote class="text-lg font-medium leading-8 tracking-tight">“Latar belakang teknik membuat saya tertarik pada pekerjaan manufaktur. Memahami kebutuhan kualifikasi dan menyusun rencana belajar membantu saya menyiapkan diri dengan lebih terarah.”</blockquote>
-                <div class="mt-6 flex items-center gap-3">
-                  <span class="flex size-11 items-center justify-center rounded-full bg-[#eaf0ed] text-sm font-bold text-[#3f7651]">DW</span>
-                  <div><p class="text-sm font-bold">Dimas Wijaya</p><p class="mt-1 text-[11px] text-slate-300">Manufaktur Mesin · Cerita ilustrasi</p></div>
-                </div>
-              </article>
-              <article x-show="slide === 4" x-cloak aria-label="Testimoni 5 dari 5">
-                <h3 class="sr-only">Cerita Maya Permata</h3>
-                <blockquote class="text-lg font-medium leading-8 tracking-tight">“Saya ingin mengembangkan kemampuan pelayanan di bidang perhotelan. Menetapkan target belajar bahasa dan meninjau pengalaman kerja menjadi langkah awal dalam persiapan karier saya.”</blockquote>
-                <div class="mt-6 flex items-center gap-3">
-                  <span class="flex size-11 items-center justify-center rounded-full bg-[#eaf0ed] text-sm font-bold text-[#3f7651]">MP</span>
-                  <div><p class="text-sm font-bold">Maya Permata</p><p class="mt-1 text-[11px] text-slate-300">Perhotelan · Cerita ilustrasi</p></div>
-                </div>
-              </article>
-            </div>
-            <div
-              class="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-4"><div
-                class="flex gap-1"><button type="button" @click="slide = 0" :aria-pressed="slide === 0" aria-label="Tampilkan testimoni Andi" class="flex size-9 items-center justify-center"><span class="h-1.5 rounded-full" :class="slide === 0 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button>
-                  <button type="button" @click="slide = 1" :aria-pressed="slide === 1" aria-label="Tampilkan testimoni Siti" class="flex size-9 items-center justify-center"><span class="h-1.5 rounded-full" :class="slide === 1 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button>
-                  <button type="button" @click="slide = 2" :aria-pressed="slide === 2" aria-label="Tampilkan testimoni Rina" class="flex size-9 items-center justify-center"><span class="h-1.5 rounded-full" :class="slide === 2 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button>
-                  <button type="button" @click="slide = 3" :aria-pressed="slide === 3" aria-label="Tampilkan testimoni Dimas" class="flex size-9 items-center justify-center"><span class="h-1.5 rounded-full" :class="slide === 3 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button>
-                  <button type="button" @click="slide = 4" :aria-pressed="slide === 4" aria-label="Tampilkan testimoni Maya" class="flex size-9 items-center justify-center"><span class="h-1.5 rounded-full" :class="slide === 4 ? 'w-6 bg-white' : 'w-2 bg-slate-300'"></span></button></div><div
-                class="flex gap-2"><button type="button"
-                  @click="previousStory()"
-                  class="flex size-11 items-center justify-center rounded-full border border-white/15 text-white hover:border-japan"
-                  aria-label="Testimoni sebelumnya"><svg
-                    class="icon !size-4 rotate-180" aria-hidden="true"><use
-                      href="#i-arrow" /></svg></button><button type="button"
-                  @click="nextStory()"
-                  class="flex size-11 items-center justify-center rounded-full border border-white/15 text-white hover:border-japan"
-                  aria-label="Testimoni berikutnya"><svg class="icon !size-4"
-                    aria-hidden="true"><use
-                      href="#i-arrow" /></svg></button></div></div>
-          </div>
-        </div>
-      </section>
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors', // <--- INI KUNCI PERBAIKANNYA
+                body: new FormData(form)
+            })
+            .then(response => {
+                // Karena menggunakan 'no-cors', response akan bersifat 'opaque' (tertutup),
+                // tapi jika masuk ke sini berarti proses pengiriman selesai.
+                console.log('Success!', response);
+                
+                btnsubmit.style.visibility = "visible";
+                progress.style.visibility = "hidden";
+                if (alerts) alerts.style.visibility = "visible"; // Mencegah error jika div alert tidak ada
 
-      <section id="daftar" aria-labelledby="register-heading"
-        class="py-20 lg:py-24">
-        <div
-          class="container-wide max-w-4xl">
-          <div class="reveal" style="min-width: 0">
-            <p class="eyebrow">Langkah pertamamu</p>
-            <h2 id="register-heading" class="section-title">Mimpi besar
-              dimulai<br>dari <span class="text-japan">satu langkah.</span></h2>
-            <a href="formulir.html" class="button-primary mt-6">Buka Formulir
-              Pendaftaran</a>
-            <div class="registration-intro">
-              <p class="registration-label">Konsultasi &amp; Bimbingan
-                Karier</p>
-              <h3>Pendampingan Karier ke Jepang</h3>
-              <p class="registration-summary">Kami membantu Anda memahami
-                pilihan bidang, menilai kesiapan, dan menyiapkan langkah menuju
-                proses rekrutmen bersama mitra. Keputusan penerimaan berada pada
-                TSK atau perusahaan.</p>
-            </div>
-            <div class="registration-estimate">
-              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle
-                  cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
-              <div><p class="registration-label">Perkiraan Proses Mitra</p><p
-                  class="registration-duration">3&ndash;10 bulan</p><p>Dari
-                  persiapan hingga keberangkatan. Durasi bergantung pada
-                  kesiapan kandidat, proses TSK/perusahaan, dan dokumen visa;
-                  perkiraan ini bukan jaminan waktu atau
-                  keberangkatan.</p></div>
-            </div>
-            <ol class="registration-timeline">
-              <li>
-                <span class="registration-step-number"
-                  aria-hidden="true">01</span>
-                <div class="registration-step-content">
-                  <h4>Pendaftaran &amp; Konsultasi Awal</h4>
-                  <p>Isi formulir dan kirim dokumen yang diperlukan. Tim Nippon
-                    Ace meninjau informasi awal untuk membantu membahas minat
-                    dan kesiapan karier Anda.</p>
-                </div>
-              </li>
-              <li>
-                <span class="registration-step-number"
-                  aria-hidden="true">02</span>
-                <div class="registration-step-content">
-                  <h4>Pemetaan Kesiapan Bahasa Jepang</h4>
-                  <p>Kemampuan bahasa Jepang ditinjau untuk memahami kesiapan
-                    dan kebutuhan persiapan sebelum mengikuti proses mitra.</p>
-                </div>
-              </li>
-              <li>
-                <span class="registration-step-number"
-                  aria-hidden="true">03</span>
-                <div class="registration-step-content">
-                  <h4>Pendampingan ke TSK Mitra</h4>
-                  <p>Kandidat yang sesuai dapat didampingi untuk berkoordinasi
-                    dengan TSK (登録支援機関) mitra mengenai proses dan
-                    persyaratan berikutnya.</p>
-                </div>
-              </li>
-              <li>
-                <span class="registration-step-number"
-                  aria-hidden="true">04</span>
-                <div class="registration-step-content">
-                  <h4>Proses Wawancara Mitra</h4>
-                  <p>Jika terdapat kecocokan dan undangan dari mitra/perusahaan,
-                    kandidat dapat mengikuti wawancara secara online atau sesuai
-                    ketentuan perusahaan.</p>
-                </div>
-              </li>
-              <li>
-                <span class="registration-step-number"
-                  aria-hidden="true">05</span>
-                <div class="registration-step-content">
-                  <h4>Kontrak Kerja &amp; Pengurusan Dokumen</h4>
-                  <p>Setelah dinyatakan lolos interview, kandidat melakukan
-                    penandatanganan kontrak kerja dan melengkapi dokumen yang
-                    diperlukan untuk proses selanjutnya.</p>
-                  <span class="registration-step-duration"><svg class="icon"
-                      aria-hidden="true"><use href="#i-check" /></svg>1 hari–1
-                    bulan</span>
-                </div>
-              </li>
-              <li>
-                <span class="registration-step-number"
-                  aria-hidden="true">06</span>
-                <div class="registration-step-content">
-                  <h4>Pengajuan &amp; Penerbitan COE</h4>
-                  <p>Proses pengajuan COE (Certificate of Eligibility) dilakukan
-                    sesuai prosedur. Setelah COE diterbitkan, kandidat
-                    melanjutkan ke tahap pengajuan visa.</p>
-                  <span class="registration-step-duration"><svg class="icon"
-                      aria-hidden="true"><use href="#i-check" /></svg>3–6
-                    bulan</span>
-                </div>
-              </li>
-              <li>
-                <span class="registration-step-number"
-                  aria-hidden="true">07</span>
-                <div class="registration-step-content">
-                  <h4>Pengajuan Visa Jepang</h4>
-                  <p>Kandidat melakukan proses pengajuan visa kerja Jepang
-                    dengan dokumen yang telah dipersiapkan.</p>
-                  <span class="registration-step-duration"><svg class="icon"
-                      aria-hidden="true"><use href="#i-check" /></svg>1 minggu–1
-                    bulan</span>
-                </div>
-              </li>
-              <li>
-                <span class="registration-step-number"
-                  aria-hidden="true">08</span>
-                <div class="registration-step-content">
-                  <h4>Persiapan Keberangkatan</h4>
-                  <p>Setelah visa terbit, kandidat mempersiapkan keberangkatan,
-                    termasuk tiket, perlengkapan, dan persiapan sebelum
-                    berangkat ke Jepang.</p>
-                </div>
-              </li>
-              <li class="registration-finish">
-                <span class="registration-step-number"
-                  aria-hidden="true">09</span>
-                <div class="registration-step-content">
-                  <h4>Keberangkatan ke Jepang</h4>
-                  <p>Seluruh proses selesai dan kandidat siap berangkat ke
-                    Jepang untuk memulai perjalanan karier baru.</p>
-                </div>
-              </li>
-            </ol>
-          </div>
-          <div
-            class="hidden registration-form rounded-2xl border border-slate-200 bg-white p-6 shadow-xl shadow-ink/5 sm:p-9"
-            style="min-width: 0">
-            <h3 class="text-xl font-extrabold tracking-tight">FORM PENDAFTARAN
-              KANDIDAT</h3>
-            <p class="mt-2 text-xs leading-6 text-muted">Tanda * berarti wajib
-              diisi. Lengkapi formulir secara bertahap.</p>
-            <noscript><p
-                class="my-4 rounded-lg bg-red-50 p-4 text-sm text-japan">Aktifkan
-                JavaScript untuk mengisi formulir bertahap.</p></noscript>
-            <form x-ref="applicantForm" class="mt-7 space-y-5"
-              @submit.prevent="submit" novalidate x-cloak>
-              <section data-form-step="0" x-show="step === 0"
-                aria-labelledby="applicant-step-0" class="space-y-5">
-                <h4 id="applicant-step-0" tabindex="-1"
-                  class="text-base font-extrabold">DATA DIRI CALON
-                  PESERTA</h4>
-                <div class="space-y-5">
-                  <div><label for="email" class="field-label">Email aktif
-                      *</label><input id="email" name="email"
-                      x-model="form.email" class="field" type="email"
-                      autocomplete="email" required></div>
-                  <div><label for="field" class="field-label">Jenis pekerjaan
-                      yang ingin diikuti *</label><select id="field"
-                      name="field" x-model="form.field" class="field"
-                      required><option value>Pilih bidang
-                        pekerjaan</option><option
-                        value="Keperawatan (Kaigo)">Keperawatan
-                        (Kaigo)</option><option
-                        value="Pertanian (Nogyo)">Pertanian
-                        (Nogyo)</option><option
-                        value="Perikanan">Perikanan</option><option
-                        value="Konstruksi">Konstruksi</option><option
-                        value="Pengolahan Makanan">Pengolahan
-                        Makanan</option><option
-                        value="Restoran">Restoran</option><option
-                        value="Manufaktur Mesin">Manufaktur
-                        Mesin</option><option
-                        value="Elektronik">Elektronik</option><option
-                        value="Pembuatan Kapal">Pembuatan Kapal</option><option
-                        value="Pembersihan Gedung">Pembersihan
-                        Gedung</option><option value="Suku Cadang">Suku
-                        Cadang</option><option
-                        value="Penerbangan">Penerbangan</option><option
-                        value="Perhotelan">Perhotelan</option><option
-                        value="Pengecatan">Pengecatan</option><option
-                        value="Pengelasan">Pengelasan</option><option value="Peternakan">Peternakan</option></select></div>
-                  <fieldset><legend class="field-label">Apakah bersedia untuk
-                      mengikuti konsultasi Job Order kami? *</legend><div
-                      class="flex flex-col gap-3"><label
-                        class="flex items-center gap-2 text-sm"><input
-                          type="radio" name="jobOrderConsultation" value="Ya"
-                          x-model="form.jobOrderConsultation"
-                          required>Ya</label><label
-                        class="flex items-center gap-2 text-sm"><input
-                          type="radio" name="jobOrderConsultation" value="Tidak"
-                          x-model="form.jobOrderConsultation">Tidak</label></div></fieldset>
-                  <div><label for="romaji" class="field-label">Nama Lengkap
-                      Romaji *</label><input id="romaji" name="romaji"
-                      x-model="form.romaji" class="field" type="text"
-                      autocomplete="name" required></div>
-                  <div><label for="katakana" class="field-label">Nama Lengkap
-                      Katakana *</label><input id="katakana" name="katakana"
-                      x-model="form.katakana" class="field" type="text"
-                      required></div>
-                  <div><label for="gender" class="field-label">Jenis kelamin
-                      *</label><select id="gender" name="gender"
-                      x-model="form.gender" class="field" required><option
-                        value>Pilih jenis kelamin</option><option
-                        value="Laki-laki">Laki-laki</option><option
-                        value="Perempuan">Perempuan</option></select></div>
-                  <div><label for="birthPlace" class="field-label">Tempat lahir
-                      *</label><input id="birthPlace" name="birthPlace"
-                      x-model="form.birthPlace" class="field" type="text"
-                      required></div>
-                  <div><label for="birthDate" class="field-label">Tanggal lahir
-                      *</label><input id="birthDate" name="birthDate"
-                      x-model="form.birthDate" class="field" type="date"
-                      required></div>
-                  <div><label for="identityAddress" class="field-label">Alamat
-                      sesuai KTP *</label><textarea id="identityAddress"
-                      name="identityAddress" x-model="form.identityAddress"
-                      class="field resize-y" rows="3" required></textarea></div>
-                </div>
-              </section>
+                // clear form
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                
+                // Kembalikan tombol jika terjadi error
+                btnsubmit.style.visibility = "visible";
+                progress.style.visibility = "hidden";
+                alert("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
+            })
+        })
+    </script>
+</body>
 
-
-        </div>
-      </section>
-
-      <section id="kontak" aria-labelledby="contact-heading"
-        class="border-t border-slate-100 bg-paper py-20">
-        <div class="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <div><p class="eyebrow">Mari terhubung</p><h2 id="contact-heading"
-              class="section-title">Perjalanan baik dimulai<br>dari
-              percakapan.</h2><p class="mt-5 text-sm leading-7 text-muted">Untuk
-              perorangan, konsultasikan rencana karier dan persiapan kerja di
-              Jepang. Untuk LPK, diskusikan kerja sama bimbingan karier dan
-              pendampingan kandidat.</p><address
-              class="mt-7 space-y-4 text-sm not-italic"><div
-                class="flex gap-3"><svg class="icon !size-5 text-japan"
-                  aria-hidden="true"><use href="#i-pin" /></svg><div><strong
-                    class="text-xs">Kantor Nippon Ace — Depok</strong><p
-                    class="mt-2 text-xs leading-6 text-muted">Grand Mannacon
-                    Bojongsari Blok B No. 5, Bojongsari Baru, Kec. Bojongsari,
-                    Kota Depok, Jawa Barat 16516, Indonesia</p></div></div><div
-                class="flex gap-3"><svg class="icon !size-5 text-japan"
-                  aria-hidden="true"><use href="#i-chat" /></svg><div><strong
-                    class="text-xs">WhatsApp</strong><p
-                    class="mt-2 text-xs text-muted">+81 703-1159-531 <span
-                      class="text-[10px]"></span></p></div></div></address><p
-              class="mt-5 text-xs text-muted">Senin–Jumat · 09.00–17.00
-              WIB</p><nav class="contact-socials"
-              aria-label="Media sosial dan komunitas Nippon Ace">
-              <a href="https://www.facebook.com/share/1DQALJPVrr/"
-                class="contact-social-link contact-social-facebook"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="Facebook Nippon Ace (buka tab baru)">
-                <svg viewBox="0 0 24 24" width="24" height="24"
-                  fill="currentColor" aria-hidden="true" focusable="false"><path
-                    d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.025 4.388 11.02 10.125 11.927v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.971h-1.513c-1.49 0-1.956.931-1.956 1.887v2.263h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.098 24 12.073Z" /></svg>
-                <span>Facebook</span>
-              </a>
-              <a
-                href="https://chat.whatsapp.com/IRhv0r5kJz8Hri8K36raFw?s=cl&amp;p=i&amp;mlu=0&amp;amv=2"
-                class="contact-social-link contact-social-whatsapp"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="Grup WhatsApp Nippon Ace (buka tab baru)">
-                <svg viewBox="0 0 24 24" width="24" height="24"
-                  fill="currentColor" aria-hidden="true" focusable="false"><path
-                    d="M20.52 3.48A11.9 11.9 0 0 0 12.04 0C5.43 0 .05 5.38.05 11.99c0 2.11.55 4.17 1.6 5.99L0 24l6.16-1.62a11.96 11.96 0 0 0 5.88 1.5h.01c6.61 0 11.99-5.38 11.99-11.99 0-3.2-1.25-6.21-3.52-8.41ZM12.05 21.86a9.94 9.94 0 0 1-5.07-1.39l-.36-.21-3.66.96.98-3.57-.24-.37a9.94 9.94 0 0 1-1.53-5.29c0-5.5 4.48-9.98 9.99-9.98a9.91 9.91 0 0 1 7.06 2.93 9.92 9.92 0 0 1 2.92 7.06c0 5.51-4.48 9.99-9.99 9.99Zm5.48-7.48c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.68-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.11 3.22 5.12 4.52.71.31 1.27.49 1.7.62.72.23 1.37.2 1.88.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z" /></svg>
-                <span>Grup WhatsApp</span>
-              </a>
-              <a
-                href="https://www.instagram.com/nipponace.ind?stkn=MWc5Y21leHdpa3lieQ=="
-                class="contact-social-link contact-social-instagram"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="Instagram Nippon Ace (buka tab baru)">
-                <svg viewBox="0 0 24 24" width="24" height="24"
-                  fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true" focusable="false">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="18" cy="6" r="1" fill="currentColor"
-                    stroke="none" />
-                </svg>
-                <span>Instagram</span>
-              </a>
-              <a href="https://whatsapp.com/channel/0029VbC5suY8qIzwl0RFIB3U"
-                class="contact-social-link contact-social-whatsapp"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="Saluran WhatsApp Nippon Ace (buka tab baru)">
-                <svg viewBox="0 0 24 24" width="24" height="24"
-                  fill="currentColor" aria-hidden="true" focusable="false"><path
-                    d="M20.52 3.48A11.9 11.9 0 0 0 12.04 0C5.43 0 .05 5.38.05 11.99c0 2.11.55 4.17 1.6 5.99L0 24l6.16-1.62a11.96 11.96 0 0 0 5.88 1.5h.01c6.61 0 11.99-5.38 11.99-11.99 0-3.2-1.25-6.21-3.52-8.41ZM12.05 21.86a9.94 9.94 0 0 1-5.07-1.39l-.36-.21-3.66.96.98-3.57-.24-.37a9.94 9.94 0 0 1-1.53-5.29c0-5.5 4.48-9.98 9.99-9.98a9.91 9.91 0 0 1 7.06 2.93 9.92 9.92 0 0 1 2.92 7.06c0 5.51-4.48 9.99-9.99 9.99Zm5.48-7.48c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.68-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.11 3.22 5.12 4.52.71.31 1.27.49 1.7.62.72.23 1.37.2 1.88.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z" /></svg>
-                <span>Saluran WhatsApp</span>
-              </a>
-            </nav></div>
-          <div
-            class="overflow-hidden rounded-2xl border border-slate-200 bg-white"><iframe
-              title="Peta Kantor Nippon Ace, Grand Mannacon Bojongsari, Depok"
-              src="https://maps.google.com/maps?q=Grand+Mannacon+Bojongsari+Blok+B+no+5,+Bojongsari+Baru,+Kec.+Bojongsari,+Kota+Depok,+Jawa+Barat+16516,+Indonesia&amp;output=embed"
-              width="600" height="390"
-              class="h-[340px] w-full border-0 sm:h-[390px]" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allowfullscreen></iframe><div
-              class="flex items-center justify-between gap-4 p-5"><div><p
-                  class="text-xs font-bold">Temukan kami di Depok</p><p
-                  class="mt-1 text-[10px] text-muted">Grand Mannacon
-                  Bojongsari, Kota Depok.</p></div><a
-                href="https://maps.app.goo.gl/KUoLx553Fc88wPjv5?g_st=iw"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="Buka lokasi Kantor Nippon Ace di Google Maps"
-                class="flex size-11 shrink-0 items-center justify-center rounded-full bg-paper"><svg
-                  class="icon !size-5" aria-hidden="true"><use
-                    href="#i-up-right" /></svg></a></div></div>
-        </div>
-      </section>
-
-      <section aria-labelledby="cta-heading"
-        class="bg-japan py-12 text-white"><div
-          class="container-wide flex flex-col items-start justify-between gap-6 md:flex-row md:items-center"><div><p
-              class="text-[10px] font-semibold tracking-[0.2em] text-white/75">MASA
-              DEPAN TIDAK MENUNGGU</p><h2 id="cta-heading"
-              class="mt-3 text-2xl font-extrabold tracking-tight md:text-3xl">Siap
-              menulis cerita barumu di Jepang?</h2></div><a href="formulir.html"
-            class="button-secondary !border-white !text-japan">Ambil Langkah
-            Pertama <svg class="icon !size-4" aria-hidden="true"><use
-                href="#i-arrow" /></svg></a></div></section>
-    </main>
-
-    <footer class="bg-ink pb-7 pt-14 text-white">
-      <div class="container-wide"><div
-          class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]"><div><a
-              href="#beranda" class="inline-flex items-center gap-3"><img
-                src="assets/images/favicon.svg"
-                alt="Logo PT. Nippon Ace Indonesia" width="52" height="52"
-                decoding="async" loading="lazy" class="brand-mark"><span
-                class="text-sm font-bold">Nippon
-                Ace<span
-                  class="block text-[10px] font-normal uppercase tracking-[0.2em] text-slate-300">Indonesia</span></span></a><p
-              class="mt-5 max-w-xs text-xs leading-6 text-slate-300">Layanan
-              konsultasi dan bimbingan karier di Jepang bagi kandidat
-              perorangan, dengan LPK sebagai mitra kerja sama.</p><p
-              class="mt-5 text-[10px] tracking-[0.18em] text-slate-400">INDONESIA
-              → JAPAN</p></div><nav aria-label="Navigasi footer"><p
-              class="mb-5 text-xs font-bold">Jelajahi</p><div
-              class="flex flex-col gap-3"><a href="#beranda"
-                class="footer-link">Beranda</a><a href="#tentang"
-                class="footer-link">Tentang Kami</a><a href="#lowongan"
-                class="footer-link">Bidang Kerja</a><a href="#testimoni"
-                class="footer-link">Cerita Kandidat</a></div></nav><nav
-            aria-label="Layanan dan informasi"><p
-              class="mb-5 text-xs font-bold">Langkah Selanjutnya</p><div
-              class="flex flex-col gap-3"><a href="https://wa.me/+817031159531"
-                target="_blank" rel="noopener noreferrer"
-                class="footer-link">Konsultasi Karier Jepang</a><a
-                href="#kontak"
-                class="footer-link">Hubungi Kami</a><a href="formulir.html"
-                class="footer-link">Pendaftaran</a><a href="https://www.ssw.go.jp/id/" target="_blank"
-                rel="noopener noreferrer" class="footer-link">Panduan Resmi SSW
-                ↗</a></div></nav><div><p class="mb-5 text-xs font-bold">Satu
-              Langkah Lebih Dekat</p><p
-              class="text-xs leading-6 text-slate-300">Kenali arah
-              kariermu.<br>Konsultasikan langkahmu.<br>Rencanakan persiapan di
-              Jepang.</p><a href="formulir.html"
-              class="mt-5 inline-flex items-center gap-3 text-xs font-bold text-white">Mulai
-              sekarang <svg class="icon !size-4" aria-hidden="true"><use
-                  href="#i-arrow" /></svg></a></div></div><div
-          class="mt-12 flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-[10px] leading-5 text-slate-400"><p>©
-            2026 PT. Nippon Ace Indonesia.</p><p>&nbsp;</p></div></div>
-    </footer>
-    <a href="https://wa.me/+817031159531" class="whatsapp-floating"
-      :style="activeSection === 'beranda' ? { bottom: 'max(96px, calc(env(safe-area-inset-bottom) + 76px))' } : {}"
-      target="_blank" rel="noopener noreferrer"
-      aria-label="Hubungi Nippon Ace melalui WhatsApp (buka tab baru)"
-      title="Chat WhatsApp">
-      <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"
-        aria-hidden="true" focusable="false">
-        <path
-          d="M20.52 3.48A11.9 11.9 0 0 0 12.04 0C5.43 0 .05 5.38.05 11.99c0 2.11.55 4.17 1.6 5.99L0 24l6.16-1.62a11.96 11.96 0 0 0 5.88 1.5h.01c6.61 0 11.99-5.38 11.99-11.99 0-3.2-1.25-6.21-3.52-8.41ZM12.05 21.86a9.94 9.94 0 0 1-5.07-1.39l-.36-.21-3.66.96.98-3.57-.24-.37a9.94 9.94 0 0 1-1.53-5.29c0-5.5 4.48-9.98 9.99-9.98a9.91 9.91 0 0 1 7.06 2.93 9.92 9.92 0 0 1 2.92 7.06c0 5.51-4.48 9.99-9.99 9.99Zm5.48-7.48c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.68-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.11 3.22 5.12 4.52.71.31 1.27.49 1.7.62.72.23 1.37.2 1.88.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z" />
-      </svg>
-    </a>
-  </body>
 </html>
