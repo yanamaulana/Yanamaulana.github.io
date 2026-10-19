@@ -112,10 +112,15 @@ $(document).ready(function(){
 				slitslider = $( '#slider' ).slitslider( {
 					onBeforeChange : function( slide, pos ) {
 
+                        window.portfolioImages.setActive(false);
+
 						$nav.removeClass( 'nav-square-current' );
 						$nav.eq( pos ).addClass( 'nav-square-current' );
 
-					}
+					},
+                    onAfterChange : function( slide, pos ) {
+                        window.portfolioImages.setActive(pos === 2);
+                    }
 				} ),
 
 				init = function() {
