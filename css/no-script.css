@@ -1,0 +1,16 @@
+/* Keep the full portfolio readable when JavaScript is disabled. */
+html, body { height: auto; overflow: auto; }
+#loading, .info-bar, #nav-arrows, .dialog, .pswp { display: none; }
+#slider, #slider .sl-slider, #slider .sl-slide, #slider .sl-slide-inner {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+#slider .sl-slide-inner:after { display: none; }
+.content-slide { max-height: none; }
+.content-slide .container { padding-top: 5rem; padding-bottom: 5rem; }
+.opacity-0 { opacity: 1; }
+.project-media > img[data-src] { display: none; }
+#nav-multi-square { position: sticky; bottom: 0; opacity: 1; }

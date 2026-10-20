@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://yanamaulana.github.io/</loc>
+    <image:image>
+      <image:loc>https://yanamaulana.github.io/img/eta/2.PNG</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yanamaulana.github.io/img/impsys/detail-monitoring.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yanamaulana.github.io/img/mynik/dashboard.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yanamaulana.github.io/img/arkland/landing-page.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yanamaulana.github.io/img/laborat/laborat1.JPG</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yanamaulana.github.io/img/gkg/gkg1.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yanamaulana.github.io/img/besonline/besonline1.JPG</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yanamaulana.github.io/img/movieapp/movieapp1.JPG</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://yanamaulana.github.io/img/iqc/iqc1.JPG</image:loc>
+    </image:image>
+  </url>
+</urlset>

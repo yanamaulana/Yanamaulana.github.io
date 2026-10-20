@@ -108,24 +108,29 @@ $(document).ready(function(){
 		var Page = (function() {
 
 			var $navArrows = $( '#nav-arrows' ),
-				$nav = $( '#nav-multi-square > span' ),
+				$nav = $( '#nav-multi-square > a' ),
 				slitslider = $( '#slider' ).slitslider( {
 					onBeforeChange : function( slide, pos ) {
 
                         window.portfolioImages.setActive(false);
 
-						$nav.removeClass( 'nav-square-current' );
-						$nav.eq( pos ).addClass( 'nav-square-current' );
+						$nav.removeClass( 'nav-square-current' ).removeAttr('aria-current');
+						$nav.eq( pos ).addClass( 'nav-square-current' ).attr('aria-current', 'location');
 
 					},
                     onAfterChange : function( slide, pos ) {
                         window.portfolioImages.setActive(pos === 2);
+                        var hash = $nav.eq(pos).attr('href');
+                        if (window.history.replaceState && window.location.hash !== hash) {
+                            window.history.replaceState(null, '', hash);
+                        }
                     }
 				} ),
 
 				init = function() {
 
 					initEvents();
+                    openLinkedSection();
 					
 				},
 				initEvents = function() {
@@ -148,6 +153,8 @@ $(document).ready(function(){
 					$nav.each( function( i ) {
 					
 						$( this ).on( 'click', function( event ) {
+                            // Preserve standard link behavior for a new tab/window.
+                            if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
 							
 							var $dot = $( this );
 							
@@ -165,7 +172,17 @@ $(document).ready(function(){
 						
 					} );
 
+                    $(window).on('hashchange', openLinkedSection);
+
 				};
+
+            function openLinkedSection() {
+                $nav.each(function (index) {
+                    if (this.getAttribute('href') === window.location.hash) {
+                        slitslider.jump(index + 1);
+                    }
+                });
+            }
 
 				return { init : init };
 
