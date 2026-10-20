@@ -957,6 +957,49 @@ sup {
     transition: all .2s ease-in-out
 }
 
+.whatsapp-float {
+    position: fixed;
+    right: 24px;
+    bottom: calc(12rem + 20px + env(safe-area-inset-bottom, 0px));
+    z-index: 2001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #128c4a;
+    color: #fff;
+    font-size: 32px;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .22);
+    transition: background .2s ease, box-shadow .2s ease;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus {
+    background: #0b733b;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .28);
+}
+
+.whatsapp-float:focus-visible {
+    outline: 3px solid #172944;
+    outline-offset: 4px;
+}
+
+@media (max-width: 480px), (max-device-width: 667px) and (orientation: landscape) {
+    .whatsapp-float {
+        right: 16px;
+        bottom: calc(6rem + 16px + env(safe-area-inset-bottom, 0px));
+        width: 52px;
+        height: 52px;
+        font-size: 30px;
+    }
+}
+
 .nav-multi-square .nav-square {
     font-family: Montserrat, "Helvetica Neue", "Lucida Grande", Arial, Verdana, sans-serif;
     display: block;
@@ -1667,6 +1710,7 @@ sup {
 }
 
 .tools-container h2 {
+    margin-top: 4rem;
     margin-bottom: 1rem
 }
 
